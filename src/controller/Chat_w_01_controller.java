@@ -21,18 +21,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.UserDTO;
 import model.KakaoMessage;
+import model.MessagePane;
+import model.MyMessagePane;
+import model.UserDTO;
 
 public class Chat_w_01_controller implements Initializable{
 	@FXML private Label Chats_time;
@@ -45,8 +50,14 @@ public class Chat_w_01_controller implements Initializable{
 	@FXML private Button chat_send_button;
 	@FXML private Button chat_back_btn;
 	@FXML private Button chat_start_button;
+	@FXML private VBox chat_vbox;
+	@FXML private ScrollPane chat_scroll;
+	
+	
 	
 	public static int room_num; //현재 내가 접속한 방번호
+	
+
 	
 	Socket socket;
 	
@@ -92,6 +103,9 @@ public class Chat_w_01_controller implements Initializable{
 	}
 	
 	void receive () {
+//		chat_scroll.setVvalue(1.0);
+		chat_scroll.vvalueProperty().bind(chat_vbox.heightProperty());
+		chat_vbox.setPadding(new Insets(5,0,15,0));
 		while (true) {
 			try {
 				byte [] byteArr = new byte [1024];
@@ -103,14 +117,30 @@ public class Chat_w_01_controller implements Initializable{
 				}
 //				String data = new String (byteArr, 0, readByteCount, "UTF-8");
 				KakaoMessage getMessage = toMessage(byteArr, KakaoMessage.class);
+				
 				if(room_num == getMessage.getRoom_num()) { //받은 채팅이 내가 접속한 방번호랑 같으면?
 					String data;
 					if(getMessage.getSendUserNum() == UserDTO.nowUser.getUser_num()) { //내가보낸거면
-						data = "나: "+getMessage.getSendComment();
+//						data = "나: "+getMessage.getSendComment();
+						data = getMessage.getSendComment();
+						MyMessagePane mine = new MyMessagePane(UserDTO.nowUser.getName(), data);
+						Platform.runLater(() ->{
+							chat_vbox.getChildren().add(mine.getName_pane());
+							chat_vbox.getChildren().add(mine.getMsg_pane());
+						});
 					}else {//남이보낸거면
-						data = getMessage.getSendUserName() +": "+getMessage.getSendComment();
+//						data = getMessage.getSendUserName() +": "+getMessage.getSendComment();
+						data = getMessage.getSendComment();
+						if (data.length()>10) {
+							
+						}
+						MessagePane fmp = new MessagePane(getMessage.getSendUserName(), data);
+						Platform.runLater(() -> {
+							chat_vbox.getChildren().add(fmp.getName_pane());
+							chat_vbox.getChildren().add(fmp.getMsg_pane());
+						});
 					}
-					Platform.runLater(() -> chat_textarea.appendText(data+"\n"));					
+//					Platform.runLater(() -> chat_textarea.appendText(data+"\n"));					
 				}else { //내가 접속한 방이 아니라면?
 					
 				}
