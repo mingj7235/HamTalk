@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane fx:id="chat_w_01_mainpane" opacity="0.99" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Chat_w_01_controller">
+   <center>
+      <Pane fx:id="chat_w_01_pane" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #abc1d1;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="Chats_time" layoutX="132.0" layoutY="7.0" text="21:15" />
+            <ImageView fitHeight="12.0" fitWidth="16.0" layoutX="34.0" layoutY="8.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+            
+               <image>
+                  <Image url="@../imgs/wifi.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="15.0" layoutY="8.0" text="KT">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="chat_chat_name_label" layoutX="132.0" layoutY="35.0" text="NAME" />
+            <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="17.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/chevron_left.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="chat_back_btn" layoutX="20.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="242.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/search.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="244.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;" />
+            <Button layoutX="269.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;" />
+            <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="266.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/bars.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="16.0" fitWidth="20.0" layoutX="266.0" layoutY="5.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/battery.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="243.0" layoutY="7.0" text="78%">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="70.0" layoutY="77.0" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: rgba(0, 0, 3, 0.2); -fx-border-radius: 20px;" text="Tuesday, January 10, 2021" textFill="#f8f5f5">
+               <font>
+                  <Font name="Lucida Bright Regular" size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="63.0" layoutY="72.0" prefHeight="37.0" prefWidth="170.0" style="-fx-border-color: #abc1d1; -fx-border-width: 5px; -fx-border-radius: 10px;" />
+            <Pane layoutY="533.0" prefHeight="67.0" prefWidth="300.0" style="-fx-background-color: white;">
+               <children>
+                  <Slider fx:id="chat_slider_opacity" layoutX="235.0" layoutY="46.0" prefHeight="14.0" prefWidth="51.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Slider>
+                  <TextField fx:id="chat_write_messages" layoutX="12.0" layoutY="9.0" prefHeight="30.0" prefWidth="279.0" promptText="Write messages...">
+                     <font>
+                        <Font name="Lucida Bright Italic" size="11.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="chat_send_button" disable="true" layoutX="249.0" layoutY="12.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="37.0" style="-fx-background-color: #fee100;" text="send">
+                     <font>
+                        <Font name="Lucida Bright Demibold" size="9.5" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <HBox layoutX="15.0" layoutY="43.0" prefHeight="19.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="18.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/emoticon.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="18.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/clip.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="18.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/call.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="18.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/envelop.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="18.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/calendar.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <TextArea fx:id="chat_textarea" layoutX="20.0" layoutY="117.0" prefHeight="402.0" prefWidth="261.0" styleClass="chat_textarea">
+               <stylesheets>
+        
+                  <URL value="@app.css" />
+               </stylesheets></TextArea>
+            <Button fx:id="chat_start_button" layoutX="20.0" layoutY="79.0" mnemonicParsing="false" opacity="0.85" prefHeight="23.0" prefWidth="37.0" style="-fx-background-color: #fee100;" text="start">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Lucida Bright Demibold" size="9.5" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

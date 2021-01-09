@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Chats_controller">
+   <center>
+      <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="Chats_time" layoutX="132.0" layoutY="7.0" text="21:15" />
+            <ImageView fitHeight="12.0" fitWidth="16.0" layoutX="34.0" layoutY="8.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+            
+               <image>
+                  <Image url="@../imgs/wifi.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="15.0" layoutY="8.0" text="KT">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="36.0" prefHeight="38.0" prefWidth="96.0" text="More">
+               <font>
+                  <Font name="Lucida Bright Demibold" size="22.0" />
+               </font>
+            </Label>
+            <Separator layoutY="536.0" prefHeight="3.0" prefWidth="300.0" />
+            <Pane layoutY="538.0" prefHeight="62.0" prefWidth="300.0" style="-fx-background-color: #f9f9fa;">
+               <children>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/user.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/comment_empty.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/search.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="230.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/ellipsis.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="friends_friends_btn" layoutX="37.0" layoutY="11.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="19.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="friends_chats_btn" layoutX="96.0" layoutY="13.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="35.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="friends_search_btn" layoutX="164.0" layoutY="13.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="34.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="friends_more_btn" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="32.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </Pane>
+            <ImageView fitHeight="16.0" fitWidth="20.0" layoutX="266.0" layoutY="5.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/battery.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="243.0" layoutY="7.0" text="78%">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
+            <HBox layoutX="174.0" layoutY="42.0" prefHeight="25.0" prefWidth="116.0">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/search.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/chats.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/music.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/cog.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="233.0" prefHeight="100.0" prefWidth="280.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/envelop.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Mail" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/calendar.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Calendar" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/drawer.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Drawers" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/shop.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Shopping" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="306.0" prefHeight="100.0" prefWidth="280.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/clothes.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Style" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/game.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Games" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/gift.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Gifts" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/food.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Foods" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutY="66.0" prefHeight="60.0" prefWidth="300.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="15.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../imgs/profile.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox prefHeight="60.0" prefWidth="163.0">
+                     <children>
+                        <Label text="Minjae">
+                           <font>
+                              <Font name="Lucida Bright Demibold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="3mins1@naver.com" textFill="#8a8383">
+                           <font>
+                              <Font name="Lucida Bright Italic" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <ImageView fitHeight="150.0" fitWidth="280.0" layoutX="10.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/ads.JPG" />
+               </image>
+            </ImageView>
+            <HBox layoutX="10.0" layoutY="121.0" prefHeight="51.0" prefWidth="280.0" style="-fx-background-color: #FEE100;">
+               <children>
+                  <Label text="Minjae">
+                     <font>
+                        <Font name="Lucida Bright Demibold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="5.0" top="12.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Pane prefHeight="30.0" prefWidth="25.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="-3.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/shiled2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="3.5" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/chatyellow.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets right="50.0" />
+                     </padding>
+                  </Pane>
+               </children>
+            </HBox>
+            <Ellipse fill="WHITE" layoutX="12.0" layoutY="175.0" radiusX="12.0" radiusY="7.0" stroke="#0000001a" strokeType="INSIDE" />
+            <Ellipse fill="WHITE" layoutX="288.0" layoutY="175.0" radiusX="12.0" radiusY="7.0" stroke="#0000001a" strokeType="INSIDE" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="28.0" layoutX="15.0" layoutY="168.0" stroke="#0000001a" strokeType="INSIDE" width="273.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="28.0" layoutY="176.0" stroke="TRANSPARENT" strokeType="INSIDE" width="300.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="28.0" layoutX="6.0" layoutY="170.0" stroke="TRANSPARENT" strokeType="INSIDE" width="284.0" />
+            <Separator layoutX="5.0" layoutY="228.0" prefHeight="0.0" prefWidth="290.0" />
+            <HBox layoutX="10.0" layoutY="175.0" prefHeight="50.0" prefWidth="280.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="108.0" style="-fx-border-radius: 10; -fx-border-color: #8a8383; -fx-border-width: 0.2;">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="5.0" top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/comment_fill.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="pay">
+                           <font>
+                              <Font name="Lucida Bright Demibold" size="11.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="4.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="4.0" />
+                           </padding>
+                        </Label>
+                        <Label text="\$102,553">
+                           <font>
+                              <Font name="Lucida Bright Italic" size="11.0" />
+                           </font>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets bottom="1.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="150.0">
+                     <children>
+                        <Label style="-fx-border-radius: 10; -fx-border-color: #8a8383; -fx-border-width: 0.2;" text="Transfer">
+                           <HBox.margin>
+                              <Insets right="3.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Lucida Bright Italic" size="10.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </padding>
+                        </Label>
+                        <Label style="-fx-border-color: #8a8383; -fx-border-radius: 10; -fx-border-width: 0.2;" text="Payment">
+                           <HBox.margin>
+                              <Insets left="3.0" right="3.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Lucida Bright Italic" size="10.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </padding>
+                        </Label>
+                        <Label style="-fx-border-color: #8a8383; -fx-border-radius: 10; -fx-border-width: 0.2;" text="Asset">
+                           <HBox.margin>
+                              <Insets left="3.0" right="3.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Lucida Bright Italic" size="10.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="2.0" left="3.0" right="3.0" top="2.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="3.0" left="15.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

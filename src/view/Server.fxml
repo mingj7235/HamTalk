@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane fx:id="server_main" opacity="0.99" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.ServerController">
+   <center>
+      <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #abc1d1;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="Chats_time" layoutX="132.0" layoutY="7.0" text="21:15" />
+            <ImageView fitHeight="12.0" fitWidth="16.0" layoutX="34.0" layoutY="8.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+            
+               <image>
+                  <Image url="@../imgs/wifi.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="15.0" layoutY="8.0" text="KT">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
+            <Button layoutX="269.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;" />
+            <ImageView fitHeight="16.0" fitWidth="20.0" layoutX="266.0" layoutY="5.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/battery.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="243.0" layoutY="7.0" text="78%">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="logText" layoutX="4.0" layoutY="72.0" prefHeight="514.0" prefWidth="293.0" style="-fx-background-color: #abc1d1;" />
+            <Slider fx:id="chat_slider_opacity" layoutX="237.0" layoutY="41.0" prefHeight="14.0" prefWidth="51.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Slider>
+            <Button fx:id="btnServerStart" layoutX="169.0" layoutY="34.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="61.0" style="-fx-background-color: #fee100;" text="start">
+               <font>
+                  <Font name="Lucida Bright Demibold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="22.0" layoutY="40.0" prefHeight="21.0" prefWidth="141.0" text="Kakao Server">
+               <font>
+                  <Font name="Lucida Bright Italic" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

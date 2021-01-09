@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Chats_controller">
+   <center>
+      <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="Chats_time" layoutX="132.0" layoutY="7.0" text="21:15" />
+            <ImageView fitHeight="12.0" fitWidth="16.0" layoutX="34.0" layoutY="8.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+            
+               <image>
+                  <Image url="@../imgs/wifi.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="15.0" layoutY="8.0" text="KT">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="33.0" prefHeight="38.0" prefWidth="96.0" text="Find">
+               <font>
+                  <Font name="Lucida Bright Demibold" size="22.0" />
+               </font>
+            </Label>
+            <Separator layoutY="536.0" prefHeight="3.0" prefWidth="300.0" />
+            <Pane layoutY="538.0" prefHeight="62.0" prefWidth="300.0" style="-fx-background-color: #f9f9fa;">
+               <children>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/user.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/comment_empty.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/search.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="230.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/ellipsis.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="friends_friends_btn" layoutX="37.0" layoutY="11.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="19.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="friends_chats_btn" layoutX="96.0" layoutY="13.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="35.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="friends_search_btn" layoutX="164.0" layoutY="13.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="34.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="friends_more_btn" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="32.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </Pane>
+            <Separator layoutX="5.0" layoutY="73.0" prefHeight="1.0" prefWidth="290.0" />
+            <ImageView fitHeight="16.0" fitWidth="20.0" layoutX="266.0" layoutY="5.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/battery.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="243.0" layoutY="7.0" text="78%">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
+            <HBox layoutX="174.0" layoutY="42.0" prefHeight="25.0" prefWidth="116.0">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/search.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/chats.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/music.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/cog.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="85.0" prefHeight="100.0" prefWidth="280.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/qrcode.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="QR Code" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/contact.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Add by" textFill="#8a8383" />
+                        <Label alignment="CENTER" prefWidth="70.0" text="Contacts" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/fingerprint.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Add by ID" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/envelop.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="70.0" text="Invite" textFill="#8a8383" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator layoutX="5.0" layoutY="182.0" prefHeight="1.0" prefWidth="290.0" />
+            <Label layoutX="10.0" layoutY="192.0" text="Recommended Friends" textFill="#8a8383">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="273.0" text="You have no recommended friends" textFill="#8a8383">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Separator layoutX="5.0" layoutY="368.0" prefHeight="1.0" prefWidth="290.0" />
+            <HBox layoutX="10.0" layoutY="378.0" prefHeight="150.0" prefWidth="280.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="140.0">
+                     <children>
+                        <Label text="Open Chat" textFill="#8a8383">
+                           <VBox.margin>
+                              <Insets bottom="30.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="#IU">
+                           <font>
+                              <Font name="Lucida Bright Demibold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="#IU #SING #UAENA" textFill="#8a8383">
+                           <font>
+                              <Font name="Lucida Bright Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imgs/leftimg.JPG" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="2,827 members  |" textFill="#8a8383">
+                                 <font>
+                                    <Font name="Lucida Bright Demibold" size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="2.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="Active" textFill="#ffb0e0">
+                                 <HBox.margin>
+                                    <Insets left="2.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="140.0">
+                     <children>
+                        <Label text="Go to Open Chat Home" textFill="#8a8383">
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/IU.JPG" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
