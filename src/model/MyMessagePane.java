@@ -1,66 +1,46 @@
 package model;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class MyMessagePane {
-	private Pane name_pane = new Pane();
-	private Pane msg_pane = new Pane();
-	Label nameLb = new Label();
-	Label msgLb = new Label();
-	Label timeLb = new Label();
+	private VBox vbox = new VBox();
 	
 	public MyMessagePane(String name, String msg) {
-		//Pane 설치
-		name_pane.setPrefWidth(250);
-		name_pane.setPrefHeight(20);
+		Label nameLb = new Label(name);
+		nameLb.setPadding(new Insets(0, 6, 2, 0));
 		
-		msg_pane.setPrefWidth(250);
-		msg_pane.setPrefHeight(50);
+		VBox vbox2 = new VBox();
+		vbox2.setAlignment(Pos.TOP_RIGHT);
+		vbox2.setMaxWidth(180);
 		
-		//label 설정
+		Label messageLb = new Label(msg);
+		messageLb.setStyle("-fx-background-radius: 10; -fx-background-color: white; -fx-border-width: 1;");
+		messageLb.setWrapText(true);
+		messageLb.setPadding(new Insets(5, 10, 5, 10));
+		vbox2.getChildren().add(messageLb);
 		
-		nameLb.setLayoutX(200);
-		nameLb.setLayoutY(20);
-		nameLb.setText(UserDTO.nowUser.getName());
 		
-		msgLb.setLayoutX(100);
-		msgLb.setLayoutY(20);
-		msgLb.setPrefWidth(150);
+		vbox.setMargin(vbox2, new Insets(0, 16, 5, 0));
+		vbox.setMargin(nameLb, new Insets(0, 16, 0, 0));
+		vbox.setAlignment(Pos.TOP_RIGHT);
 		
-		msgLb.setWrapText(true);
-		
-		msgLb.setPadding(new Insets(10));
-		msgLb.setStyle("-fx-background-color: white");
-		msgLb.setText(msg);
-		
-		name_pane.getChildren().add(nameLb);
-		msg_pane.getChildren().add(msgLb);
+		vbox.getChildren().add(nameLb);
+		vbox.getChildren().add(vbox2);
 	}
 
-	public Pane getName_pane() {
-		return name_pane;
+	public VBox getVbox() {
+		return vbox;
 	}
 
-	public void setName_pane(Pane name_pane) {
-		this.name_pane = name_pane;
+	public void setVbox(VBox vbox) {
+		this.vbox = vbox;
 	}
-
-	public Pane getMsg_pane() {
-		return msg_pane;
-	}
-
-	public void setMsg_pane(Pane msg_pane) {
-		this.msg_pane = msg_pane;
-	}
-
 	
-	
-	
-	
-
 	
 	
 }

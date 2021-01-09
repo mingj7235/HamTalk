@@ -3,62 +3,32 @@ package model;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class MessagePane {
-	
-	private Pane name_pane = new Pane();
-	private Pane msg_pane = new Pane();
-	Label nameLb = new Label();
-	Label msgLb = new Label();
-	Label timeLb = new Label();
-	
-	
+	private VBox vbox = new VBox();
 	public MessagePane(String name, String msg) {
-		
-		//Pane 설치
-		name_pane.setPrefWidth(250);
-		name_pane.setPrefHeight(20);
-		
-		msg_pane.setPrefWidth(250);
-		msg_pane.setPrefHeight(50);
+		Label nameLb = new Label(name);
+		nameLb.setPadding(new Insets(0, 0, 2, 6));
 
-		//label 설정
+		VBox vbox2 = new VBox();
+		vbox2.setMaxWidth(180);
+		Label messageLb = new Label(msg);
+		messageLb.setStyle("-fx-background-radius: 10; -fx-background-color: #fee100; -fx-border-width: 1;");
+		messageLb.setWrapText(true);
+		messageLb.setPadding(new Insets(5, 10, 5, 10));
+		vbox2.getChildren().add(messageLb);
 		
-		nameLb.setLayoutX(20);
-		nameLb.setLayoutY(20);
-		nameLb.setText(name);
-		
-		msgLb.setLayoutX(20);
-		msgLb.setLayoutY(20);
-		msgLb.setPrefWidth(150);
-		msgLb.setWrapText(true);
-		
-		
-		msgLb.setPadding(new Insets(10));
-		msgLb.setStyle("-fx-background-color: #fee100");
-		msgLb.setText(msg);
-		
-		name_pane.getChildren().add(nameLb);
-		msg_pane.getChildren().add(msgLb);
-		
+		vbox.setMargin(messageLb, new Insets(0, 0, 5, 0));
+		vbox.getChildren().add(nameLb);
+		vbox.getChildren().add(vbox2);
 	}
-
-	public Pane getName_pane() {
-		return name_pane;
+	public VBox getVbox() {
+		return vbox;
 	}
-
-	public void setName_pane(Pane name_pane) {
-		this.name_pane = name_pane;
+	public void setVbox(VBox vbox) {
+		this.vbox = vbox;
 	}
-
-	public Pane getMsg_pane() {
-		return msg_pane;
-	}
-
-	public void setMsg_pane(Pane msg_pane) {
-		this.msg_pane = msg_pane;
-	}
-
 	
 	
 	

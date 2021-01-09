@@ -118,8 +118,7 @@ public class Chat_w_01_controller implements Initializable{
 						data = getMessage.getSendComment();
 						MyMessagePane mine = new MyMessagePane(UserDTO.nowUser.getName(), data);
 						Platform.runLater(() ->{
-							chat_vbox.getChildren().add(mine.getName_pane());
-							chat_vbox.getChildren().add(mine.getMsg_pane());
+							chat_vbox.getChildren().add(mine.getVbox());
 						});
 					}else {//남이보낸거면
 //						data = getMessage.getSendUserName() +": "+getMessage.getSendComment();
@@ -129,8 +128,7 @@ public class Chat_w_01_controller implements Initializable{
 						}
 						MessagePane fmp = new MessagePane(getMessage.getSendUserName(), data);
 						Platform.runLater(() -> {
-							chat_vbox.getChildren().add(fmp.getName_pane());
-							chat_vbox.getChildren().add(fmp.getMsg_pane());
+							chat_vbox.getChildren().add(fmp.getVbox());
 						});
 					}
 //					Platform.runLater(() -> chat_textarea.appendText(data+"\n"));					
