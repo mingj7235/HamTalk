@@ -15,6 +15,8 @@ public class KakaoMain extends Application{
 		Scene scene = new Scene (root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		
+		System.out.println("mamulees speaking");
 	}
 	public static void main(String[] args) {
 		launch(args);
