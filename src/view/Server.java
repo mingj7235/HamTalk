@@ -15,7 +15,6 @@ public class Server extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
-		System.out.println("희광하이");
 		
 	}
 	public static void main(String[] args) {
