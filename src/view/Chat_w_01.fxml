@@ -131,25 +131,12 @@
                   </HBox>
                </children>
             </Pane>
-            <TextArea fx:id="chat_textarea" layoutX="19.0" layoutY="104.0" prefHeight="86.0" prefWidth="268.0" styleClass="chat_textarea">
-               <stylesheets>
-        
-                  <URL value="@app.css" />
-               </stylesheets></TextArea>
-            <Button fx:id="chat_start_button" layoutX="21.0" layoutY="79.0" mnemonicParsing="false" opacity="0.85" prefHeight="23.0" prefWidth="37.0" style="-fx-background-color: #fee100;" text="start">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Lucida Bright Demibold" size="9.5" />
-               </font>
-            </Button>
-            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" layoutX="19.0" layoutY="154.0" prefHeight="362.0" prefWidth="261.0" stylesheets="@scroll.css">
+            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" layoutX="19.0" layoutY="108.0" prefHeight="408.0" prefWidth="273.0" stylesheets="@scroll.css">
                <content>
                   <VBox fx:id="chat_vbox" prefWidth="258.0" style="-fx-background-color: #abc1d1;" />
                </content>
             </ScrollPane>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#abc1d1" height="421.0" layoutX="260.0" layoutY="100.0" stroke="TRANSPARENT" strokeType="INSIDE" width="26.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#abc1d1" height="421.0" layoutX="270.0" layoutY="100.0" stroke="TRANSPARENT" strokeType="INSIDE" width="26.0" />
          </children>
       </Pane>
    </center>

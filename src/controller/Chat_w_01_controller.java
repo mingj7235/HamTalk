@@ -49,7 +49,6 @@ public class Chat_w_01_controller implements Initializable{
 	@FXML private TextArea chat_textarea;
 	@FXML private Button chat_send_button;
 	@FXML private Button chat_back_btn;
-	@FXML private Button chat_start_button;
 	@FXML private VBox chat_vbox;
 	@FXML private ScrollPane chat_scroll;
 	
@@ -72,13 +71,9 @@ public class Chat_w_01_controller implements Initializable{
 					sendMyNum(UserDTO.nowUser.getUser_num());
 					
 					Platform.runLater(() -> {
-						chat("[Connection]" 
-								+ socket.getRemoteSocketAddress() + "]");
-						chat_start_button.setText("stop");
 						chat_send_button.setDisable(false);
 					}); 
 				}catch (IOException e) {
-					Platform.runLater(() -> chat("[Connection Error]"));
 					if(!socket.isClosed()) {stopClient();}
 					return;
 				}
@@ -91,8 +86,6 @@ public class Chat_w_01_controller implements Initializable{
 	void stopClient() {
 		try {
 			Platform.runLater(() -> {
-				chat("[Connection Error]");
-				chat_start_button.setText("start");
 				chat_send_button.setDisable(true);
 			});
 			
@@ -146,7 +139,6 @@ public class Chat_w_01_controller implements Initializable{
 				}
 				
 			}catch (Exception e) {
-				Platform.runLater(() -> chat("[Connection Error]"));
 				stopClient();
 				break;
 			}
@@ -175,9 +167,7 @@ public class Chat_w_01_controller implements Initializable{
 					OutputStream os = socket.getOutputStream();
 					os.write(data);
 					os.flush();
-					Platform.runLater(() -> chat("[send Success]")); //보낼때마다 뜸
 				}catch (Exception e) {
-					Platform.runLater(() -> chat("[Server connection Error]"));
 					e.printStackTrace();
 				}
 			}
@@ -192,22 +182,18 @@ public class Chat_w_01_controller implements Initializable{
 			byte[] byteArr = StrNum.getBytes("UTF-8");
 			os.write(byteArr);
 			os.flush();
-			Platform.runLater(()->chat("[my number send success"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public void chat (String msg) {
-		chat_textarea.appendText(msg+"\n");
-	}
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		chat_send_button.setOnAction(e->handleBtnSend(e));
 		chat_back_btn.setOnAction(e->handleBtnBack(e));
-		chat_start_button.setOnAction(e->handleBtnStart(e));
 		
 		chat_chat_name_label.setText(UserDTO.withFriend.getName());
 		
@@ -225,16 +211,10 @@ public class Chat_w_01_controller implements Initializable{
 		startClient(); //바로 서버시작
 	}
 	
-	public void handleBtnStart (ActionEvent event) {
-		if(chat_start_button.getText().equals("start")) {
-			startClient();
-		} else if(chat_start_button.getText().equals("stop")){
-			stopClient();
-		}
-	}
 	
 	public void handleBtnBack(ActionEvent event) {
 		try {
+			stopClient();
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chats.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) chat_back_btn.getScene().getWindow();
