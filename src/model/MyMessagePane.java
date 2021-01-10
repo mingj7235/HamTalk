@@ -26,10 +26,10 @@ public class MyMessagePane {
 		vbox2.setMaxWidth(180);
 
 		HBox hbox = new HBox();
-		hbox.setAlignment(Pos.TOP_RIGHT);
+		hbox.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		Label timeLb = new Label(sdf.format(date));
-		timeLb.setPadding(new Insets(10, 5, 2, 0));
+		timeLb.setPadding(new Insets(13, 5, 2, 0));
 		timeLb.setStyle("-fx-font-family: Lucida Bright; -fx-font-size: 10;");
 		
 		Label messageLb = new Label(msg);

@@ -24,17 +24,19 @@ public class MessagePane {
 		vbox2.setMaxWidth(180);
 		
 		HBox hbox = new HBox();
+		hbox.setAlignment(Pos.BOTTOM_LEFT);
 		
-		Label timeLb = new Label(sdf.format(date));
-		timeLb.setPadding(new Insets(10, 0, 2, 5));
-		timeLb.setStyle("-fx-font-family: Lucida Bright; -fx-font-size: 10;");
 		
 		Label messageLb = new Label(msg);
 		messageLb.setStyle("-fx-background-radius: 10; -fx-background-color: white; -fx-border-width: 1; "
-				+ "-fx-font-size: 14;");
+				+ "-fx-font-size: 14; -fx-font-family: 휴먼매직체");
 		messageLb.setWrapText(true);
 		messageLb.setPadding(new Insets(5, 10, 5, 10));
 		
+		Label timeLb = new Label(sdf.format(date));
+		timeLb.setPadding(new Insets(0, 0, 2, 5));
+		timeLb.setStyle("-fx-font-family: Lucida Bright; -fx-font-size: 10;");
+
 		vbox2.getChildren().add(messageLb);
 		
 		vbox.setMargin(hbox, new Insets(0, 0, 5, 0));
