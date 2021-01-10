@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 
 public class KakaoMessage implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -14,6 +14,7 @@ public class KakaoMessage implements Serializable {
 	private String receiveFriendName;//받은이 이름
 	private String sendComment;//메세지내용
 	private int room_num; //방번호
+	private String time; //메세지전송시간
 	
 	public KakaoMessage(int sendUserNum, String sendUserName, int receiveFriendNum, String receiveFriendName, 
 			String sendComment, int room_num) {
@@ -24,6 +25,7 @@ public class KakaoMessage implements Serializable {
 		this.sendComment = sendComment;
 		this.room_num = room_num;
 	}
+	public KakaoMessage() {}
 
 	public int getSendUserNum() {
 		return sendUserNum;
@@ -71,5 +73,11 @@ public class KakaoMessage implements Serializable {
 
 	public void setRoom_num(int room_num) {
 		this.room_num = room_num;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 }

@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import db.DBConn;
@@ -156,42 +157,34 @@ public class UserDAO {
 		}
 	}
 	
-	public void chatHistory (KakaoMessage getMessage) {
-		String result = null;
+	public ArrayList<KakaoMessage> chatHistory (int count) {
+		int messageCnt = count;
+		ArrayList<KakaoMessage> messageArr = new ArrayList<>();		
 		conn = DBConn.getConnection();
 		try {
-			if(Chat_w_01_controller.room_num == getMessage.getRoom_num()) { 
-				if(getMessage.getSendUserNum() == UserDTO.nowUser.getUser_num()) { 
-					String sql = "SELECT message FROM (SELECT * FROM CHATMESSAGE ORDER BY MESSAGE_TIME DESC) "
-							+ "WHERE rownum <=10 and USER_NUM = ? and ROOM_NUM =?";
-					pstmt = conn.prepareStatement(sql);
-					pstmt.setInt(1, UserDTO.nowUser.getUser_num());
-					pstmt.setInt(2, getMessage.getRoom_num());
-					rs = pstmt.executeQuery();
-					if (rs.next()) {
-						result = rs.getString("message");
-						
-					}
-					System.out.println(result);
-				}else {
-					String sql = "SELECT message FROM (SELECT * FROM CHATMESSAGE ORDER BY MESSAGE_TIME DESC) "
-							+ "WHERE rownum <=10 and USER_NUM = ? and ROOM_NUM =?";
-					pstmt = conn.prepareStatement(sql);
-					pstmt.setInt(1, getMessage.getSendUserNum());
-					pstmt.setInt(2, getMessage.getRoom_num());
-					rs = pstmt.executeQuery();
-					if(rs.next()) {
-						result = rs.getString("message");
-					}
-				}
-			}else { 
-				
+			String sql = "SELECT message_num, message, to_char(MESSAGE_TIME, 'YYYYMMDDHH24MI') time, user_num, ROOM_NUM "
+					+ "FROM (SELECT * FROM CHATMESSAGE ORDER BY MESSAGE_TIME DESC) "
+					+ "WHERE rownum <= ? and ROOM_NUM = ? ORDER BY  MESSAGE_time ASC";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, messageCnt);
+			pstmt.setInt(2, Chat_w_01_controller.room_num);
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				KakaoMessage kakaoMessage = new KakaoMessage();
+				kakaoMessage.setSendComment(rs.getString("message"));
+				kakaoMessage.setRoom_num(rs.getInt("room_num"));
+				kakaoMessage.setSendUserNum(rs.getInt("user_num"));
+				kakaoMessage.setTime(rs.getString("time"));
+				messageArr.add(kakaoMessage);
 			}
+			
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			DBConn.dbClose(rs, pstmt, conn);
 		}
+		return messageArr;
 	}
 
 
