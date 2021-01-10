@@ -105,8 +105,7 @@ public class Chat_w_01_controller implements Initializable{
 		chat_vbox.heightProperty().addListener((observable, oldValue, newValue) ->
 			chat_scroll.setVvalue(newValue.doubleValue())
 				);
-//		chat_scroll.setVvalue(1.0);
-//		chat_scroll.vvalueProperty().bind(chat_vbox.heightProperty());
+		
 		chat_scroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		chat_vbox.setPadding(new Insets(5,0,15,0));
 		
