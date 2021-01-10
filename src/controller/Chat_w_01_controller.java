@@ -104,6 +104,9 @@ public class Chat_w_01_controller implements Initializable{
 		chat_scroll.setVvalue(1);
 //		chat_scroll.vvalueProperty().bind(chat_vbox.heightProperty());
 		chat_vbox.setPadding(new Insets(5,0,15,0));
+		UserDAO ud = new UserDAO();
+//		System.out.println(ud.chatHistory(getMessage));
+		
 		while (true) {
 			try {
 				byte [] byteArr = new byte [1024];
@@ -115,6 +118,7 @@ public class Chat_w_01_controller implements Initializable{
 				}
 //				String data = new String (byteArr, 0, readByteCount, "UTF-8");
 				KakaoMessage getMessage = toMessage(byteArr, KakaoMessage.class);
+				
 				
 				if(room_num == getMessage.getRoom_num()) { //받은 채팅이 내가 접속한 방번호랑 같으면?
 					String data;

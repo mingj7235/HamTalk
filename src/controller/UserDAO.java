@@ -162,24 +162,20 @@ public class UserDAO {
 		try {
 			if(Chat_w_01_controller.room_num == getMessage.getRoom_num()) { 
 				if(getMessage.getSendUserNum() == UserDTO.nowUser.getUser_num()) { 
-					int a = UserDTO.nowUser.getUser_num();
-					int b = getMessage.getRoom_num();
 					String sql = "SELECT message FROM (SELECT * FROM CHATMESSAGE ORDER BY MESSAGE_TIME DESC) "
 							+ "WHERE rownum <=10 and USER_NUM = ? and ROOM_NUM =?";
 					pstmt = conn.prepareStatement(sql);
-					pstmt.setInt(1, a);
-					pstmt.setInt(2, b);
+					pstmt.setInt(1, UserDTO.nowUser.getUser_num());
+					pstmt.setInt(2, getMessage.getRoom_num());
 					
 					result = rs.getString("message");
 					
 				}else {
-					int a = getMessage.getSendUserNum();
-					int b = getMessage.getRoom_num();
 					String sql = "SELECT message FROM (SELECT * FROM CHATMESSAGE ORDER BY MESSAGE_TIME DESC) "
 							+ "WHERE rownum <=10 and USER_NUM = ? and ROOM_NUM =?";
 					pstmt = conn.prepareStatement(sql);
-					pstmt.setInt(1, a);
-					pstmt.setInt(2, b);
+					pstmt.setInt(1, getMessage.getSendUserNum());
+					pstmt.setInt(2, getMessage.getRoom_num());
 					result = rs.getString("message");
 				}
 			}else { 
