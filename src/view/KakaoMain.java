@@ -17,6 +17,7 @@ public class KakaoMain extends Application{
 		primaryStage.show();
 		
 		System.out.println("mamulees speaking");
+		System.out.println("mamulees double speaking");
 	}
 	public static void main(String[] args) {
 		launch(args);
