@@ -14,7 +14,7 @@
 
 <BorderPane fx:id="server_main" opacity="0.99" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.ServerController">
    <center>
-      <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #abc1d1;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #abc1d1;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="Chats_time" layoutX="132.0" layoutY="7.0" text="21:15" />
             <ImageView fitHeight="12.0" fitWidth="16.0" layoutX="34.0" layoutY="8.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
@@ -39,7 +39,7 @@
                   <Font name="Lucida Bright Regular" size="10.0" />
                </font>
             </Label>
-            <TextArea fx:id="logText" layoutX="4.0" layoutY="72.0" prefHeight="514.0" prefWidth="293.0" style="-fx-background-color: #abc1d1;" />
+            <TextArea fx:id="logText" layoutX="4.0" layoutY="72.0" prefHeight="514.0" prefWidth="493.0" style="-fx-background-color: #abc1d1;" wrapText="true" />
             <Slider fx:id="chat_slider_opacity" layoutX="237.0" layoutY="41.0" prefHeight="14.0" prefWidth="51.0">
                <cursor>
                   <Cursor fx:constant="HAND" />

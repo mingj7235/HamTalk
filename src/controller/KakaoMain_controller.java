@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class KakaoMain_controller implements Initializable{
@@ -26,6 +27,7 @@ public class KakaoMain_controller implements Initializable{
 	@FXML private TextField KakaoMain_login_email;
 	@FXML private PasswordField KakaoMain_login_password;
 	@FXML private Button kakaoMain_signup_btn;
+	@FXML private StackPane mainPane;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

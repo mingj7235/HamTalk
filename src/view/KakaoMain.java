@@ -14,6 +14,7 @@ public class KakaoMain extends Application{
 		Parent root = FXMLLoader.load(KakaoMain.class.getResource("Login.fxml"));
 		Scene scene = new Scene (root);
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 		
 		System.out.println("mamulees speaking");
