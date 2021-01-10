@@ -13,6 +13,7 @@ public class Server extends Application{
 		Parent root = (Parent)FXMLLoader.load(getClass().getResource("Server.fxml"));
 		Scene scene = new Scene (root);
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 		
 		

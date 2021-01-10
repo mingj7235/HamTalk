@@ -153,33 +153,35 @@ public class Chat_w_01_controller implements Initializable{
 	}
 	
 	void send (String data) { //보내기구현
-		Thread thread = new Thread () {
-			public void run() {
-				try {
+		if(data != null && !data.equals("")) {			
+			Thread thread = new Thread () {
+				public void run() {
+					try {
 //					String withName = UserDTO.nowUser.getName()+":\n"+data;
 //					byte[] byteArr = withName.getBytes("UTF-8");
-					//메세지객체로변경
-					KakaoMessage message = new KakaoMessage(UserDTO.nowUser.getUser_num(), UserDTO.nowUser.getName()
-							, UserDTO.withFriend.getUser_num(), UserDTO.withFriend.getName(), data, room_num);
-					
-					byte [] bytes = null;
-					ByteArrayOutputStream bos = new ByteArrayOutputStream(); //바이트배열 데이터 입출력 스트림
-					ObjectOutputStream oos = new ObjectOutputStream(bos); //객체 직렬화
-					oos.writeObject(message); //객체 직렬화 메소드 사용
-					oos.flush(); //잔류바이트 출력
-					oos.close();
-					bytes = bos.toByteArray();//byte array로 변환
-					
-					byte [] data = bytes;
-					OutputStream os = socket.getOutputStream();
-					os.write(data);
-					os.flush();
-				}catch (Exception e) {
-					e.printStackTrace();
+						//메세지객체로변경
+						KakaoMessage message = new KakaoMessage(UserDTO.nowUser.getUser_num(), UserDTO.nowUser.getName()
+								, UserDTO.withFriend.getUser_num(), UserDTO.withFriend.getName(), data, room_num);
+						
+						byte [] bytes = null;
+						ByteArrayOutputStream bos = new ByteArrayOutputStream(); //바이트배열 데이터 입출력 스트림
+						ObjectOutputStream oos = new ObjectOutputStream(bos); //객체 직렬화
+						oos.writeObject(message); //객체 직렬화 메소드 사용
+						oos.flush(); //잔류바이트 출력
+						oos.close();
+						bytes = bos.toByteArray();//byte array로 변환
+						
+						byte [] data = bytes;
+						OutputStream os = socket.getOutputStream();
+						os.write(data);
+						os.flush();
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-			}
-		};
-		thread.start();
+			};
+			thread.start();
+		}
 	}
 	
 	void sendMyNum(int num) { //내 번호 보내는 메소드
