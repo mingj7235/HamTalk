@@ -156,8 +156,8 @@ public class UserDAO {
 		}
 	}
 	
-	public String chatHistory (KakaoMessage getMessage) {
-		String result ="";
+	public Array chatHistory (KakaoMessage getMessage) {
+		Array result = null;
 		conn = DBConn.getConnection();
 		try {
 			if(Chat_w_01_controller.room_num == getMessage.getRoom_num()) { 
@@ -167,16 +167,17 @@ public class UserDAO {
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setInt(1, UserDTO.nowUser.getUser_num());
 					pstmt.setInt(2, getMessage.getRoom_num());
+					rs = pstmt.executeQuery();
 					
-					result = rs.getString("message");
-					
+					result = rs.getArray("message");
 				}else {
 					String sql = "SELECT message FROM (SELECT * FROM CHATMESSAGE ORDER BY MESSAGE_TIME DESC) "
 							+ "WHERE rownum <=10 and USER_NUM = ? and ROOM_NUM =?";
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setInt(1, getMessage.getSendUserNum());
 					pstmt.setInt(2, getMessage.getRoom_num());
-					result = rs.getString("message");
+					rs = pstmt.executeQuery();
+					result = rs.getArray("message");
 				}
 			}else { 
 				
