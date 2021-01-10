@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import db.DBConn;
 import exception.MyException;
+import model.AlertBox;
 import model.KakaoMessage;
 import model.UserDTO;
 
@@ -17,9 +18,7 @@ public class UserDAO {
 	public int signUp(UserDTO dto) throws MyException {
 		int result = 0;
 		conn = DBConn.getConnection();
-//		String sql = "INSERT INTO kakaoUser"
-//				+ "VALUES (user_seq.nextval, ?, ?, ?)";
-		String sql = "INSERT INTO kakaoUser values (user_seq.nextval, ?, ?, ?)";
+		String sql = "INSERT INTO kakaoUser VALUES (user_seq.nextval, ?, ?, ?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 
@@ -28,9 +27,8 @@ public class UserDAO {
 			pstmt.setString(3, dto.getPassword());
 
 			result = pstmt.executeUpdate();
+			AlertBox.display("회원 가입", dto.getName()+"님 환영합니다!");
 			System.out.println(result + "명 회원가입 완료");
-		} catch (SQLIntegrityConstraintViolationException e1) {
-			throw new MyException("로그인", "이미 있는 번호입니다.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -45,38 +43,33 @@ public class UserDAO {
 		boolean result = false;
 		conn = DBConn.getConnection();
 		String sql = "SELECT * FROM kakaoUser WHERE phonenum = ?";
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, phonenum);
 			rs = pstmt.executeQuery();
 
 			if(rs.next()) {
-				if(pw.equals(rs.getString("password"))) {
-					result = true;
-					UserDTO.nowUser.setUser_num(rs.getInt("user_num"));
-					UserDTO.nowUser.setPhonenum(rs.getString("phonenum"));
-					UserDTO.nowUser.setName(rs.getString("name"));
-					UserDTO.nowUser.setPassword(rs.getString("password"));
+				result = true;
+				UserDTO.nowUser.setUser_num(rs.getInt("user_num"));
+				UserDTO.nowUser.setPhonenum(rs.getString("phonenum"));
+				UserDTO.nowUser.setName(rs.getString("name"));
+				UserDTO.nowUser.setPassword(rs.getString("password"));
 
-					// 친구 목록
-					sql = "SELECT * FROM kakaoUser WHERE phonenum != ?";
-					pstmt = conn.prepareStatement(sql);
-					pstmt.setString(1, phonenum);
-					rs = pstmt.executeQuery();
-					while(rs.next()) {
-						UserDTO dto = new UserDTO();
-						dto.setName(rs.getString("name"));
-						dto.setPassword(rs.getString("password"));
-						dto.setPhonenum(rs.getString("phonenum"));
-						dto.setUser_num(rs.getInt("user_num"));
-						UserDTO.friends.add(dto);
-					}
-					System.out.println("친구목록추가 완료");
-				} else {
-					throw new MyException("로그인", "비밀번호가 틀렸습니다.");
+				// 친구 목록
+				sql = "SELECT * FROM kakaoUser WHERE phonenum != ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, phonenum);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					UserDTO dto = new UserDTO();
+					dto.setName(rs.getString("name"));
+					dto.setPassword(rs.getString("password"));
+					dto.setPhonenum(rs.getString("phonenum"));
+					dto.setUser_num(rs.getInt("user_num"));
+					UserDTO.friends.add(dto);
 				}
-			} else {
-				throw new MyException("로그인", "존재하지 않는 번호입니다.");
+				System.out.println("친구목록추가 완료");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -86,7 +79,7 @@ public class UserDAO {
 		}
 		return result;
 	}
-	
+
 	// 채팅방 있으면 방번호리턴, 없으면 만들어서 방번호 리턴
 	public int roomCheck(UserDTO nowUser, UserDTO friend) {
 		int a, b; //작은번호가 a 큰번호 b
@@ -98,7 +91,7 @@ public class UserDAO {
 			a = nowUser.getUser_num();
 			b = friend.getUser_num();
 		}
-		
+
 		conn = DBConn.getConnection();
 		try {
 			String sql = "SELECT room_num FROM chatroom where user1_num = ? and user2_num = ?";
@@ -117,7 +110,7 @@ public class UserDAO {
 				pstmt.setInt(1, a);
 				pstmt.setInt(2, b);
 				pstmt.execute();//값넣기
-				
+
 				sql = "SELECT room_num FROM chatroom where user1_num = ? and user2_num = ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, a);
@@ -138,20 +131,20 @@ public class UserDAO {
 	}//roomCheck
 
 	public void chatLog(KakaoMessage msg) {
-		
+
 		int user_num = msg.getSendUserNum();
 		int room_num = msg.getRoom_num();
-		
+
 		conn = DBConn.getConnection();
 		String sql = "INSERT INTO chatMessage VALUES(chatMessage_seq.NEXTVAL, ?, SYSDATE, ?, ?)";
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, msg.getSendComment());
 			pstmt.setInt(2, user_num);
 			pstmt.setInt(3, room_num);
 			pstmt.execute();
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

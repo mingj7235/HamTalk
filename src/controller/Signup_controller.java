@@ -33,15 +33,7 @@ public class Signup_controller implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		signup_signup_btn.setOnAction(e->{
-			try {
-				handleBtnsignup(e);
-			} catch (MyException e1) {
-				System.out.println(e1.getMessage());
-			} catch (SQLIntegrityConstraintViolationException e1) {
-				System.out.println(e1.getMessage());
-			}
-		});
+		signup_signup_btn.setOnAction(e->handleBtnsignup(e));
 		signup_Back_btn.setOnAction(e->handleBtnBack(e));
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
@@ -49,12 +41,10 @@ public class Signup_controller implements Initializable{
 
 	}
 
-	public void handleBtnsignup (ActionEvent event) throws MyException, SQLIntegrityConstraintViolationException {
+	public void handleBtnsignup (ActionEvent event) {
 
 		UserDAO dao = new UserDAO();
 		SignUpException sue = new SignUpException();
-		boolean phonenum;
-		boolean pw;
 		String pw2;
 		int result = 0;
 
@@ -62,23 +52,17 @@ public class Signup_controller implements Initializable{
 			UserDTO dto = new UserDTO();
 
 			try {
+				dto.setName(signup_signup_name.getText());
 				dto.setPhonenum(signup_signup_phonenum.getText());
+				dto.setPassword(signup_signup_password.getText());
+				pw2 = signup_signup_passwordcheck.getText();
+
+				sue.emptyCheck(dto.getName(), dto.getPhonenum(), dto.getPassword(), pw2);
 				sue.phonenumCheck(dto.getPhonenum());
-				phonenum = true;
+				sue.duplicationCheck(dto.getPhonenum());
+				sue.pwCheck(dto.getPassword(), pw2);
 
-				if (phonenum) {
-					dto.setName(signup_signup_name.getText());
-
-					dto.setPassword(signup_signup_password.getText());
-					pw2 = signup_signup_passwordcheck.getText();
-
-					sue.pwCheck(dto.getPassword(), pw2);
-					pw = true;
-
-					if (pw) {
-						result = dao.signUp(dto);
-					}
-				}
+				result = dao.signUp(dto);
 
 			} catch(MyException e) {
 				System.out.println(e.getMessage());

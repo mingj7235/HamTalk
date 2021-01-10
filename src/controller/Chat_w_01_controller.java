@@ -74,6 +74,7 @@ public class Chat_w_01_controller implements Initializable{
 						chat_send_button.setDisable(false);
 					}); 
 				}catch (IOException e) {
+					e.printStackTrace();
 					if(!socket.isClosed()) {stopClient();}
 					return;
 				}

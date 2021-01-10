@@ -1,9 +1,22 @@
 package exception;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.regex.Pattern;
+
+import db.DBConn;
 
 public class SignUpException {
 
+	// 모든 정보가 입력됐는지 확인
+	public void emptyCheck(String name, String phonenum, String pw1, String pw2) throws MyException {
+		if(name.isEmpty() || phonenum.isEmpty() || pw1.isEmpty() || pw2.isEmpty()) {
+			throw new MyException ("회원 가입", "정보를 모두 입력해 주십시오.");
+		}
+	}
+	
 	// 전화번호 확인
 	public void phonenumCheck(String tel) throws MyException {
 		boolean check = Pattern.matches(
@@ -43,4 +56,30 @@ public class SignUpException {
 					);
 		}
 	}
+	
+	// 번호 중복 확인
+	public void duplicationCheck (String phonenum) throws MyException {
+		Connection conn = DBConn.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM kakaoUser WHERE phonenum = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,  phonenum);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				throw new MyException (
+						"회원 가입",
+						"이미 등록된 번호입니다."
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBConn.dbClose(rs, pstmt, conn);
+		}
+		
+	}
+	
 }
