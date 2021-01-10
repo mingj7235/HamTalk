@@ -56,6 +56,8 @@ public class Chat_w_01_controller implements Initializable{
 	@FXML private Button chat_back_btn;
 	@FXML private VBox chat_vbox;
 	@FXML private ScrollPane chat_scroll;
+	
+	
 
 	public static int room_num; //현재 내가 접속한 방번호
 	
@@ -118,7 +120,8 @@ public class Chat_w_01_controller implements Initializable{
 				}
 //				String data = new String (byteArr, 0, readByteCount, "UTF-8");
 				KakaoMessage getMessage = toMessage(byteArr, KakaoMessage.class);
-				System.out.println(ud.chatHistory(getMessage));
+				
+				
 				if(room_num == getMessage.getRoom_num()) { //받은 채팅이 내가 접속한 방번호랑 같으면?
 					String data;
 					if(getMessage.getSendUserNum() == UserDTO.nowUser.getUser_num()) { //내가보낸거면
