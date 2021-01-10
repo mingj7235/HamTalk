@@ -11,7 +11,7 @@ public class SignUpException {
 				"^\\d{11}",
 				tel);
 		if (!check) {
-			throw new MyException("11자리 숫자만 입력 가능합니다.");
+			throw new MyException("회원 가입", "11자리 숫자만 입력 가능합니다.");
 		}
 	}
 
@@ -31,12 +31,14 @@ public class SignUpException {
 		
 		if(cnt1 == 0 || cnt2 == 0) {
 			throw new MyException (
+					"회원 가입",
 			"비밀번호는 영문자와 숫자를 포함해야 합니다."		
 					);
 		}
 		
 		if(!pw1.equals(pw2)) {
 			throw new MyException (
+					"회원 가입",
 					"비밀번호가 일치하지 않습니다."
 					);
 		}
