@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -101,11 +102,13 @@ public class Chat_w_01_controller implements Initializable{
 	}
 	
 	void receive () {
-		chat_scroll.setVvalue(1);
+		chat_vbox.heightProperty().addListener((observable, oldValue, newValue) ->
+			chat_scroll.setVvalue(newValue.doubleValue())
+				);
+//		chat_scroll.setVvalue(1.0);
 //		chat_scroll.vvalueProperty().bind(chat_vbox.heightProperty());
+		chat_scroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		chat_vbox.setPadding(new Insets(5,0,15,0));
-		UserDAO ud = new UserDAO();
-//		System.out.println(ud.chatHistory(getMessage));
 		
 		while (true) {
 			try {
@@ -200,7 +203,6 @@ public class Chat_w_01_controller implements Initializable{
 		chat_send_button.setOnAction(e->handleBtnSend(e));
 		chat_back_btn.setOnAction(e->handleBtnBack(e));
 		chat_chat_name_label.setText(UserDTO.withFriend.getName());
-		chat_scroll.setOnScroll(event -> print(event));
 		
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
@@ -227,9 +229,6 @@ public class Chat_w_01_controller implements Initializable{
 		startClient(); //바로 서버시작
 	}
 	
-	public void print (ScrollEvent event) {
-		System.out.println(event.getDeltaY());
-	}
 	
 	public void handleBtnBack(ActionEvent event) {
 		try {
