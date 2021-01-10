@@ -33,6 +33,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -100,8 +101,8 @@ public class Chat_w_01_controller implements Initializable{
 	}
 	
 	void receive () {
-//		chat_scroll.setVvalue(1.0);
-		chat_scroll.vvalueProperty().bind(chat_vbox.heightProperty());
+		chat_scroll.setVvalue(1);
+//		chat_scroll.vvalueProperty().bind(chat_vbox.heightProperty());
 		chat_vbox.setPadding(new Insets(5,0,15,0));
 		while (true) {
 			try {
@@ -127,9 +128,7 @@ public class Chat_w_01_controller implements Initializable{
 					}else {//남이보낸거면
 //						data = getMessage.getSendUserName() +": "+getMessage.getSendComment();
 						data = getMessage.getSendComment();
-						if (data.length()>10) {
-							
-						}
+						
 						MessagePane fmp = new MessagePane(getMessage.getSendUserName(), data);
 						Platform.runLater(() -> {
 							chat_vbox.getChildren().add(fmp.getVbox());
@@ -196,8 +195,8 @@ public class Chat_w_01_controller implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		chat_send_button.setOnAction(e->handleBtnSend(e));
 		chat_back_btn.setOnAction(e->handleBtnBack(e));
-		
 		chat_chat_name_label.setText(UserDTO.withFriend.getName());
+		chat_scroll.setOnScroll(event -> print(event));
 		
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
@@ -224,6 +223,9 @@ public class Chat_w_01_controller implements Initializable{
 		startClient(); //바로 서버시작
 	}
 	
+	public void print (ScrollEvent event) {
+		System.out.println(event.getDeltaY());
+	}
 	
 	public void handleBtnBack(ActionEvent event) {
 		try {

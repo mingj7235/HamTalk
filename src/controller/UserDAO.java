@@ -5,8 +5,11 @@ import java.util.Scanner;
 
 import db.DBConn;
 import exception.MyException;
+import javafx.application.Platform;
 import model.AlertBox;
 import model.KakaoMessage;
+import model.MessagePane;
+import model.MyMessagePane;
 import model.UserDTO;
 
 public class UserDAO {
@@ -151,6 +154,44 @@ public class UserDAO {
 		} finally {
 			DBConn.dbClose(rs, pstmt, conn);
 		}
+	}
+	
+	public String chatHistory (KakaoMessage getMessage) {
+		String result ="";
+		conn = DBConn.getConnection();
+		try {
+			if(Chat_w_01_controller.room_num == getMessage.getRoom_num()) { 
+				if(getMessage.getSendUserNum() == UserDTO.nowUser.getUser_num()) { 
+					int a = UserDTO.nowUser.getUser_num();
+					int b = getMessage.getRoom_num();
+					String sql = "SELECT message FROM (SELECT * FROM CHATMESSAGE ORDER BY MESSAGE_TIME DESC) "
+							+ "WHERE rownum <=10 and USER_NUM = ? and ROOM_NUM =?";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, a);
+					pstmt.setInt(2, b);
+					
+					result = rs.getString("message");
+					
+				}else {
+					int a = getMessage.getSendUserNum();
+					int b = getMessage.getRoom_num();
+					String sql = "SELECT message FROM (SELECT * FROM CHATMESSAGE ORDER BY MESSAGE_TIME DESC) "
+							+ "WHERE rownum <=10 and USER_NUM = ? and ROOM_NUM =?";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, a);
+					pstmt.setInt(2, b);
+					result = rs.getString("message");
+				}
+			}else { 
+				
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBConn.dbClose(rs, pstmt, conn);
+		}
+		return result;
+		
 	}
 
 
