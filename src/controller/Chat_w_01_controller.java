@@ -11,6 +11,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -57,8 +58,6 @@ public class Chat_w_01_controller implements Initializable{
 	@FXML private VBox chat_vbox;
 	@FXML private ScrollPane chat_scroll;
 	
-	
-
 	public static int room_num; //현재 내가 접속한 방번호
 	
 	Socket socket;
@@ -81,6 +80,7 @@ public class Chat_w_01_controller implements Initializable{
 					if(!socket.isClosed()) {stopClient();}
 					return;
 				}
+				chatHistoryReceive();
 				receive();
 			}
 		};
@@ -99,6 +99,26 @@ public class Chat_w_01_controller implements Initializable{
 		}catch (Exception e) {}
 	}
 	
+	void chatHistoryReceive() {
+		UserDAO dao = new UserDAO();
+		ArrayList<KakaoMessage> arr = dao.chatHistory(10);
+		for (int i = 0; i < arr.size(); i++) {
+			KakaoMessage message = arr.get(i);
+			if(message.getSendUserNum() == UserDTO.nowUser.getUser_num()) { //이게 내가 보낸 메세지였다면
+				String data = message.getSendComment();
+				MyMessagePane mine = new MyMessagePane(UserDTO.nowUser.getName(), data);
+				Platform.runLater(() ->{
+					chat_vbox.getChildren().add(mine.getVbox());
+				});
+			}else {//친구가보낸메세지였다면
+				String data = message.getSendComment();
+				MessagePane fmp = new MessagePane(UserDTO.withFriend.getName(), data);
+				Platform.runLater(() -> {
+					chat_vbox.getChildren().add(fmp.getVbox());
+				});
+			}
+		}
+	}
 	void receive () {
 		UserDAO ud = new UserDAO();
 		
@@ -255,7 +275,6 @@ public class Chat_w_01_controller implements Initializable{
 	
 	// 새로 추가
 	private KakaoMessage toMessage(byte[] byteArr, Class<KakaoMessage> class1) {
-
 		Object obj = null;
 		try {
 			ByteArrayInputStream bis = new ByteArrayInputStream(byteArr);
