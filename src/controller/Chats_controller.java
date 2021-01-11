@@ -37,18 +37,18 @@ public class Chats_controller implements Initializable{
 	@FXML private Button friends_more_btn;
 
 	@FXML private ScrollPane scrollpane;
-	
+
 	@FXML private VBox vboxlist2;
 
 	private ChatListPane [] chatListPane  = new ChatListPane [UserDTO.friends.size()];
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		friends_friends_btn.setOnAction(e->handleBtnFriends(e));
 		friends_chats_btn.setOnAction(e->handleBtnChats(e));
 		friends_search_btn.setOnAction(e->handleBtnSearch(e));
 		friends_more_btn.setOnAction(e->handleBtnMore(e));
-		
+
 
 		for (int i = 0; i < chatListPane.length; i++) {
 			chatListPane[i] = new ChatListPane(UserDTO.friends.get(i));
@@ -66,6 +66,10 @@ public class Chats_controller implements Initializable{
 	public void handletochatlink(MouseEvent event, UserDTO friend) {
 		try {
 			UserDTO.withFriend = friend;
+
+			UserDAO dao = new UserDAO();
+			Chat_w_01_controller.room_num = dao.roomCheck(UserDTO.nowUser, UserDTO.withFriend);
+
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chat_w_01.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();

@@ -48,6 +48,7 @@ public class ChatListPane {
 		timeLb.setFont(timeFt);
 		
 		separator.setPrefWidth(290);
+		separator.setLayoutY(72);
 		
 		pane.getChildren().add(nameLb);
 		pane.getChildren().add(msgLb);
