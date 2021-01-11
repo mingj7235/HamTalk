@@ -15,7 +15,7 @@
 
 <BorderPane fx:id="chat_w_01_mainpane" opacity="0.99" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Chat_w_01_controller">
    <center>
-      <Pane fx:id="chat_w_01_pane" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #abc1d1;" BorderPane.alignment="CENTER">
+      <Pane fx:id="chat_w_01_pane" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #8AAAE5;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="Chats_time" layoutX="132.0" layoutY="7.0" text="21:15" />
             <ImageView fitHeight="12.0" fitWidth="16.0" layoutX="34.0" layoutY="8.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
@@ -29,7 +29,7 @@
                   <Font name="Lucida Bright Regular" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="chat_chat_name_label" layoutX="132.0" layoutY="35.0" text="NAME" />
+            <Label fx:id="chat_chat_name_label" layoutX="132.0" layoutY="35.0" style="-fx-font-family: &quot;NanumGothic&quot;;" text="NAME" />
             <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="17.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/chevron_left.png" />
@@ -66,7 +66,7 @@
                   <Font name="Lucida Bright Regular" size="11.0" />
                </font>
             </Label>
-            <Label layoutX="63.0" layoutY="72.0" prefHeight="37.0" prefWidth="170.0" style="-fx-border-color: #abc1d1; -fx-border-width: 5px; -fx-border-radius: 10px;" />
+            <Label layoutX="64.0" layoutY="72.0" prefHeight="37.0" prefWidth="170.0" style="-fx-border-color: #8AAAE5; -fx-border-width: 5px; -fx-border-radius: 10px;" />
             <Pane layoutY="533.0" prefHeight="67.0" prefWidth="300.0" style="-fx-background-color: white;">
                <children>
                   <Slider fx:id="chat_slider_opacity" layoutX="235.0" layoutY="46.0" prefHeight="14.0" prefWidth="51.0">
@@ -78,7 +78,7 @@
                         <Font name="Lucida Bright Italic" size="11.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="chat_send_button" disable="true" layoutX="249.0" layoutY="12.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="37.0" style="-fx-background-color: #fee100;" text="send">
+                  <Button fx:id="chat_send_button" disable="true" layoutX="249.0" layoutY="12.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="37.0" style="-fx-background-color: #8AAAE5;" text="send">
                      <font>
                         <Font name="Lucida Bright Demibold" size="9.5" />
                      </font>
