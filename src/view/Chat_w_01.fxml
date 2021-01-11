@@ -131,7 +131,7 @@
                   </HBox>
                </children>
             </Pane>
-            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" layoutX="15.0" layoutY="108.0" prefHeight="420.0" prefWidth="280.0" stylesheets="@scroll.css">
+            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" layoutX="15.0" layoutY="108.0" prefHeight="420.0" prefWidth="280.0" stylesheets="@scroll2.css">
                <content>
                   <VBox fx:id="chat_vbox" layoutX="10.0" prefWidth="280.0" style="-fx-background-color: #abc1d1;" />
                </content>
