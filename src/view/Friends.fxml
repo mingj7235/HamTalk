@@ -81,7 +81,7 @@
             <Separator layoutX="15.0" layoutY="183.0" prefHeight="0.0" prefWidth="269.0" />
             <Label layoutX="13.0" layoutY="194.0" text="Friends" />
             
-            <ScrollPane fx:id="list" layoutX="15.0" layoutY="209.0" prefHeight="318.0" prefWidth="271.0">
+            <ScrollPane fx:id="list" layoutX="15.0" layoutY="209.0" prefHeight="318.0" prefWidth="271.0" style="-fx-background-color: white;">
                <content>
                   <VBox fx:id="vboxlist" />
                </content></ScrollPane>

@@ -19,6 +19,7 @@ public class MyMessagePane {
 		SimpleDateFormat sdf = new SimpleDateFormat("a HH:mm");
 		
 		Label nameLb = new Label(name);
+		nameLb.setStyle("-fx-font-size: 12; -fx-font-family: NanumGothic;");
 		nameLb.setPadding(new Insets(0, 6, 2, 0));
 		
 		VBox vbox2 = new VBox();
@@ -34,7 +35,7 @@ public class MyMessagePane {
 		
 		Label messageLb = new Label(msg);
 		messageLb.setStyle("-fx-background-radius: 10; -fx-background-color: #FEE100; -fx-border-width: 1; "
-				+ "-fx-font-size: 14;");
+				+ "-fx-font-size: 14; -fx-font-family: NanumGothic;");
 		messageLb.setWrapText(true);
 		messageLb.setPadding(new Insets(5, 10, 5, 10));
 		
