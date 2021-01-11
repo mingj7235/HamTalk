@@ -22,7 +22,8 @@ public class KakaoMain extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		System.out.println("고희광");
+
+		System.out.println("김민재");
 	}
 	public static void main(String[] args) {
 		launch(args);
