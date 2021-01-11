@@ -16,7 +16,7 @@ public class Server extends Application{
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		
-		
+		System.out.println("마물마물마무리");
 	}
 	public static void main(String[] args) {
 		launch(args);
