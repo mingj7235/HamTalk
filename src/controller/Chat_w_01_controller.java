@@ -95,11 +95,6 @@ public class Chat_w_01_controller implements Initializable{
 			}
 		});
 		startClient(); //바로 서버시작
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> 623c4b0fcfd4ade801eed18e31aa234a95afb907
 	}
 	
 	void startClient () {
@@ -115,10 +110,10 @@ public class Chat_w_01_controller implements Initializable{
 					
 					Platform.runLater(() -> {
 						chat_send_button.setDisable(false);
-<<<<<<< HEAD
+
 					});
 				} catch (IOException e) {
-=======
+
 					}); 
 				}catch (ConnectException e2) {
 					Platform.runLater(() -> {
@@ -126,7 +121,7 @@ public class Chat_w_01_controller implements Initializable{
 					}); 
 				} 
 				catch (IOException e) {
->>>>>>> 623c4b0fcfd4ade801eed18e31aa234a95afb907
+
 					e.printStackTrace();
 					if(!socket.isClosed()) {stopClient();}
 					return;
