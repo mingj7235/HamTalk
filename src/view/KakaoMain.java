@@ -16,8 +16,9 @@ public class KakaoMain extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		
-		System.out.println("이 프로그램 이름은 ????? 입니다!");
+
+		System.out.println("나는 고희광입니다.");
+
 	}
 	public static void main(String[] args) {
 		launch(args);
