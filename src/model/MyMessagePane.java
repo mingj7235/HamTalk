@@ -34,8 +34,8 @@ public class MyMessagePane {
 		timeLb.setStyle("-fx-font-family: Lucida Bright; -fx-font-size: 10;");
 		
 		Label messageLb = new Label(msg);
-		messageLb.setStyle("-fx-background-radius: 10; -fx-background-color: #FEE100; -fx-border-width: 1; "
-				+ "-fx-font-size: 14; -fx-font-family: NanumGothic;");
+		messageLb.setStyle("-fx-background-radius: 10; -fx-background-color:  #8AAAE5; -fx-border-width: 1; "
+				+ "-fx-font-size: 14; -fx-font-family: NanumGothic; -fx-text-fill: white;");
 		messageLb.setWrapText(true);
 		messageLb.setPadding(new Insets(5, 10, 5, 10));
 		
