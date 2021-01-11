@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.URL;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import exception.MyException;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -60,6 +62,7 @@ public class Chat_w_01_controller implements Initializable{
 	@FXML private VBox chat_vbox;
 	@FXML private ScrollPane chat_scroll;
 	
+	
 	public static int room_num; //현재 내가 접속한 방번호
 	Socket socket;
 	
@@ -92,7 +95,11 @@ public class Chat_w_01_controller implements Initializable{
 			}
 		});
 		startClient(); //바로 서버시작
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 623c4b0fcfd4ade801eed18e31aa234a95afb907
 	}
 	
 	void startClient () {
@@ -108,8 +115,18 @@ public class Chat_w_01_controller implements Initializable{
 					
 					Platform.runLater(() -> {
 						chat_send_button.setDisable(false);
+<<<<<<< HEAD
 					});
 				} catch (IOException e) {
+=======
+					}); 
+				}catch (ConnectException e2) {
+					Platform.runLater(() -> {
+						AlertBox.display("서버연결", "서버연결을 확인하십시오.");
+					}); 
+				} 
+				catch (IOException e) {
+>>>>>>> 623c4b0fcfd4ade801eed18e31aa234a95afb907
 					e.printStackTrace();
 					if(!socket.isClosed()) {stopClient();}
 					return;
