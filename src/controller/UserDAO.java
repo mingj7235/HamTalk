@@ -84,6 +84,11 @@ public class UserDAO {
 		return result;
 	}
 
+	// 채팅방 목록 및 순서
+//	public boolean isChatExist (UserDTO nowUser, UserDTO fried) {
+//		
+//	}
+	
 	// 채팅방 있으면 방번호리턴, 없으면 만들어서 방번호 리턴
 	public int roomCheck(UserDTO nowUser, UserDTO friend) {
 		int a, b; //작은번호가 a 큰번호 b

@@ -49,7 +49,6 @@ public class Chats_controller implements Initializable{
 		friends_search_btn.setOnAction(e->handleBtnSearch(e));
 		friends_more_btn.setOnAction(e->handleBtnMore(e));
 
-
 		for (int i = 0; i < chatListPane.length; i++) {
 			chatListPane[i] = new ChatListPane(UserDTO.friends.get(i));
 			int a = i;
