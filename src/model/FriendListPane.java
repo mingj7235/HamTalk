@@ -18,12 +18,13 @@ public class FriendListPane {
 		
 		pane.setPrefHeight(64);
 		pane.setPrefWidth(265);
-//		pane.setStyle("-fx-background-color: cyan;");
+		pane.setStyle("-fx-background-color: white;");
 		pane.setId(num+"Pane");
 		
 		nameLb.setLayoutX(68);
 		nameLb.setLayoutY(12);
-		nameLb.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: Lucida Bright; -fx-font-size: 18;");
+		nameLb.setStyle("-fx-font-weight: bold; -fx-font-style: italic; "
+				+ "-fx-font-family: NanumGothic; -fx-font-size: 18; -fx-text-fill: #868686;");
 		nameLb.setText(name);
 		Font nameFt = new Font("Lucida Bright Italic", 18);
 		nameLb.setFont(nameFt);
@@ -31,13 +32,14 @@ public class FriendListPane {
 		statusLb.setLayoutX(68);
 		statusLb.setLayoutY(38);
 		statusLb.setText("status message");
+		statusLb.setStyle("-fx-text-fill: #868686;");
 		Font statusFt = new Font("Lucida Bright Italic", 13);
 		statusLb.setFont(statusFt);
 		
 		musicLb.setLayoutX(162);
 		musicLb.setLayoutY(15);
 		musicLb.setPrefWidth(100);
-		musicLb.setStyle("-fx-border-radius: 10px; -fx-border-color: #01B925;");
+		musicLb.setStyle("-fx-border-radius: 10px; -fx-border-color: #8aaae5;");
 		musicLb.setText("this is music");
 		musicLb.setTextAlignment(TextAlignment.CENTER);
 		musicLb.setTextFill(Paint.valueOf("#000000b2"));

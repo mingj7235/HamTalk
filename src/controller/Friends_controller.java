@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -30,6 +31,8 @@ public class Friends_controller implements Initializable{
 	@FXML private Button friends_chats_btn;
 	@FXML private Button friends_search_btn;
 	@FXML private Button friends_more_btn;
+	
+	@FXML private ScrollPane list;
 	@FXML private VBox vboxlist;
 	
 	private FriendListPane [] friendListPane  = new FriendListPane [UserDTO.friends.size()];
@@ -43,6 +46,11 @@ public class Friends_controller implements Initializable{
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		Friend_time.setText(sdf.format(date));
+		
+		list.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
+		list.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
+		
+		logon_id.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 18; -fx-text-fill: #868686;");
 		logon_id.setText(UserDTO.nowUser.getName());
 		for (int i = 0; i < friendListPane.length; i++) {
 			friendListPane[i] = new FriendListPane(UserDTO.friends.get(i));
