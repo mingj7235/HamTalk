@@ -27,7 +27,7 @@
                   <Font name="Lucida Bright Regular" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="33.0" prefHeight="38.0" prefWidth="96.0" text="Friends">
+            <Label layoutX="14.0" layoutY="33.0" prefHeight="38.0" prefWidth="96.0" text="Friends" textFill="#7b9acc">
                <font>
                   <Font name="Lucida Bright Demibold" size="22.0" />
                </font>
@@ -41,18 +41,18 @@
                   </TextField>
                   <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="15.0" layoutY="8.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/friends.png" />
+                        <Image url="@../imgs/user-f-b.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
             <Pane layoutY="105.0" prefHeight="71.0" prefWidth="300.0">
                <children>
-                  <Label fx:id="logon_id" layoutX="85.0" layoutY="13.0" style="-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: &quot;Lucida Bright&quot;; -fx-font-size: 18;" text="MinJae">
+                  <Label fx:id="logon_id" layoutX="85.0" layoutY="13.0" style="-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: &quot;NanumGothic&quot;; -fx-font-size: 18;" text="MinJae" textFill="#868686">
                      <font>
                         <Font name="Lucida Bright Italic" size="18.0" />
                      </font></Label>
-                  <Label layoutX="85.0" layoutY="40.0" text="status message">
+                  <Label layoutX="85.0" layoutY="40.0" text="status message" textFill="#868686">
                      <font>
                         <Font name="Lucida Bright Italic" size="13.0" />
                      </font></Label>
@@ -64,7 +64,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </ImageView>
-                  <Label layoutX="189.0" layoutY="28.0" style="-fx-border-radius: 10px; -fx-border-color: #01B925;" text="music_English" textAlignment="CENTER" textFill="#000000b2">
+                  <Label layoutX="189.0" layoutY="28.0" style="-fx-border-radius: 10px; -fx-border-color: #8aaae5;" text="music_English" textAlignment="CENTER" textFill="#000000b2">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -79,9 +79,9 @@
                </cursor>
             </Pane>
             <Separator layoutX="15.0" layoutY="183.0" prefHeight="0.0" prefWidth="269.0" />
-            <Label layoutX="13.0" layoutY="194.0" text="Friends" />
+            <Label layoutX="13.0" layoutY="194.0" text="Friends" textFill="#7b9acc" />
             
-            <ScrollPane fx:id="list" layoutX="15.0" layoutY="209.0" prefHeight="318.0" prefWidth="271.0" style="-fx-background-color: white;">
+            <ScrollPane fx:id="list" layoutX="15.0" layoutY="209.0" prefHeight="318.0" prefWidth="271.0" stylesheets="@scroll2.css">
                <content>
                   <VBox fx:id="vboxlist" />
                </content></ScrollPane>
@@ -92,22 +92,22 @@
                <children>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/user.png" />
+                        <Image url="@../imgs/user-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/comment_empty.png" />
+                        <Image url="@../imgs/comment-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/search.png" />
+                        <Image url="@../imgs/search-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="230.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/ellipsis.png" />
+                        <Image url="@../imgs/ellipsis-bb.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="friends_friends_btn" layoutX="37.0" layoutY="11.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="19.0">
@@ -142,7 +142,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/search.png" />
+                        <Image url="@../imgs/search-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -150,7 +150,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/chats.png" />
+                        <Image url="@../imgs/comment_fill-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -158,7 +158,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/music.png" />
+                        <Image url="@../imgs/music-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -166,7 +166,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/cog.png" />
+                        <Image url="@../imgs/cog-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />

@@ -52,6 +52,23 @@ public class ServerController implements Initializable{
 	List<Client> connections = new Vector<>();
 	int server_no;
 	
+	public static boolean serverON = false;
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		Chats_time.setText(sdf.format(date));
+		chat_slider_opacity.valueProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable, 
+					Number oldValue, Number newValue) {
+				server_main.setOpacity(chat_slider_opacity.getValue() /100.0);
+			}
+		});
+		btnServerStart.setOnAction(e -> handleServerStart(e));
+	}
+	
 	public void StartServer() {
 		executorService = Executors.newFixedThreadPool(
 			Runtime.getRuntime().availableProcessors()
@@ -241,23 +258,10 @@ public class ServerController implements Initializable{
 		logText.appendText(msg + "\n");
 	}
 	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-		Chats_time.setText(sdf.format(date));
-		chat_slider_opacity.valueProperty().addListener(new ChangeListener<Number>() {
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, 
-					Number oldValue, Number newValue) {
-				server_main.setOpacity(chat_slider_opacity.getValue() /100.0);
-			}
-		});
-		btnServerStart.setOnAction(e -> handleServerStart(e));
-	}
 	
 	public void handleServerStart (ActionEvent event) {
 		if (btnServerStart.getText().equals("start")) {
+			serverON = true;
 			StartServer();
 		}else if ( btnServerStart.getText().equals("stop")) {
 			stopServer();
