@@ -3,58 +3,77 @@ package model;
 import javax.swing.GroupLayout.Alignment;
 
 import javafx.geometry.Pos;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 
 public class ChatListPane {
 	private Pane pane = new Pane();
-	Label nameLb = new Label();
+	Label borderLb = new Label();
 	Label msgLb = new Label();
 	Label timeLb = new Label();
-	final Separator separator = new Separator();
+	Label nameLb = new Label();
+	
 	
 	public ChatListPane(UserDTO dto) {
 		String name = dto.getName();
 		int num = dto.getUser_num();
+		String message = "recent message";
+		String time = "time";
 		
-		pane.setPrefHeight(71);
-		pane.setPrefWidth(300);
+		pane.setPrefHeight(68);
+		pane.setPrefWidth(290);
 		pane.setId(num+"ChatListPane");
 		
-		nameLb.setLayoutX(85);
-		nameLb.setLayoutY(13);
-		nameLb.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: Lucida Bright; -fx-font-size: 18;" );
+		String url = "/imgs/profile.jpg";
+		ImageView imageView = new ImageView(url);
+		imageView.setFitHeight(60);
+		imageView.setFitWidth(60);
+		imageView.setLayoutX(6);
+		imageView.setLayoutY(6);
+		imageView.setPickOnBounds(true);
+		imageView.setPreserveRatio(true);
+		
+		borderLb.setLayoutX(4);
+		borderLb.setLayoutY(1);
+		borderLb.setPrefHeight(64);
+		borderLb.setPrefWidth(64);
+		borderLb.setStyle("-fx-border-color: CCCCCC; -fx-border-radius: 10px; -fx-border-width: 5px;" );
+			
+		nameLb.setLayoutX(80);
+		nameLb.setLayoutY(9);
+		nameLb.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 18;");
 		nameLb.setText(name);
-		Font nameFt = new Font("Lucida Bright Italic", 18);
-		nameLb.setFont(nameFt);
 		
-		msgLb.setLayoutX(85);
-		msgLb.setLayoutY(40);
-		msgLb.setText("recent message");
-		Font recentMessageFt = new Font("Lucida Bright Italic", 13);
-		msgLb.setFont(recentMessageFt);
+		msgLb.setLayoutX(80);
+		msgLb.setLayoutY(39);
+		msgLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 13;");
+		msgLb.setText(message);
 		
-		timeLb.setLayoutX(198);
-		timeLb.setLayoutY(6);
-		timeLb.setPrefHeight(15);
-		timeLb.setPrefWidth(90);
 		timeLb.setAlignment(Pos.CENTER_RIGHT);
-		timeLb.setText("time");
-		Font timeFt = new Font("Lucida Bright Italic", 11);
-		timeLb.setFont(timeFt);
+		timeLb.setContentDisplay(ContentDisplay.RIGHT);
+		timeLb.setLayoutX(172);
+		timeLb.setLayoutY(13);
+		timeLb.setPrefHeight(15);
+		timeLb.setPrefWidth(109);
+		timeLb.setText(time);
+		timeLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 12;" );
+		timeLb.setTextAlignment(TextAlignment.CENTER);
 		
+		Separator separator = new Separator();
+		separator.setLayoutY(65);
+		separator.setPrefHeight(7);
 		separator.setPrefWidth(290);
-		separator.setLayoutY(72);
 		
+		pane.getChildren().add(imageView);
+		pane.getChildren().add(borderLb);
 		pane.getChildren().add(nameLb);
 		pane.getChildren().add(msgLb);
 		pane.getChildren().add(timeLb);
 		pane.getChildren().add(separator);
-		
 	}
 
 
