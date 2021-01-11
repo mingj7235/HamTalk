@@ -52,8 +52,6 @@ public class ServerController implements Initializable{
 	List<Client> connections = new Vector<>();
 	int server_no;
 	
-	public static boolean serverON = false;
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Date date = new Date();
@@ -261,7 +259,6 @@ public class ServerController implements Initializable{
 	
 	public void handleServerStart (ActionEvent event) {
 		if (btnServerStart.getText().equals("start")) {
-			serverON = true;
 			StartServer();
 		}else if ( btnServerStart.getText().equals("stop")) {
 			stopServer();

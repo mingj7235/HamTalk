@@ -92,9 +92,7 @@ public class Chat_w_01_controller implements Initializable{
 			}
 		});
 		startClient(); //바로 서버시작
-		if (!ServerController.serverON) {
-			AlertBox.display("서버 연결", "서버를 연결하십시오.");
-		}
+
 	}
 	
 	void startClient () {
@@ -104,12 +102,13 @@ public class Chat_w_01_controller implements Initializable{
 				try {
 					socket = new Socket();
 					socket.connect(new InetSocketAddress("localhost", 5001));
+
 					//내 번호 보내기
 					sendMyNum(UserDTO.nowUser.getUser_num());
 					
 					Platform.runLater(() -> {
 						chat_send_button.setDisable(false);
-					}); 
+					});
 				} catch (IOException e) {
 					e.printStackTrace();
 					if(!socket.isClosed()) {stopClient();}
