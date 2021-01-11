@@ -40,10 +40,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.AlertBox;
 import model.KakaoMessage;
 import model.MessagePane;
 import model.MyMessagePane;
 import model.UserDTO;
+import server.ServerController;
 
 public class Chat_w_01_controller implements Initializable{
 	@FXML private Label Chats_time;
@@ -59,8 +61,41 @@ public class Chat_w_01_controller implements Initializable{
 	@FXML private ScrollPane chat_scroll;
 	
 	public static int room_num; //현재 내가 접속한 방번호
-	
 	Socket socket;
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		chat_send_button.setOnAction(e->handleBtnSend(e));
+		chat_back_btn.setOnAction(e->handleBtnBack(e));
+		chat_chat_name_label.setText(UserDTO.withFriend.getName());
+		
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		Chats_time.setText(sdf.format(date));
+		chat_write_messages.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			public void handle(KeyEvent event) {
+				if (event.getCode() == KeyCode.ENTER) {
+					try {
+						send(chat_write_messages.getText());
+						chat_write_messages.setText("");
+					}catch (Exception e) {
+					}
+				}
+			};
+		});
+
+		chat_slider_opacity.valueProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable, 
+					Number oldValue, Number newValue) {
+				chat_w_01_mainpane.setOpacity(chat_slider_opacity.getValue() /100.0);
+			}
+		});
+		startClient(); //바로 서버시작
+		if (!ServerController.serverON) {
+			AlertBox.display("서버 연결", "서버를 연결하십시오.");
+		}
+	}
 	
 	void startClient () {
 		Thread thread = new Thread() {
@@ -75,7 +110,7 @@ public class Chat_w_01_controller implements Initializable{
 					Platform.runLater(() -> {
 						chat_send_button.setDisable(false);
 					}); 
-				}catch (IOException e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 					if(!socket.isClosed()) {stopClient();}
 					return;
@@ -215,39 +250,6 @@ public class Chat_w_01_controller implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
-	
-	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		chat_send_button.setOnAction(e->handleBtnSend(e));
-		chat_back_btn.setOnAction(e->handleBtnBack(e));
-		chat_chat_name_label.setText(UserDTO.withFriend.getName());
-		
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-		Chats_time.setText(sdf.format(date));
-		chat_write_messages.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			public void handle(KeyEvent event) {
-				if (event.getCode() ==KeyCode.ENTER) {
-					try {
-						send(chat_write_messages.getText());
-						chat_write_messages.setText("");
-					}catch (Exception e) {
-					}
-				}
-			};
-		});
-
-		chat_slider_opacity.valueProperty().addListener(new ChangeListener<Number>() {
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, 
-					Number oldValue, Number newValue) {
-				chat_w_01_mainpane.setOpacity(chat_slider_opacity.getValue() /100.0);
-			}
-		});
-		startClient(); //바로 서버시작
 	}
 	
 	
