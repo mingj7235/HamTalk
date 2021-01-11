@@ -36,7 +36,7 @@ public class Chats_controller implements Initializable{
 	@FXML private Button friends_search_btn;
 	@FXML private Button friends_more_btn;
 
-	@FXML private ScrollPane scrollpane;
+	@FXML private ScrollPane chatListScroll;
 
 	@FXML private VBox vboxlist2;
 
@@ -48,6 +48,10 @@ public class Chats_controller implements Initializable{
 		friends_chats_btn.setOnAction(e->handleBtnChats(e));
 		friends_search_btn.setOnAction(e->handleBtnSearch(e));
 		friends_more_btn.setOnAction(e->handleBtnMore(e));
+		
+		chatListScroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
+		chatListScroll.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
+
 
 		for (int i = 0; i < chatListPane.length; i++) {
 			chatListPane[i] = new ChatListPane(UserDTO.friends.get(i));

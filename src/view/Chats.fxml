@@ -130,7 +130,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <ScrollPane fx:id="chatListScroll" layoutX="4.0" layoutY="79.0" prefHeight="453.0" prefWidth="293.0">
+            <ScrollPane fx:id="chatListScroll" layoutX="4.0" layoutY="79.0" prefHeight="453.0" prefWidth="293.0" stylesheets="@scroll.css">
                <content>
                   <VBox fx:id="vboxlist2" />
                </content>
