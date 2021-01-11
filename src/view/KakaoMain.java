@@ -17,8 +17,7 @@ public class KakaoMain extends Application{
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		
-		System.out.println("mamulees speaking");
-		System.out.println("mamulees double speaking");
+		System.out.println("이 프로그램 이름은 ham talk입니다!");
 	}
 	public static void main(String[] args) {
 		launch(args);
