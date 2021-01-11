@@ -43,7 +43,7 @@
                   <Font name="Lucida Bright Demibold Italic" size="31.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="40.0" layoutY="145.0" prefHeight="15.0" prefWidth="221.0" text="Welcome to Kakao Talk." textFill="#fefefe">
+            <Label alignment="CENTER" layoutX="40.0" layoutY="145.0" prefHeight="15.0" prefWidth="221.0" text="Welcome to HAM Talk." textFill="#fefefe">
                <font>
                   <Font name="Lucida Bright Italic" size="12.0" />
                </font></Label>
