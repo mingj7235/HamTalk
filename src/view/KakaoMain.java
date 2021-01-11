@@ -22,7 +22,7 @@ public class KakaoMain extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		System.out.println("수정");
+		System.out.println("햄톡");
 	}
 	public static void main(String[] args) {
 		launch(args);
