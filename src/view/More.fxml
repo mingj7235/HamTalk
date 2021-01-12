@@ -37,22 +37,22 @@
                <children>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/user.png" />
+                        <Image url="@../imgs/user-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/comment_empty.png" />
+                        <Image url="@../imgs/comment-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/search.png" />
+                        <Image url="@../imgs/search-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="230.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/ellipsis.png" />
+                        <Image url="@../imgs/ellipsis-bb.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="friends_friends_btn" layoutX="37.0" layoutY="11.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="19.0">
@@ -87,7 +87,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/search.png" />
+                        <Image url="@../imgs/search-bb.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -95,7 +95,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/chats.png" />
+                        <Image url="@../imgs/comment_fill-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -103,7 +103,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/music.png" />
+                        <Image url="@../imgs/music-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -111,7 +111,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/cog.png" />
+                        <Image url="@../imgs/cog-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -305,7 +305,7 @@
             <Separator layoutX="5.0" layoutY="228.0" prefHeight="0.0" prefWidth="290.0" />
             <HBox layoutX="10.0" layoutY="175.0" prefHeight="50.0" prefWidth="280.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="108.0" style="-fx-border-radius: 10; -fx-border-color: #8a8383; -fx-border-width: 0.2;">
+                  <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="108.0" style="-fx-border-radius: 10; -fx-border-color: #8aaae5; -fx-border-width: 0.2;">
                      <HBox.margin>
                         <Insets bottom="15.0" left="5.0" top="10.0" />
                      </HBox.margin>
@@ -344,7 +344,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="150.0">
                      <children>
-                        <Label style="-fx-border-radius: 10; -fx-border-color: #8a8383; -fx-border-width: 0.2;" text="Transfer">
+                        <Label style="-fx-border-radius: 10; -fx-border-color: #8aaae5; -fx-border-width: 0.2;" text="Transfer">
                            <HBox.margin>
                               <Insets right="3.0" />
                            </HBox.margin>
@@ -355,7 +355,7 @@
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </padding>
                         </Label>
-                        <Label style="-fx-border-color: #8a8383; -fx-border-radius: 10; -fx-border-width: 0.2;" text="Payment">
+                        <Label style="-fx-border-color: #8aaae5; -fx-border-radius: 10; -fx-border-width: 0.2;" text="Payment">
                            <HBox.margin>
                               <Insets left="3.0" right="3.0" />
                            </HBox.margin>
@@ -366,7 +366,7 @@
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </padding>
                         </Label>
-                        <Label style="-fx-border-color: #8a8383; -fx-border-radius: 10; -fx-border-width: 0.2;" text="Asset">
+                        <Label style="-fx-border-color: #8aaae5; -fx-border-radius: 10; -fx-border-width: 0.2;" text="Asset">
                            <HBox.margin>
                               <Insets left="3.0" right="3.0" />
                            </HBox.margin>
