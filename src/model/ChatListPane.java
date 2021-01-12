@@ -16,13 +16,15 @@ public class ChatListPane {
 	Label msgLb = new Label();
 	Label timeLb = new Label();
 	Label nameLb = new Label();
+	private int friendNum;
 	
-	
-	public ChatListPane(UserDTO dto) {
-		String name = dto.getName();
-		int num = dto.getUser_num();
-		String message = "recent message";
-		String time = "time";
+	public ChatListPane(int friendNum, String friendName, String message, String time) {
+		
+		String name = friendName;
+		this.friendNum = friendNum;
+		int num = friendNum;
+		String message2 = message;
+		String time2 = time;
 		
 		pane.setPrefHeight(68);
 		pane.setPrefWidth(290);
@@ -53,7 +55,7 @@ public class ChatListPane {
 		msgLb.setLayoutY(39);
 		msgLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 13;"
 				+ "-fx-text-fill: #868686;");
-		msgLb.setText(message);
+		msgLb.setText(message2);
 		
 		timeLb.setAlignment(Pos.CENTER_RIGHT);
 		timeLb.setContentDisplay(ContentDisplay.RIGHT);
@@ -61,8 +63,8 @@ public class ChatListPane {
 		timeLb.setLayoutY(13);
 		timeLb.setPrefHeight(15);
 		timeLb.setPrefWidth(109);
-		timeLb.setText(time);
-		timeLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 12;"
+		timeLb.setText(time2);
+		timeLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 11;"
 				+ "-fx-text-fill: #868686;" );
 		timeLb.setTextAlignment(TextAlignment.CENTER);
 		
@@ -87,6 +89,16 @@ public class ChatListPane {
 
 	public void setPane(Pane pane) {
 		this.pane = pane;
+	}
+
+
+	public int getFriendNum() {
+		return friendNum;
+	}
+
+
+	public void setFriendNum(int friendNum) {
+		this.friendNum = friendNum;
 	}
 	
 }

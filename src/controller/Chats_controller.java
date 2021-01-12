@@ -41,8 +41,6 @@ public class Chats_controller implements Initializable{
 
 	@FXML private VBox vboxlist2;
 
-	private ChatListPane [] chatListPane  = new ChatListPane [100];
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		friends_friends_btn.setOnAction(e->handleBtnFriends(e));
@@ -52,30 +50,18 @@ public class Chats_controller implements Initializable{
 
 		chatListScroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		chatListScroll.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
-
-
-		for(int i = 0; i < UserDTO.friends.size(); i++) {
-			UserDAO dao = new UserDAO();
-			ArrayList<Integer> roomNum = dao.roomOrder();
-			
-			int a = 0;
-			int result = dao.isChatExist(UserDTO.nowUser, UserDTO.friends.get(i));
-			if(result != -1) {
-				for(int j=0; j<roomNum.size(); j++) {
-					if(result == roomNum.get(j)) {
-						a = j;
-						chatListPane[a] = new ChatListPane(UserDTO.friends.get(i));
-						int b = i;
-						chatListPane[a].getPane().setOnMouseClicked(e->handletochatlink(e, UserDTO.friends.get(b)));
-
-					} else continue;
-				}
-			} else continue;
-		}
 		
-		for(int k=0; k<chatListPane.length; k++) {
-			if(chatListPane[k] == null) continue;
-			vboxlist2.getChildren().add(chatListPane[k].getPane());
+		UserDAO dao = new UserDAO();
+		ArrayList<ChatListPane> chatListArr = dao.lastChatOrder(UserDTO.nowUser.getUser_num());
+		for (int i = 0; i < chatListArr.size(); i++) {
+			ChatListPane clp = chatListArr.get(i);
+			for (int j = 0; j < UserDTO.friends.size(); j++) {
+				if(UserDTO.friends.get(j).getUser_num() == clp.getFriendNum()) {
+					int a = j;
+					clp.getPane().setOnMouseClicked(e->handletochatlink(e, UserDTO.friends.get(a)));
+					vboxlist2.getChildren().add(clp.getPane());
+				}
+			}
 		}
 
 		Date date = new Date();

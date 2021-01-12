@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,6 +9,7 @@ import db.DBConn;
 import exception.MyException;
 import javafx.application.Platform;
 import model.AlertBox;
+import model.ChatListPane;
 import model.KakaoMessage;
 import model.MessagePane;
 import model.MyMessagePane;
@@ -97,7 +99,9 @@ public class UserDAO {
 		}
 
 		conn = DBConn.getConnection();
-		String sql = "SELECT DISTINCT cm.room_num, cr.user1_num, cr.user2_num FROM chatmessage cm JOIN chatroom cr ON cm.room_num = cr.room_num WHERE user1_num = ? and user2_num = ?";
+		String sql = "SELECT DISTINCT cm.room_num, cr.user1_num, cr.user2_num "
+				+ "FROM chatmessage cm JOIN chatroom cr ON cm.room_num = cr.room_num "
+				+ "WHERE user1_num = ? and user2_num = ?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -122,7 +126,9 @@ public class UserDAO {
 	public ArrayList<Integer> roomOrder() {
 		ArrayList<Integer> roomNum = new ArrayList<>();
 		conn = DBConn.getConnection();
-		String sql = "SELECT DISTINCT room_num FROM (SELECT room_num, max(message_time) latest FROM chatmessage GROUP BY room_num) ORDER BY latest desc";
+		String sql = "SELECT DISTINCT room_num "
+				+ "FROM (SELECT room_num, max(message_time) latest FROM chatmessage GROUP BY room_num) "
+				+ "ORDER BY latest desc";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -139,6 +145,61 @@ public class UserDAO {
 		}
 
 		return roomNum;
+	}
+	public ArrayList<ChatListPane> lastChatOrder(int myNum) {
+		ArrayList<ChatListPane> arr = new ArrayList<>();
+		conn = DBConn.getConnection();
+		String sql = "SELECT DISTINCT cm1.room_num, cr.user1_num, k1.NAME name1 , cr.user2_num, k2.name name2, cm2.message, to_char(latest, 'YYYYMMDDHH24MI') time, latest "
+				+ "FROM (SELECT room_num, max(message_time) latest FROM chatmessage GROUP BY room_num) cm1, chatroom cr, chatmessage cm2, kakaouser k1, kakaouser k2 "
+				+ "WHERE cm1.room_num = cr.room_num AND latest = cm2.message_time "
+				+ "AND (cr.USER1_NUM = ? OR cr.USER2_NUM = ?) AND k1.USER_NUM = cr.USER1_NUM AND k2.USER_NUM  = cr.USER2_NUM "
+				+ "ORDER BY latest DESC";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, myNum);
+			pstmt.setInt(2, myNum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int friendNum = 0;
+				String friendName = "";
+				if(rs.getInt("user1_num") == myNum) {
+					friendNum = rs.getInt("user2_num");
+					friendName = rs.getString("name2");
+				}else {
+					friendNum = rs.getInt("user1_num");
+					friendName = rs.getString("name1");
+				}
+				String message = rs.getString("message");
+				String timeStr = rs.getString("time");
+				int year = Integer.parseInt(timeStr.substring(0, 4));
+				int month = Integer.parseInt(timeStr.substring(4, 6));
+				int day = Integer.parseInt(timeStr.substring(6, 8));
+				int hour = Integer.parseInt(timeStr.substring(8, 10));
+				int minute = Integer.parseInt(timeStr.substring(10, 12));
+				
+				String ampm;
+				if(hour <12) ampm = "오전";
+				else ampm = "오후";
+				
+				if(hour>12) hour -= 12;
+				
+				String time;
+				LocalDate ld = LocalDate.now();
+				if(year == ld.getYear() && month == ld.getMonthValue() && day == ld.getDayOfMonth()) {
+					time = ampm+hour+"시"+minute+"분";
+				}else {
+					time = month+"월"+day+"일 "+ampm+hour+"시"+minute+"분";
+				}
+				
+				ChatListPane clp = new ChatListPane(friendNum, friendName, message, time);
+				arr.add(clp);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return arr;
 	}
 
 	// 채팅방 있으면 방번호리턴, 없으면 만들어서 방번호 리턴
