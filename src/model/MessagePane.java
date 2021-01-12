@@ -1,6 +1,7 @@
 package model;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javafx.geometry.Insets;
@@ -12,7 +13,23 @@ import javafx.scene.layout.VBox;
 
 public class MessagePane {
 	private VBox vbox = new VBox();
+	private String returnDate;
 	public MessagePane(String name, String msg) {
+		LocalDate ld = LocalDate.now();
+		String year = ld.getYear()+"";
+		String month;
+		if(ld.getMonthValue() < 10) {
+			month = "0"+ld.getMonthValue();
+		}else {
+			month = ld.getMonthValue()+"";
+		}
+		String day;
+		if(ld.getDayOfMonth() < 10) {
+			day = "0"+ld.getDayOfMonth();
+		}else {
+			day = ld.getDayOfMonth()+"";
+		}
+		returnDate = year+month+day;
 		
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("a HH:mm");
@@ -52,6 +69,12 @@ public class MessagePane {
 	}
 	public void setVbox(VBox vbox) {
 		this.vbox = vbox;
+	}
+	public String getReturnDate() {
+		return returnDate;
+	}
+	public void setReturnDate(String returnDate) {
+		this.returnDate = returnDate;
 	}
 	
 	

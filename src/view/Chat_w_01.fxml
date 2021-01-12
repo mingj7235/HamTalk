@@ -70,12 +70,6 @@
                   <Font name="Lucida Bright Regular" size="10.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="70.0" layoutY="77.0" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: rgba(0, 0, 3, 0.2); -fx-border-radius: 20px;" text="Tuesday, January 10, 2021" textFill="#f8f5f5">
-               <font>
-                  <Font name="Lucida Bright Regular" size="11.0" />
-               </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="72.0" prefHeight="37.0" prefWidth="170.0" style="-fx-border-color: ffe9d6; -fx-border-width: 5px; -fx-border-radius: 10px;" />
             <Pane layoutY="533.0" prefHeight="67.0" prefWidth="300.0" style="-fx-background-color: white;">
                <children>
                   <Slider fx:id="chat_slider_opacity" layoutX="235.0" layoutY="46.0" prefHeight="14.0" prefWidth="51.0">
@@ -140,7 +134,7 @@
                   </HBox>
                </children>
             </Pane>
-            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" layoutX="15.0" layoutY="108.0" prefHeight="420.0" prefWidth="280.0" stylesheets="@scroll2.css">
+            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" layoutX="10.0" layoutY="68.0" prefHeight="464.0" prefWidth="281.0" stylesheets="@scroll2.css">
                <content>
                   <VBox fx:id="chat_vbox" layoutX="10.0" prefWidth="280.0" style="-fx-background-color: ffe9d6;" />
                </content>

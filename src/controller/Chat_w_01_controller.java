@@ -43,6 +43,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.AlertBox;
+import model.ChatDatePane;
 import model.HistoryMessagePane;
 import model.HistoryMyMessagePane;
 import model.KakaoMessage;
@@ -64,6 +65,7 @@ public class Chat_w_01_controller implements Initializable{
 	@FXML private VBox chat_vbox;
 	@FXML private ScrollPane chat_scroll;
 	
+	public static String chatDate = "";//현재 메세지 날짜
 	
 	public static int room_num; //현재 내가 접속한 방번호
 	Socket socket;
@@ -165,6 +167,10 @@ public class Chat_w_01_controller implements Initializable{
 				String time = result;
 				HistoryMyMessagePane mine = new HistoryMyMessagePane(UserDTO.nowUser.getName(), data, time);
 				Platform.runLater(() ->{
+					if(!chatDate.equals(timedata.substring(0, 8))) {
+						chat_vbox.getChildren().add(new ChatDatePane(timedata.substring(0, 8)).getvBox());
+						chatDate = timedata.substring(0, 8); //마지막 채팅 시간 설정
+					}
 					chat_vbox.getChildren().add(mine.getVbox());
 				});
 			}else {//친구가보낸메세지였다면
@@ -182,6 +188,10 @@ public class Chat_w_01_controller implements Initializable{
 				String time = result;
 				HistoryMessagePane fmp = new HistoryMessagePane(UserDTO.withFriend.getName(), data, time);
 				Platform.runLater(() -> {
+					if(!chatDate.equals(timedata.substring(0, 8))) {
+						chat_vbox.getChildren().add(new ChatDatePane(timedata.substring(0, 8)).getvBox());
+						chatDate = timedata.substring(0, 8); //마지막 채팅 시간 설정
+					}
 					chat_vbox.getChildren().add(fmp.getVbox());
 				});
 			}
@@ -217,6 +227,10 @@ public class Chat_w_01_controller implements Initializable{
 						data = getMessage.getSendComment();
 						MyMessagePane mine = new MyMessagePane(UserDTO.nowUser.getName(), data);
 						Platform.runLater(() ->{
+							if(!chatDate.equals(mine.getReturnDate())) {
+								chat_vbox.getChildren().add(new ChatDatePane(mine.getReturnDate()).getvBox());
+								chatDate = mine.getReturnDate(); //마지막 채팅 시간 설정
+							}
 							chat_vbox.getChildren().add(mine.getVbox());
 						});
 					}else {//남이보낸거면
@@ -225,6 +239,10 @@ public class Chat_w_01_controller implements Initializable{
 						
 						MessagePane fmp = new MessagePane(getMessage.getSendUserName(), data);
 						Platform.runLater(() -> {
+							if(!chatDate.equals(fmp.getReturnDate())) {
+								chat_vbox.getChildren().add(new ChatDatePane(fmp.getReturnDate()).getvBox());
+								chatDate = fmp.getReturnDate(); //마지막 채팅 시간 설정
+							}
 							chat_vbox.getChildren().add(fmp.getVbox());
 						});
 					}
