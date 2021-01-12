@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -15,9 +22,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="chat_w_01_mainpane" opacity="0.99" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Chat_w_01_controller">
+<BorderPane fx:id="chat_w_01_mainpane" opacity="0.99" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Chat_w_01_controller">
    <center>
-      <Pane fx:id="chat_w_01_pane" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: eff8ff;" BorderPane.alignment="CENTER">
+      <Pane fx:id="chat_w_01_pane" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: ffe9d6;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="Chats_time" layoutX="132.0" layoutY="7.0" text="21:15" />
             <ImageView fitHeight="12.0" fitWidth="16.0" layoutX="34.0" layoutY="8.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
@@ -68,7 +75,7 @@
                   <Font name="Lucida Bright Regular" size="11.0" />
                </font>
             </Label>
-            <Label layoutX="64.0" layoutY="72.0" prefHeight="37.0" prefWidth="170.0" style="-fx-border-color: eff8ff; -fx-border-width: 5px; -fx-border-radius: 10px;" />
+            <Label layoutX="64.0" layoutY="72.0" prefHeight="37.0" prefWidth="170.0" style="-fx-border-color: ffe9d6; -fx-border-width: 5px; -fx-border-radius: 10px;" />
             <Pane layoutY="533.0" prefHeight="67.0" prefWidth="300.0" style="-fx-background-color: white;">
                <children>
                   <Slider fx:id="chat_slider_opacity" layoutX="235.0" layoutY="46.0" prefHeight="14.0" prefWidth="51.0">
@@ -135,7 +142,7 @@
             </Pane>
             <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" layoutX="15.0" layoutY="108.0" prefHeight="420.0" prefWidth="280.0" stylesheets="@scroll2.css">
                <content>
-                  <VBox fx:id="chat_vbox" layoutX="10.0" prefWidth="280.0" style="-fx-background-color: eff8ff;" />
+                  <VBox fx:id="chat_vbox" layoutX="10.0" prefWidth="280.0" style="-fx-background-color: ffe9d6;" />
                </content>
             </ScrollPane>
          </children>
