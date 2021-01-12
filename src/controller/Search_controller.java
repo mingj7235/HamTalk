@@ -48,6 +48,7 @@ public class Search_controller implements Initializable{
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
+			primaryStage.setTitle("Friends");
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,6 +61,7 @@ public class Search_controller implements Initializable{
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chats.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
+			primaryStage.setTitle("Chats");
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,6 +74,7 @@ public class Search_controller implements Initializable{
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Search.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
+			primaryStage.setTitle("Search");
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,6 +87,7 @@ public class Search_controller implements Initializable{
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/More.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
+			primaryStage.setTitle("More");
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -268,6 +268,7 @@ public class Chat_w_01_controller implements Initializable{
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chats.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) chat_back_btn.getScene().getWindow();
+			primaryStage.setTitle("Chats");
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -72,6 +72,7 @@ public class Signup_controller implements Initializable{
 				Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Login.fxml"));
 				Scene scene = new Scene(login);
 				Stage primaryStage = (Stage) signup_signup_btn.getScene().getWindow();
+				primaryStage.setTitle("Login");
 				primaryStage.setScene(scene);
 			}else {
 				System.out.println("회원가입 실패,,,");
@@ -89,6 +90,7 @@ public class Signup_controller implements Initializable{
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Login.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) signup_Back_btn.getScene().getWindow();
+			primaryStage.setTitle("Login");
 			primaryStage.setScene(scene);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

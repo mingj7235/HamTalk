@@ -52,6 +52,7 @@ public class KakaoMain_controller implements Initializable{
 								Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
 								Scene scene = new Scene(login);
 								Stage primaryStage = (Stage) kakaoMain_login_btn.getScene().getWindow();
+								primaryStage.setTitle("Friends");
 								primaryStage.setScene(scene);
 							} else {
 								System.out.println("로그인 실패");
@@ -87,6 +88,7 @@ public class KakaoMain_controller implements Initializable{
 								Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
 								Scene scene = new Scene(login);
 								Stage primaryStage = (Stage) kakaoMain_login_btn.getScene().getWindow();
+								primaryStage.setTitle("Friends");
 								primaryStage.setScene(scene);
 							} else {
 								System.out.println("로그인 실패");
@@ -123,6 +125,7 @@ public class KakaoMain_controller implements Initializable{
 				Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
 				Scene scene = new Scene(login);
 				Stage primaryStage = (Stage) kakaoMain_login_btn.getScene().getWindow();
+				primaryStage.setTitle("Friends");
 				primaryStage.setScene(scene);
 			} else {
 				System.out.println("로그인 실패");
@@ -142,6 +145,7 @@ public class KakaoMain_controller implements Initializable{
 			Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/signup.fxml"));
 			Scene scene = new Scene(signup);
 			Stage primaryStage = (Stage) kakaoMain_signup_btn.getScene().getWindow();
+			primaryStage.setTitle("Sign up");
 			primaryStage.setScene(scene);
 		}catch (Exception e) {
 			e.printStackTrace();
