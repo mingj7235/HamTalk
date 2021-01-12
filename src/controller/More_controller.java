@@ -29,6 +29,9 @@ public class More_controller implements Initializable{
 	@FXML private Button friends_search_btn;
 	@FXML private Button friends_more_btn;
 	
+	@FXML private Label more_name;
+	@FXML private Label more_phone;
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -39,6 +42,10 @@ public class More_controller implements Initializable{
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		More_time.setText(sdf.format(date));
+		
+		more_name.setText(UserDTO.nowUser.getName());
+		more_phone.setText("+82) "+UserDTO.nowUser.getPhonenum());
+		
 	}
 	
 	//네비게이션 바
