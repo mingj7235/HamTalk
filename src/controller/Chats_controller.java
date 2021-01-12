@@ -2,6 +2,7 @@ package controller;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -40,7 +41,7 @@ public class Chats_controller implements Initializable{
 
 	@FXML private VBox vboxlist2;
 
-	private ChatListPane [] chatListPane  = new ChatListPane [UserDTO.friends.size()];
+	private ChatListPane [] chatListPane  = new ChatListPane [100];
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -48,16 +49,33 @@ public class Chats_controller implements Initializable{
 		friends_chats_btn.setOnAction(e->handleBtnChats(e));
 		friends_search_btn.setOnAction(e->handleBtnSearch(e));
 		friends_more_btn.setOnAction(e->handleBtnMore(e));
-		
+
 		chatListScroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		chatListScroll.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 
 
-		for (int i = 0; i < chatListPane.length; i++) {
-			chatListPane[i] = new ChatListPane(UserDTO.friends.get(i));
-			int a = i;
-			chatListPane[i].getPane().setOnMouseClicked(e->handletochatlink(e, UserDTO.friends.get(a)));
-			vboxlist2.getChildren().add(chatListPane[i].getPane());
+		for(int i = 0; i < UserDTO.friends.size(); i++) {
+			UserDAO dao = new UserDAO();
+			ArrayList<Integer> roomNum = dao.roomOrder();
+			
+			int a = 0;
+			int result = dao.isChatExist(UserDTO.nowUser, UserDTO.friends.get(i));
+			if(result != -1) {
+				for(int j=0; j<roomNum.size(); j++) {
+					if(result == roomNum.get(j)) {
+						a = j;
+						chatListPane[a] = new ChatListPane(UserDTO.friends.get(i));
+						int b = i;
+						chatListPane[a].getPane().setOnMouseClicked(e->handletochatlink(e, UserDTO.friends.get(b)));
+
+					} else continue;
+				}
+			} else continue;
+		}
+		
+		for(int k=0; k<chatListPane.length; k++) {
+			if(chatListPane[k] == null) continue;
+			vboxlist2.getChildren().add(chatListPane[k].getPane());
 		}
 
 		Date date = new Date();
