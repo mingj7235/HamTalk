@@ -35,6 +35,42 @@ public class KakaoMain_controller implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		kakaoMain_login_btn.setOnAction(e->handleBtnLogin(e));
+		
+		KakaoMain_login_email.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			public void handle(KeyEvent event) {
+				if(event.getCode() == KeyCode.ENTER) {
+					try {
+						String id = KakaoMain_login_email.getText();
+						String pw = KakaoMain_login_password.getText();
+						UserDAO dao = new UserDAO();
+						LogInException lie = new LogInException();
+						
+						try {
+							lie.userCheck(id, pw);
+							
+							if (dao.login(id, pw)) {
+								Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
+								Scene scene = new Scene(login);
+								Stage primaryStage = (Stage) kakaoMain_login_btn.getScene().getWindow();
+								primaryStage.setScene(scene);
+							} else {
+								System.out.println("로그인 실패");
+							}
+							
+						} catch (MyException e) {
+							
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}catch (Exception e) {
+						
+					}
+				}
+			};
+		});
+		
+		
 		KakaoMain_login_password.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
 				if(event.getCode() == KeyCode.ENTER) {
