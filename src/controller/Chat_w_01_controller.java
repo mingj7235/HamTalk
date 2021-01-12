@@ -43,6 +43,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.AlertBox;
+import model.HistoryMessagePane;
+import model.HistoryMyMessagePane;
 import model.KakaoMessage;
 import model.MessagePane;
 import model.MyMessagePane;
@@ -150,13 +152,35 @@ public class Chat_w_01_controller implements Initializable{
 			KakaoMessage message = arr.get(i);
 			if(message.getSendUserNum() == UserDTO.nowUser.getUser_num()) { //이게 내가 보낸 메세지였다면
 				String data = message.getSendComment();
-				MyMessagePane mine = new MyMessagePane(UserDTO.nowUser.getName(), data);
+				String timedata = message.getTime();
+				String t1 = timedata.substring(8,10); 
+				String t2 = timedata.substring(10); 
+				String result ="";
+				if (Integer.parseInt(t1) > 12) {
+					t1 = (Integer.parseInt(t1) - 12) +"";
+					result = "오후 " + t1 + " : " +t2;
+				}else {
+					result = "오전 " + t1 + " : " +t2;
+				}
+				String time = result;
+				HistoryMyMessagePane mine = new HistoryMyMessagePane(UserDTO.nowUser.getName(), data, time);
 				Platform.runLater(() ->{
 					chat_vbox.getChildren().add(mine.getVbox());
 				});
 			}else {//친구가보낸메세지였다면
 				String data = message.getSendComment();
-				MessagePane fmp = new MessagePane(UserDTO.withFriend.getName(), data);
+				String timedata = message.getTime();
+				String t1 = timedata.substring(8,10); 
+				String t2 = timedata.substring(10); 
+				String result ="";
+				if (Integer.parseInt(t1) > 12) {
+					t1 = (Integer.parseInt(t1) - 12) +"";
+					result = "오후 " + t1 + " : " +t2;
+				}else {
+					result = "오전 " + t1 + " : " +t2;
+				}
+				String time = result;
+				HistoryMessagePane fmp = new HistoryMessagePane(UserDTO.withFriend.getName(), data, time);
 				Platform.runLater(() -> {
 					chat_vbox.getChildren().add(fmp.getVbox());
 				});
