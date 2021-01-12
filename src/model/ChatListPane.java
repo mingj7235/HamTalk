@@ -45,12 +45,14 @@ public class ChatListPane {
 			
 		nameLb.setLayoutX(80);
 		nameLb.setLayoutY(9);
-		nameLb.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 18;");
+		nameLb.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: NanumGothic; "
+				+ "-fx-font-size: 18; -fx-text-fill: #868686;");
 		nameLb.setText(name);
 		
 		msgLb.setLayoutX(80);
 		msgLb.setLayoutY(39);
-		msgLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 13;");
+		msgLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 13;"
+				+ "-fx-text-fill: #868686;");
 		msgLb.setText(message);
 		
 		timeLb.setAlignment(Pos.CENTER_RIGHT);
@@ -60,7 +62,8 @@ public class ChatListPane {
 		timeLb.setPrefHeight(15);
 		timeLb.setPrefWidth(109);
 		timeLb.setText(time);
-		timeLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 12;" );
+		timeLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 12;"
+				+ "-fx-text-fill: #868686;" );
 		timeLb.setTextAlignment(TextAlignment.CENTER);
 		
 		Separator separator = new Separator();
