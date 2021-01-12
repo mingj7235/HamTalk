@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -14,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Chats_controller">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Chats_controller">
    <center>
       <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -40,22 +47,22 @@
                <children>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/user.png" />
+                        <Image url="@../imgs/user-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/comment_empty.png" />
+                        <Image url="@../imgs/comment-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/search.png" />
+                        <Image url="@../imgs/search-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="230.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/ellipsis.png" />
+                        <Image url="@../imgs/ellipsis-bb.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="friends_friends_btn" layoutX="37.0" layoutY="11.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="19.0" textFill="#8aaae5">
@@ -91,7 +98,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/search.png" />
+                        <Image url="@../imgs/search-bb.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -99,7 +106,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/chats.png" />
+                        <Image url="@../imgs/comment_fill-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -107,7 +114,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/music.png" />
+                        <Image url="@../imgs/music-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -115,7 +122,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/cog.png" />
+                        <Image url="@../imgs/cog-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />

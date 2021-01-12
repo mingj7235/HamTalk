@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
-fx:controller="controller.More_controller">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.More_controller">
    <center>
       <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -28,7 +27,7 @@ fx:controller="controller.More_controller">
                   <Font name="Lucida Bright Regular" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="36.0" prefHeight="38.0" prefWidth="96.0" text="More">
+            <Label layoutX="10.0" layoutY="36.0" prefHeight="38.0" prefWidth="96.0" text="More" textFill="#8aaae5">
                <font>
                   <Font name="Lucida Bright Demibold" size="22.0" />
                </font>
@@ -244,7 +243,7 @@ fx:controller="controller.More_controller">
                   </ImageView>
                   <VBox prefHeight="60.0" prefWidth="163.0">
                      <children>
-                        <Label text="Minjae">
+                        <Label fx:id="more_name" style="-fx-font-family: &quot;NanumGothic&quot;;" text="사용자" textFill="#868686">
                            <font>
                               <Font name="Lucida Bright Demibold" size="15.0" />
                            </font>
@@ -252,7 +251,7 @@ fx:controller="controller.More_controller">
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="3mins1@naver.com" textFill="#8a8383">
+                        <Label fx:id="more_phone" text="3mins1@naver.com" textFill="#868686">
                            <font>
                               <Font name="Lucida Bright Italic" size="10.0" />
                            </font>
@@ -269,7 +268,7 @@ fx:controller="controller.More_controller">
                   <Image url="@../imgs/ads.JPG" />
                </image>
             </ImageView>
-            <HBox layoutX="10.0" layoutY="121.0" prefHeight="51.0" prefWidth="280.0" style="-fx-background-color: #FEE100;">
+            <HBox layoutX="10.0" layoutY="121.0" prefHeight="51.0" prefWidth="280.0" style="-fx-background-color: #8aaae5;">
                <children>
                   <Label text="Minjae">
                      <font>

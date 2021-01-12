@@ -28,7 +28,7 @@
                   <Font name="Lucida Bright Regular" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="33.0" prefHeight="38.0" prefWidth="96.0" text="Find">
+            <Label layoutX="14.0" layoutY="33.0" prefHeight="38.0" prefWidth="96.0" text="Find" textFill="#8aaae5">
                <font>
                   <Font name="Lucida Bright Demibold" size="22.0" />
                </font>
@@ -38,22 +38,22 @@
                <children>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/user.png" />
+                        <Image url="@../imgs/user-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/comment_empty.png" />
+                        <Image url="@../imgs/comment-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/search.png" />
+                        <Image url="@../imgs/search-bb.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="230.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/ellipsis.png" />
+                        <Image url="@../imgs/ellipsis-bb.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="friends_friends_btn" layoutX="37.0" layoutY="11.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="19.0">
@@ -89,7 +89,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/search.png" />
+                        <Image url="@../imgs/search-bb.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -97,7 +97,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/chats.png" />
+                        <Image url="@../imgs/comment_fill-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -105,7 +105,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/music.png" />
+                        <Image url="@../imgs/music-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
@@ -113,7 +113,7 @@
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/cog.png" />
+                        <Image url="@../imgs/cog-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
