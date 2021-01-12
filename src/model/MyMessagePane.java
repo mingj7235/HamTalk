@@ -58,9 +58,7 @@ public class MyMessagePane {
 		
 		vbox2.getChildren().add(messageLb);
 		
-		vbox.setMargin(nameLb, new Insets(0, 16, 0, 0));
-		vbox.setMargin(vbox2, new Insets(0, 16, 0, 0));
-		vbox.setMargin(hbox, new Insets(0, 16, 5, 0));
+		vbox.setMargin(hbox, new Insets(0, 0, 5, 0));
 		vbox.setAlignment(Pos.TOP_RIGHT);
 		
 		vbox.getChildren().add(nameLb);
