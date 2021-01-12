@@ -112,9 +112,7 @@ public class Chat_w_01_controller implements Initializable{
 						chat_send_button.setDisable(false);
 
 					});
-				} catch (IOException e) {
 
-					}); 
 				}catch (ConnectException e2) {
 					Platform.runLater(() -> {
 						AlertBox.display("서버연결", "서버연결을 확인하십시오.");
