@@ -50,6 +50,7 @@ import model.KakaoMessage;
 import model.MessagePane;
 import model.MyMessagePane;
 import model.UserDTO;
+import server.Address;
 import server.ServerController;
 
 public class Chat_w_01_controller implements Initializable{
@@ -107,7 +108,8 @@ public class Chat_w_01_controller implements Initializable{
 			public void run() {
 				try {
 					socket = new Socket();
-					socket.connect(new InetSocketAddress("1.238.104.121", 5001));
+
+					socket.connect(new InetSocketAddress(Address.getServerAddress(), Address.getServerPort()));
 
 					//내 번호 보내기
 					sendMyNum(UserDTO.nowUser.getUser_num());
