@@ -122,15 +122,12 @@
                   </VBox>
                </children>
             </HBox>
-            <VBox layoutX="100.0" layoutY="300.0" prefHeight="100.0" prefWidth="100.0" style="-fx-border-radius: 15px; -fx-border-color: white; -fx-border-width: 0.5px;">
-               <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imgs/profile.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </VBox>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/profile.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="94.0" layoutY="298.0" prefHeight="95.0" prefWidth="112.0" style="-fx-border-color: #8AAAE5; -fx-border-radius: 10px; -fx-border-width: 5px;" />
             
          </children>
       </Pane>
