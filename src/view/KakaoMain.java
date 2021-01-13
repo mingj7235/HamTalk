@@ -1,11 +1,14 @@
 package view;
 
+import controller.Chat_w_01_controller;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class KakaoMain extends Application{
 
@@ -15,13 +18,13 @@ public class KakaoMain extends Application{
 		System.setProperty("prism.lcdtext", "false");
 		Font.loadFont(getClass().getResourceAsStream("/resources/NanumGothic.ttf"), 10);
 		
-		
 		primaryStage.setTitle("Login");
 		Parent root = FXMLLoader.load(KakaoMain.class.getResource("/view/Login.fxml"));
 		Scene scene = new Scene (root);
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
+		
 
 		System.out.println("김민재");
 		
