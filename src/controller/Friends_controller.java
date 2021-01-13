@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import model.FriendListPane;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -25,6 +27,7 @@ import model.UserDTO;
 public class Friends_controller implements Initializable{
 	@FXML private Label Friend_time;
 	@FXML private Label logon_id;
+	@FXML private Label Friends_myprofil_label;
 	
 	@FXML private TextField friends_search;
 	@FXML private Button friends_friends_btn;
@@ -49,6 +52,22 @@ public class Friends_controller implements Initializable{
 		
 		list.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		list.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
+		
+		Friends_myprofil_label.setOnMousePressed(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				if(event.getButton() == MouseButton.PRIMARY) {
+					try {
+						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.fxml"));
+						Scene scene = new Scene(signup);
+						Stage primaryStage = (Stage) Friends_myprofil_label.getScene().getWindow();
+						primaryStage.setTitle("Sign up");
+						primaryStage.setScene(scene);
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			};
+		});
 		
 		logon_id.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 18; -fx-text-fill: #868686;");
 		logon_id.setText(UserDTO.nowUser.getName());
