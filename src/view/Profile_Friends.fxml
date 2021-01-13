@@ -18,9 +18,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
-prefHeight="600.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" 
-xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profile_friends_contoller">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profile_friends_contoller">
    <children>
       <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #8AAAE5;" StackPane.alignment="CENTER">
          <children>
@@ -49,13 +47,16 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profile_friends_co
             </VBox>
             <VBox alignment="TOP_CENTER" layoutX="261.0" layoutY="14.0" prefHeight="23.0" prefWidth="23.0" style="-fx-border-radius: 10px; -fx-border-color: white; -fx-border-width: 0.6px; -fx-background-color: transparent;">
                <children>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profile_friends_exit" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/exit.png" />
                      </image>
                      <VBox.margin>
                         <Insets top="1.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </children>
                <padding>
@@ -78,7 +79,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profile_friends_co
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <Label fx:id="profile_label" text="Chats" textFill="WHITE">
+                        <Label text="Chats" textFill="WHITE">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -95,7 +96,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profile_friends_co
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </ImageView>
-                        <Label fx:id="profile_label2" text="HAM Story" textFill="WHITE">
+                        <Label text="HAM Story" textFill="WHITE">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -104,15 +105,12 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profile_friends_co
                   </VBox>
                </children>
             </HBox>
-            <VBox layoutX="100.0" layoutY="300.0" prefHeight="100.0" prefWidth="100.0" style="-fx-border-radius: 15px; -fx-border-color: white; -fx-border-width: 0.5px;">
-               <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imgs/profile.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </VBox>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/profile.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="94.0" layoutY="298.0" prefHeight="95.0" prefWidth="112.0" style="-fx-border-color: #8AAAE5; -fx-border-radius: 10px; -fx-border-width: 5px;" />
             
          </children>
       </Pane>

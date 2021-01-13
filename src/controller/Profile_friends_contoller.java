@@ -9,7 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -17,7 +17,8 @@ import model.UserDTO;
 
 public class Profile_friends_contoller implements Initializable{
 	
-	@FXML private Label profile_friends_chat_label;
+	@FXML private ImageView profile_friends_chat_label;
+	@FXML private ImageView profile_friends_exit;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -41,6 +42,22 @@ public class Profile_friends_contoller implements Initializable{
 			};
 		});
 		
+		profile_friends_exit.setOnMousePressed(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				if(event.getButton() == MouseButton.PRIMARY) {
+					try {
+							
+						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends"));
+						Scene scene = new Scene(signup);
+						Stage primaryStage = (Stage) profile_friends_exit.getScene().getWindow();
+						primaryStage.setTitle("Chatting");
+						primaryStage.setScene(scene);
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			};
+		});
 		
 	}
 	
