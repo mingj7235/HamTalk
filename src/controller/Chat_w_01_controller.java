@@ -66,7 +66,7 @@ public class Chat_w_01_controller implements Initializable{
 	public static String chatDate = "";//현재 메세지 날짜
 	
 	public static int room_num; //현재 내가 접속한 방번호
-	Socket socket;
+	static Socket socket;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -88,6 +88,8 @@ public class Chat_w_01_controller implements Initializable{
 				}
 			};
 		});
+		
+//		Stage stage = (Stage) chat_w_01_mainpane.getScene().getWindow();
 		
 		
 		chat_slider_opacity.valueProperty().addListener(new ChangeListener<Number>() {
@@ -141,6 +143,14 @@ public class Chat_w_01_controller implements Initializable{
 				chat_send_button.setDisable(true);
 			});
 			
+			if(socket != null && !socket.isClosed()) {
+				socket.close();
+			}
+		}catch (Exception e) {}
+	}
+	
+	public static void stopClient2() {
+		try {			
 			if(socket != null && !socket.isClosed()) {
 				socket.close();
 			}

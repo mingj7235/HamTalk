@@ -1,11 +1,14 @@
 package view;
 
+import controller.Chat_w_01_controller;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class KakaoMain extends Application{
 
@@ -22,7 +25,14 @@ public class KakaoMain extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
-
+		
+		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			@Override
+			public void handle(WindowEvent event) {
+				Chat_w_01_controller.stopClient2();
+			}
+		});
+		
 		System.out.println("김민재");
 		
 	}
