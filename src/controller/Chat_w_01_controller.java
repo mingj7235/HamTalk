@@ -107,7 +107,7 @@ public class Chat_w_01_controller implements Initializable{
 			public void run() {
 				try {
 					socket = new Socket();
-					socket.connect(new InetSocketAddress("localhost", 5001));
+					socket.connect(new InetSocketAddress("1.238.104.121", 5001));
 
 					//내 번호 보내기
 					sendMyNum(UserDTO.nowUser.getUser_num());
