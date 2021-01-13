@@ -35,6 +35,17 @@ public class UserDAO {
 			result = pstmt.executeUpdate();
 			AlertBox.display("회원 가입", dto.getName()+"님 환영합니다!");
 			System.out.println(result + "명 회원가입 완료");
+			
+			sql = "INSERT INTO user_data (user_num) "
+					+ "VALUES (("
+					+ "select k.user_num "
+					+ "FROM kakaouser k "
+					+ "WHERE k.NAME = ? AND k.PHONENUM = ?))";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getPhonenum());
+			pstmt.execute();
+			System.out.println("유저정보입력완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
