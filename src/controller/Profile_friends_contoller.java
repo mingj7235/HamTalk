@@ -18,9 +18,15 @@ import model.UserDTO;
 public class Profile_friends_contoller implements Initializable{
 	
 	@FXML private Label profile_friends_chat_label;
+	@FXML private Label friend_name;
+	@FXML private Label friend_status;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		friend_name.setText(UserDTO.withFriend.getName());
+		friend_status.setText(UserDTO.withFriend.getStatus());
+		
 		profile_friends_chat_label.setOnMousePressed(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.PRIMARY) {

@@ -85,7 +85,7 @@ public class Friends_controller implements Initializable{
 			UserDTO.withFriend = friend;
 
 			//scene의 경로
-			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.Friends.fxml"));
+			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile_Friends.fxml"));
 			//받아온 경로로 객체만들기
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
