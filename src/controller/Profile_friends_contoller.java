@@ -47,7 +47,7 @@ public class Profile_friends_contoller implements Initializable{
             if(event.getButton() == MouseButton.PRIMARY) {
                try {
                      
-                  Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends"));
+                  Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
                   Scene scene = new Scene(signup);
                   Stage primaryStage = (Stage) profile_friends_exit.getScene().getWindow();
                   primaryStage.setTitle("Chatting");
