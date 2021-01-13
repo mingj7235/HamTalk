@@ -16,11 +16,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import exception.MyException;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -37,11 +35,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import model.AlertBox;
 import model.ChatDatePane;
 import model.HistoryMessagePane;
@@ -51,7 +49,6 @@ import model.MessagePane;
 import model.MyMessagePane;
 import model.UserDTO;
 import server.Address;
-import server.ServerController;
 
 public class Chat_w_01_controller implements Initializable{
 	@FXML private Label Chats_time;
@@ -91,7 +88,8 @@ public class Chat_w_01_controller implements Initializable{
 				}
 			};
 		});
-
+		
+		
 		chat_slider_opacity.valueProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, 
