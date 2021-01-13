@@ -159,7 +159,7 @@ public class UserDAO {
 			pstmt.setInt(1, myNum);
 			pstmt.setInt(2, myNum);
 			rs = pstmt.executeQuery();
-			
+
 			while(rs.next()) {
 				int friendNum = 0;
 				String friendName = "";
@@ -172,18 +172,21 @@ public class UserDAO {
 				}
 				String message = rs.getString("message");
 				String timeStr = rs.getString("time");
+
+				System.out.println(timeStr);
+
 				int year = Integer.parseInt(timeStr.substring(0, 4));
 				int month = Integer.parseInt(timeStr.substring(4, 6));
 				int day = Integer.parseInt(timeStr.substring(6, 8));
 				int hour = Integer.parseInt(timeStr.substring(8, 10));
 				int minute = Integer.parseInt(timeStr.substring(10, 12));
-				
+
 				String ampm;
 				if(hour <12) ampm = "오전";
 				else ampm = "오후";
-				
+
 				if(hour>12) hour -= 12;
-				
+
 				String time;
 				LocalDate ld = LocalDate.now();
 				if(year == ld.getYear() && month == ld.getMonthValue() && day == ld.getDayOfMonth()) {
@@ -191,7 +194,7 @@ public class UserDAO {
 				}else {
 					time = month+"월"+day+"일 "+ampm+hour+"시"+minute+"분";
 				}
-				
+
 				ChatListPane clp = new ChatListPane(friendNum, friendName, message, time);
 				arr.add(clp);
 			}
@@ -277,7 +280,7 @@ public class UserDAO {
 
 	public ArrayList<KakaoMessage> chatHistory (int count) {
 		int messageCnt = count;
-		ArrayList<KakaoMessage> messageArr = new ArrayList<>();		
+		ArrayList<KakaoMessage> messageArr = new ArrayList<>();      
 		conn = DBConn.getConnection();
 		try {
 			String sql = "SELECT message_num, message, to_char(MESSAGE_TIME, 'YYYYMMDDHH24MI') time, user_num, ROOM_NUM "

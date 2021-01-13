@@ -24,6 +24,7 @@ public class KakaoMain extends Application{
 		primaryStage.show();
 
 		System.out.println("김민재");
+		
 	}
 	public static void main(String[] args) {
 		launch(args);
