@@ -11,13 +11,18 @@ import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.URL;
+import java.security.AccessControlContext;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import com.sun.javafx.stage.WindowCloseRequestHandler;
+import com.sun.javafx.stage.WindowHelper.WindowAccessor;
+
 import exception.MyException;
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
@@ -37,11 +42,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import model.AlertBox;
 import model.ChatDatePane;
 import model.HistoryMessagePane;
@@ -69,10 +78,13 @@ public class Chat_w_01_controller implements Initializable{
 	public static String chatDate = "";//현재 메세지 날짜
 	
 	public static int room_num; //현재 내가 접속한 방번호
-	Socket socket;
+	public Socket socket;
+	
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		chat_send_button.setOnAction(e->handleBtnSend(e));
 		chat_back_btn.setOnAction(e->handleBtnBack(e));
 		chat_chat_name_label.setText(UserDTO.withFriend.getName());
@@ -137,7 +149,19 @@ public class Chat_w_01_controller implements Initializable{
 		thread.start();
 	}
 	
+	public void exitClient () {
+		System.out.println("소켓닫기시도");
+		try {
+			if(socket != null || !socket.isClosed()) {
+				socket.close();
+				System.out.println("소켓닫힘");
+			}
+		}catch (Exception e) {}
+	}
+	
+	
 	void stopClient() {
+	
 		try {
 			Platform.runLater(() -> {
 				chat_send_button.setDisable(true);
@@ -340,6 +364,8 @@ public class Chat_w_01_controller implements Initializable{
 		}
 		return class1.cast(obj);
 	}
+
+	
 	
 
 	
