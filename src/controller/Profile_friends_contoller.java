@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.UserDTO;
 
 public class Profile_friends_contoller implements Initializable{
 	
@@ -38,4 +39,31 @@ public class Profile_friends_contoller implements Initializable{
 		
 		
 	}
+	
+	
+	// 말풍선 클릭시
+	public void handletoChatClick (MouseEvent event, UserDTO friend) {
+		try {
+			//접속하는 채팅방 친구 입력
+			UserDTO.withFriend = friend;
+
+			UserDAO dao = new UserDAO();
+			int room_num = dao.roomCheck(UserDTO.nowUser, UserDTO.withFriend);
+			
+			Chat_w_01_controller.room_num = room_num;
+			
+			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chat_w_01.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) profile_friends_chat_label.getScene().getWindow();
+			primaryStage.setTitle("Chatting");
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
 }

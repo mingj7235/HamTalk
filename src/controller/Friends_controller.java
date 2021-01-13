@@ -85,16 +85,13 @@ public class Friends_controller implements Initializable{
 			UserDTO.withFriend = friend;
 
 			UserDAO dao = new UserDAO();
-			int room_num = dao.roomCheck(UserDTO.nowUser, UserDTO.withFriend); //방이 존재하지 않다면 만들고 결과적으로 방번호 리턴
-			
-			Chat_w_01_controller.room_num = room_num;
-			
+	
 			//scene의 경로
-			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chat_w_01.fxml"));
+			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.Friends.fxml"));
 			//받아온 경로로 객체만들기
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
-			primaryStage.setTitle("Chatting");
+			primaryStage.setTitle("Profile");
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();
