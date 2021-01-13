@@ -72,7 +72,7 @@
                         <Font name="Lucida Bright Italic" size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" prefHeight="68.0" prefWidth="73.0" style="-fx-border-color: white; -fx-border-radius: 10px; -fx-border-width: 4px;" />
+                  <Label fx:id="Friends_myprofil_label" layoutX="10.0" prefHeight="68.0" prefWidth="73.0" style="-fx-border-color: white; -fx-border-radius: 10px; -fx-border-width: 4px;" />
                </children>
                <cursor>
                   <Cursor fx:constant="HAND" />
