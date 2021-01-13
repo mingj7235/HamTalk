@@ -84,8 +84,6 @@ public class Friends_controller implements Initializable{
 			//접속하는 채팅방 친구 입력
 			UserDTO.withFriend = friend;
 
-			UserDAO dao = new UserDAO();
-	
 			//scene의 경로
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.Friends.fxml"));
 			//받아온 경로로 객체만들기

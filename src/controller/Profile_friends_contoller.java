@@ -25,10 +25,14 @@ public class Profile_friends_contoller implements Initializable{
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.PRIMARY) {
 					try {
-						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/signup.fxml"));
+						UserDAO dao = new UserDAO();
+						int room_num = dao.roomCheck(UserDTO.nowUser, UserDTO.withFriend);
+						Chat_w_01_controller.room_num = room_num;
+						
+						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Chat_w_01.fxml"));
 						Scene scene = new Scene(signup);
 						Stage primaryStage = (Stage) profile_friends_chat_label.getScene().getWindow();
-						primaryStage.setTitle("Sign up");
+						primaryStage.setTitle("Chatting");
 						primaryStage.setScene(scene);
 					}catch (Exception e) {
 						e.printStackTrace();
@@ -38,28 +42,6 @@ public class Profile_friends_contoller implements Initializable{
 		});
 		
 		
-	}
-	
-	
-	// 말풍선 클릭시
-	public void handletoChatClick (MouseEvent event, UserDTO friend) {
-		try {
-			//접속하는 채팅방 친구 입력
-			UserDTO.withFriend = friend;
-
-			UserDAO dao = new UserDAO();
-			int room_num = dao.roomCheck(UserDTO.nowUser, UserDTO.withFriend);
-			
-			Chat_w_01_controller.room_num = room_num;
-			
-			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chat_w_01.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) profile_friends_chat_label.getScene().getWindow();
-			primaryStage.setTitle("Chatting");
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
 	
