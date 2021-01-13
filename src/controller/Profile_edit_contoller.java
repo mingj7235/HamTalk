@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -29,18 +30,17 @@ public class Profile_edit_contoller implements Initializable{
 	@FXML private Label Profile_edit_user_name;
 	@FXML private Label profile_exit;
 	
+	@FXML private TextField profile_edit_textfield;
 	@FXML private VBox profile_edit_exit;
 	@FXML private ImageView profile_exit_back;
 	@FXML private ImageView Profile_edit_photo; //변경할 이미지 핸들
-	@FXML private Label profile_edit_status; // 변경할 status 레이블 핸들
 	@FXML private Button profile_edit_status_btn; //status 변경 버튼
 	@FXML private Button profile_edit_photo_btn; // photo 변경 버튼
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Profile_edit_user_name.setText(UserDTO.nowUser.getName());
-		profile_edit_status.setText(UserDTO.nowUser.getStatus());
-		
+		profile_edit_textfield.setPromptText(UserDTO.nowUser.getStatus());
 		profile_edit_photo_btn.setOnAction(e -> handlePhotoBtn(e));
 		
 		profile_exit_back.setOnMousePressed(new EventHandler<MouseEvent>() {
