@@ -73,7 +73,7 @@ public class ServerController implements Initializable{
 		);
 		try {
 			serverSocket = new ServerSocket();
-			serverSocket.bind(new InetSocketAddress("localhost", 5001));
+			serverSocket.bind(new InetSocketAddress(Address.getServerAddress(), Address.getServerPort()));
 		}catch (Exception e) {
 			if(!serverSocket.isClosed()) {
 				stopServer();
