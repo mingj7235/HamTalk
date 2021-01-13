@@ -25,7 +25,7 @@ public class Profile_contoller implements Initializable{
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.PRIMARY) {
 					try {
-						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/signup.fxml"));
+						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile_edit.fxml"));
 						Scene scene = new Scene(signup);
 						Stage primaryStage = (Stage) profile_set_label.getScene().getWindow();
 						primaryStage.setTitle("Sign up");

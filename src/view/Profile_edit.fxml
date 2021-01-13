@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profile_contoller">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #8AAAE5;" StackPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="40.0" layoutY="402.0" prefHeight="15.0" prefWidth="221.0" text="User name" textFill="#fefefe">
+               <font>
+                  <Font name="Lucida Bright Italic" size="12.0" />
+               </font></Label>
+            <Label alignment="CENTER" layoutX="20.0" layoutY="438.0" prefHeight="15.0" prefWidth="261.0" text="Status messages" textFill="#fefefe">
+               <font>
+                  <Font name="Lucida Bright Italic" size="12.0" />
+               </font></Label>
+            <VBox fx:id="profile_edit_exit" alignment="TOP_CENTER" layoutX="261.0" layoutY="14.0" prefHeight="23.0" prefWidth="23.0" style="-fx-border-radius: 10px; -fx-border-color: white; -fx-border-width: 0.6px; -fx-background-color: transparent;">
+               <children>
+                  <ImageView fx:id="profile_exit" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/exit.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="1.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="1.0" right="1.0" top="1.0" />
+               </padding>
+            </VBox>
+            <ImageView fx:id="Profile_edit_photo" fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/profile.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="94.0" layoutY="298.0" prefHeight="95.0" prefWidth="112.0" style="-fx-border-color: #8AAAE5; -fx-border-radius: 10px; -fx-border-width: 5px;" />
+            <Separator layoutX="25.0" layoutY="459.0" prefHeight="1.0" prefWidth="250.0" />
+            <VBox alignment="TOP_CENTER" layoutX="261.0" layoutY="437.0" prefHeight="23.0" prefWidth="23.0" style="-fx-border-radius: 10px; -fx-border-color: white; -fx-border-width: 0; -fx-background-color: transparent;">
+               <children>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/pencil-h.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="1.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="1.0" right="1.0" top="1.0" />
+               </padding>
+            </VBox>
+            <Button fx:id="profile_edit_status" layoutX="24.0" layoutY="434.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="261.0" />
+            <VBox alignment="TOP_CENTER" layoutX="178.0" layoutY="368.0" prefHeight="23.0" prefWidth="23.0" style="-fx-background-radius: 10px; -fx-border-width: 0.6px; -fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.71" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/camera-b.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="1.2" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="1.0" right="1.0" top="1.0" />
+               </padding>
+            </VBox>
+            <Button fx:id="profile_edit_photo" layoutX="90.0" layoutY="293.0" mnemonicParsing="false" opacity="0.0" prefHeight="106.0" prefWidth="122.0" />
+            <HBox layoutX="3.0" layoutY="550.0" prefHeight="50.0" prefWidth="294.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="42.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/camera-h.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="42.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/story-h.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="42.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/music-w.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="42.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/emoticon-w.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="42.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/text-w.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="42.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/image-w.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="42.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/calendar-w.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/back-w.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="40.0" layoutY="13.0" text="Edit Profile" textFill="#fefefe">
+               <font>
+                  <Font name="Lucida Bright Demibold" size="14.0" />
+               </font>
+            </Label>
+            
+         </children>
+      </Pane>
+   </children>
+</StackPane>
