@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.UserDTO;
 
 public class Profile_friends_contoller implements Initializable{
 	
@@ -24,10 +25,14 @@ public class Profile_friends_contoller implements Initializable{
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.PRIMARY) {
 					try {
-						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/signup.fxml"));
+						UserDAO dao = new UserDAO();
+						int room_num = dao.roomCheck(UserDTO.nowUser, UserDTO.withFriend);
+						Chat_w_01_controller.room_num = room_num;
+						
+						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Chat_w_01.fxml"));
 						Scene scene = new Scene(signup);
 						Stage primaryStage = (Stage) profile_friends_chat_label.getScene().getWindow();
-						primaryStage.setTitle("Sign up");
+						primaryStage.setTitle("Chatting");
 						primaryStage.setScene(scene);
 					}catch (Exception e) {
 						e.printStackTrace();
@@ -38,4 +43,9 @@ public class Profile_friends_contoller implements Initializable{
 		
 		
 	}
+	
+	
+	
+	
+	
 }
