@@ -189,7 +189,7 @@ public class UserDAO {
 				if(year == ld.getYear() && month == ld.getMonthValue() && day == ld.getDayOfMonth()) {
 					time = ampm+hour+"시"+minute+"분";
 				}else {
-					time = month+"월"+day+"일 "+ampm+hour+"시"+minute+"분";
+					time = month+"월"+day+"일";
 				}
 				
 				ChatListPane clp = new ChatListPane(friendNum, friendName, message, time);
