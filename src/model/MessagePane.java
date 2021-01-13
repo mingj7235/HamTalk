@@ -32,7 +32,7 @@ public class MessagePane {
 		returnDate = year+month+day;
 		
 		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("a HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("a hh:mm");
 		
 		Label nameLb = new Label(name);
 		nameLb.setStyle("-fx-font-size: 12; -fx-font-family: NanumGothic");
