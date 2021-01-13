@@ -27,7 +27,7 @@ import model.UserDTO;
 public class Friends_controller implements Initializable{
 	@FXML private Label Friend_time;
 	@FXML private Label logon_id;
-	@FXML private Label Friends_myprofil_label;
+	@FXML private Label Friends_myprofile_label;
 	
 	@FXML private TextField friends_search;
 	@FXML private Button friends_friends_btn;
@@ -53,13 +53,13 @@ public class Friends_controller implements Initializable{
 		list.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		list.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		
-		Friends_myprofil_label.setOnMousePressed(new EventHandler<MouseEvent>() {
+		Friends_myprofile_label.setOnMousePressed(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.PRIMARY) {
 					try {
 						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.fxml"));
 						Scene scene = new Scene(signup);
-						Stage primaryStage = (Stage) Friends_myprofil_label.getScene().getWindow();
+						Stage primaryStage = (Stage) Friends_myprofile_label.getScene().getWindow();
 						primaryStage.setTitle("Sign up");
 						primaryStage.setScene(scene);
 					}catch (Exception e) {
