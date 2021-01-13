@@ -4,6 +4,7 @@ public class Address {
 
 	//희광ip번호: 1.238.104.121
 
+
 	private static String dbAddress = "localhost";
 	private static int dbPort = 1521;
 	private static String serverAddress = "localhost";

@@ -18,21 +18,20 @@ public class KakaoMain extends Application{
 		System.setProperty("prism.lcdtext", "false");
 		Font.loadFont(getClass().getResourceAsStream("/resources/NanumGothic.ttf"), 10);
 		
-		
 		primaryStage.setTitle("Login");
 		Parent root = FXMLLoader.load(KakaoMain.class.getResource("/view/Login.fxml"));
 		Scene scene = new Scene (root);
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		
+
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			@Override
 			public void handle(WindowEvent event) {
 				Chat_w_01_controller.stopClient2();
 			}
 		});
-		
+
 		System.out.println("김민재");
 		
 	}
