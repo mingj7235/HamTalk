@@ -72,8 +72,8 @@ public class ServerController implements Initializable{
 			Runtime.getRuntime().availableProcessors()
 		);
 		try {
-			serverSocket = new ServerSocket();
-			serverSocket.bind(new InetSocketAddress(Address.getServerAddress(), Address.getServerPort()));
+			serverSocket = new ServerSocket(Address.getServerPort());
+//			serverSocket.bind(new InetSocketAddress(Address.getServerAddress(), Address.getServerPort()));
 		}catch (Exception e) {
 			if(!serverSocket.isClosed()) {
 				stopServer();
