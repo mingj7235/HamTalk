@@ -28,7 +28,7 @@ public class Profile_contoller implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		Profile_user_name.setText(UserDTO.nowUser.getName());
-		Profile_user_name.setText(UserDTO.nowUser.getStatus());
+		profile_status.setText(UserDTO.nowUser.getStatus());
 		
 		profile_set_label.setOnMousePressed(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {

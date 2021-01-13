@@ -22,11 +22,11 @@
    <children>
       <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #8AAAE5;" StackPane.alignment="CENTER">
          <children>
-            <Label fx:id="Profile_user_name" alignment="CENTER" layoutX="40.0" layoutY="402.0" prefHeight="15.0" prefWidth="221.0" text="User name" textFill="#fefefe">
+            <Label fx:id="Profile_user_name" alignment="CENTER" layoutX="40.0" layoutY="408.0" prefHeight="15.0" prefWidth="221.0" text="User name" textFill="#fefefe">
                <font>
-                  <Font name="Lucida Bright Italic" size="12.0" />
+                  <Font name="Lucida Bright Italic" size="14.0" />
                </font></Label>
-            <Label fx:id="profile_status" alignment="CENTER" layoutX="20.0" layoutY="438.0" prefHeight="15.0" prefWidth="261.0" text="Sign up with phone number:)" textFill="#fefefe">
+            <Label fx:id="profile_status" alignment="CENTER" layoutX="20.0" layoutY="438.0" prefHeight="15.0" prefWidth="261.0" text="이건 지금 없는 상태메세지야" textFill="#fefefe">
                <font>
                   <Font name="Lucida Bright Italic" size="12.0" />
                </font></Label>
@@ -122,12 +122,12 @@
                   </VBox>
                </children>
             </HBox>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="300.0" pickOnBounds="true">
                <image>
                   <Image url="@../imgs/profile.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="94.0" layoutY="298.0" prefHeight="95.0" prefWidth="112.0" style="-fx-border-color: #8AAAE5; -fx-border-radius: 10px; -fx-border-width: 5px;" />
+            <Label layoutX="96.0" layoutY="295.0" prefHeight="110.0" prefWidth="110.0" style="-fx-border-color: #8AAAE5; -fx-border-radius: 10px; -fx-border-width: 5px;" />
             
          </children>
       </Pane>

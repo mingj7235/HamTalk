@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -28,6 +29,7 @@ public class Friends_controller implements Initializable{
    @FXML private Label Friend_time;
    @FXML private Label logon_id;
    @FXML private Label Friends_myprofile_label;
+   @FXML private ImageView userImage;
    
    @FXML private TextField friends_search;
    @FXML private Button friends_friends_btn;
@@ -71,6 +73,7 @@ public class Friends_controller implements Initializable{
       
       logon_id.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 18; -fx-text-fill: #868686;");
       logon_id.setText(UserDTO.nowUser.getName());
+      userImage.setImage(UserDTO.nowUser.getImage());
       for (int i = 0; i < friendListPane.length; i++) {
          friendListPane[i] = new FriendListPane(UserDTO.friends.get(i));
          int a = i;

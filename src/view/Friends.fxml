@@ -56,7 +56,7 @@
                      <font>
                         <Font name="Lucida Bright Italic" size="13.0" />
                      </font></Label>
-                  <ImageView fitHeight="59.0" fitWidth="78.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="userImage" fitHeight="59.0" fitWidth="78.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/profile.jpg" />
                      </image>

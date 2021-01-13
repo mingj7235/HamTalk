@@ -1,19 +1,24 @@
 package controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import db.DBConn;
 import exception.MyException;
-import javafx.application.Platform;
+import javafx.scene.image.Image;
 import model.AlertBox;
 import model.ChatListPane;
 import model.KakaoMessage;
-import model.MessagePane;
-import model.MyMessagePane;
 import model.UserDTO;
+import oracle.sql.BLOB;
 
 public class UserDAO {
 	Connection conn;
@@ -59,9 +64,12 @@ public class UserDAO {
 	public boolean login(String phonenum, String pw) throws MyException {
 		boolean result = false;
 		conn = DBConn.getConnection();
-		String sql = "SELECT * FROM kakaoUser WHERE phonenum = ?";
+		String sql = "SELECT k.user_num, k.phonenum, k.name, k.password, u.user_status "
+				+ "FROM kakaoUser k, user_data u "
+				+ "WHERE phonenum = ? AND k.user_num = u.user_num";
 
 		try {
+			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, phonenum);
 			rs = pstmt.executeQuery();
@@ -72,9 +80,16 @@ public class UserDAO {
 				UserDTO.nowUser.setPhonenum(rs.getString("phonenum"));
 				UserDTO.nowUser.setName(rs.getString("name"));
 				UserDTO.nowUser.setPassword(rs.getString("password"));
-
+				UserDTO.nowUser.setStatus(rs.getString("user_status"));
+				if(getImage(rs.getInt("user_num"), conn) == null) {
+					UserDTO.nowUser.setImage(new Image("/imgs/emptyUser.png"));					
+				}else {
+					UserDTO.nowUser.setImage(getImage(rs.getInt("user_num"), conn));					
+				}
 				// 친구 목록
-				sql = "SELECT * FROM kakaoUser WHERE phonenum != ?";
+				sql = "SELECT k.user_num, k.phonenum, k.name, k.password, u.user_status "
+						+ "FROM kakaoUser k, user_data u "
+						+ "WHERE phonenum != ? AND k.user_num = u.user_num";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, phonenum);
 				rs = pstmt.executeQuery();
@@ -84,9 +99,14 @@ public class UserDAO {
 					dto.setPassword(rs.getString("password"));
 					dto.setPhonenum(rs.getString("phonenum"));
 					dto.setUser_num(rs.getInt("user_num"));
+					dto.setStatus(rs.getString("user_status"));
+					if(getImage(rs.getInt("user_num"), conn) == null) {
+						dto.setImage(new Image("/imgs/emptyUser.png"));						
+					}else {
+						dto.setImage(getImage(rs.getInt("user_num"), conn));
+					}
 					UserDTO.friends.add(dto);
 				}
-				System.out.println("친구목록추가 완료");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -94,9 +114,63 @@ public class UserDAO {
 		} finally {
 			DBConn.dbClose(rs, pstmt, conn);
 		}
+		
+		
+		System.out.println("친구목록추가 완료");
 		return result;
 	}
-
+	Image getImage(int userNum, Connection conn) {
+		String sql = "SELECT user_image from user_data WHERE user_num = ?";
+		File file = new File("file");
+		try {
+			conn.setAutoCommit(false);
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, userNum);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				BLOB blob = (BLOB)rs.getBlob("user_image");
+				InputStream is = blob.getBinaryStream();
+				System.out.println(is);
+				FileOutputStream os = new FileOutputStream(file);
+				int size = blob.getBufferSize();
+				byte [] buffer = new byte[size];
+				int length = -1;
+				while((length = is.read(buffer)) != -1) {
+					os.write(buffer, 0, length);
+				}
+				os.close();
+				is.close();
+				
+//				byte [] buffer = new byte[1024];
+//				int length = -1;
+//				while((length = is.read(buffer)) != -1) {
+//					System.out.println(1);
+//					System.out.println(buffer);
+//					os.write(buffer, 0, length);
+//				}
+//				os.close();
+			}
+			conn.commit();
+			conn.setAutoCommit(true);			
+		}catch (NullPointerException e) {
+			return null;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		System.out.println(file);
+		System.out.println(file);
+		Image image = new Image(file.toURI().toString());
+		return image;
+	}
+	
+	
 	// 채팅방 목록 및 순서
 	public int isChatExist (UserDTO nowUser, UserDTO friend) {
 		int a, b; //작은번호가 a 큰번호 b
@@ -329,6 +403,88 @@ public class UserDAO {
 		}
 		return messageArr;
 	}
+	
+	public boolean profileSave(File file, String status) {
+		conn = DBConn.getConnection();
+		//직렬화
+		boolean result = false;
+		try {
+			conn.setAutoCommit(false);
+//			byte [] bytes = null;
+//			ByteArrayOutputStream bos = new ByteArrayOutputStream(); //바이트배열 데이터 입출력 스트림
+//			ObjectOutputStream oos = new ObjectOutputStream(bos); //객체 직렬화
+//			oos.writeObject(file);
+//			oos.flush();
+//			oos.close();
+//			bytes = bos.toByteArray();
+		
+			String sql = "SELECT user_image from user_data WHERE user_num = ? for update";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, UserDTO.nowUser.getUser_num());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				BLOB blob = (BLOB) rs.getBlob("user_image");
+				System.out.println(file);
+				FileInputStream is = new FileInputStream(file);
+				OutputStream os = blob.setBinaryStream(1);
+				
+				byte[] buffer = new byte[1024];
+				int length = -1;
+				while((length = is.read(buffer))!= -1) {
+					os.write(buffer, 0, length);
+				}
+				os.close();
+				
+				conn.commit();
+//				OutputStream os = blob.getBinaryOutputStream();
+//				os.write(bytes);
+//				os.flush();
+//				os.close();
+			}
+			sql = "UPDATE user_data SET user_status = ? WHERE user_num = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, status);
+			pstmt.setInt(2, UserDTO.nowUser.getUser_num());
+			pstmt.execute();
+			
+			result = true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBConn.dbClose(rs, pstmt, conn);
+		}
+		return result;
+	}
 
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 } // UserDAO

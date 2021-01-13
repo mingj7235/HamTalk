@@ -31,11 +31,13 @@ public class Profile_edit_contoller implements Initializable{
 	@FXML private Label profile_exit;
 	
 	@FXML private TextField profile_edit_textfield;
-	@FXML private VBox profile_edit_exit;
+	@FXML private VBox profile_edit_save;
 	@FXML private ImageView profile_exit_back;
 	@FXML private ImageView Profile_edit_photo; //변경할 이미지 핸들
 	@FXML private Button profile_edit_status_btn; //status 변경 버튼
 	@FXML private Button profile_edit_photo_btn; // photo 변경 버튼
+	
+	static File thisImageFile;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -58,13 +60,19 @@ public class Profile_edit_contoller implements Initializable{
 				}
 			};
 		});
-		profile_edit_exit.setOnMousePressed(new EventHandler<MouseEvent>() {
+		profile_edit_save.setOnMousePressed(new EventHandler<MouseEvent>() { //저장
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.PRIMARY) {
 					try {
-						Parent profile =FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
+						Image image = Profile_edit_photo.getImage();
+						String status = profile_edit_textfield.getText();
+						UserDAO dao = new UserDAO();
+						boolean result = dao.profileSave(thisImageFile, status);
+						
+						
+						Parent profile =FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.fxml"));
 						Scene scene = new Scene(profile);
-						Stage primaryStage = (Stage) profile_edit_exit.getScene().getWindow();
+						Stage primaryStage = (Stage) profile_edit_save.getScene().getWindow();
 						primaryStage.setTitle("Profile edit");
 						primaryStage.setScene(scene);
 					}catch (Exception e) {
@@ -84,10 +92,11 @@ public class Profile_edit_contoller implements Initializable{
 		
 		Stage primaryStage = (Stage) profile_edit_photo_btn.getScene().getWindow();
 		File file = fc.showOpenDialog(primaryStage);
+		thisImageFile = file;
 		Image image = new Image(file.toURI().toString());
 		Profile_edit_photo.setImage(image);
 
-
+		
 	}
 
 

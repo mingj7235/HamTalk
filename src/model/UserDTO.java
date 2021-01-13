@@ -1,6 +1,9 @@
 package model;
 
+import java.io.File;
 import java.util.ArrayList;
+
+import javafx.scene.image.Image;
 
 
 public class UserDTO {
@@ -13,7 +16,8 @@ public class UserDTO {
 	private String phonenum;
 	private String name;
 	private String password;
-	private String status;
+	private String status = "";
+	private Image image;
 	
 	public int getUser_num() {
 		return user_num;
@@ -45,4 +49,11 @@ public class UserDTO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public Image getImage() {
+		return image;
+	}
+	public void setImage(Image image) {
+		this.image = image;
+	}
+	
 }
