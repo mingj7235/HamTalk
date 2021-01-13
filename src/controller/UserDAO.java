@@ -190,9 +190,20 @@ public class UserDAO {
 				String time;
 				LocalDate ld = LocalDate.now();
 				if(year == ld.getYear() && month == ld.getMonthValue() && day == ld.getDayOfMonth()) {
-					time = ampm+hour+"시"+minute+"분";
+					String hour2, minute2;
+					if(hour < 10) {
+						hour2 = "0"+hour;
+					}else {
+						hour2 = ""+hour;
+					}
+					if(minute < 10) {
+						minute2 = "0"+minute;
+					}else {
+						minute2 = ""+minute;
+					}
+					time = ampm+hour2+"시"+minute2+"분";
 				}else {
-					time = month+"월"+day+"일 "+ampm+hour+"시"+minute+"분";
+					time = month+"월"+day+"일";
 				}
 
 				ChatListPane clp = new ChatListPane(friendNum, friendName, message, time);
