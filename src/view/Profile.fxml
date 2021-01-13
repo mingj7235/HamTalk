@@ -122,7 +122,7 @@
                   </VBox>
                </children>
             </HBox>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="300.0" pickOnBounds="true">
+            <ImageView fx:id="myImage" fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="300.0" pickOnBounds="true">
                <image>
                   <Image url="@../imgs/profile.jpg" />
                </image>

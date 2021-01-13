@@ -29,6 +29,7 @@ public class Friends_controller implements Initializable{
    @FXML private Label Friend_time;
    @FXML private Label logon_id;
    @FXML private Label Friends_myprofile_label;
+   @FXML private Label user_status;
    @FXML private ImageView userImage;
    
    @FXML private TextField friends_search;
@@ -74,6 +75,7 @@ public class Friends_controller implements Initializable{
       logon_id.setStyle("-fx-font-weight: bold; -fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 18; -fx-text-fill: #868686;");
       logon_id.setText(UserDTO.nowUser.getName());
       userImage.setImage(UserDTO.nowUser.getImage());
+      user_status.setText(UserDTO.nowUser.getStatus());
       for (int i = 0; i < friendListPane.length; i++) {
          friendListPane[i] = new FriendListPane(UserDTO.friends.get(i));
          int a = i;

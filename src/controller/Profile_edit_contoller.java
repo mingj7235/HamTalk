@@ -44,6 +44,7 @@ public class Profile_edit_contoller implements Initializable{
 		Profile_edit_user_name.setText(UserDTO.nowUser.getName());
 		profile_edit_textfield.setPromptText(UserDTO.nowUser.getStatus());
 		profile_edit_photo_btn.setOnAction(e -> handlePhotoBtn(e));
+		Profile_edit_photo.setImage(UserDTO.nowUser.getImage());
 		
 		profile_exit_back.setOnMousePressed(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
@@ -68,7 +69,7 @@ public class Profile_edit_contoller implements Initializable{
 						String status = profile_edit_textfield.getText();
 						UserDAO dao = new UserDAO();
 						boolean result = dao.profileSave(thisImageFile, status);
-						
+						UserDTO.nowUser.setImage(new Image(thisImageFile.toURI().toString()));
 						
 						Parent profile =FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.fxml"));
 						Scene scene = new Scene(profile);

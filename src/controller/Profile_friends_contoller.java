@@ -20,6 +20,7 @@ public class Profile_friends_contoller implements Initializable{
    
    @FXML private ImageView profile_friends_chat_label;
    @FXML private ImageView profile_friends_exit;
+   @FXML private ImageView friendImage;
    @FXML private Label friend_name;
    @FXML private Label friend_status;
    
@@ -29,7 +30,7 @@ public class Profile_friends_contoller implements Initializable{
 	   
 	   friend_name.setText(UserDTO.withFriend.getName());
 	   friend_status.setText(UserDTO.withFriend.getStatus());
-	   
+	   friendImage.setImage(UserDTO.withFriend.getImage());
       profile_friends_chat_label.setOnMousePressed(new EventHandler<MouseEvent>() {
          public void handle(MouseEvent event) {
             if(event.getButton() == MouseButton.PRIMARY) {

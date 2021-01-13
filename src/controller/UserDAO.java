@@ -449,7 +449,9 @@ public class UserDAO {
 			pstmt.execute();
 			
 			result = true;
-		} catch (SQLException e) {
+		}catch (NullPointerException e) {
+			
+		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {

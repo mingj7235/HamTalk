@@ -20,6 +20,7 @@ public class Profile_contoller implements Initializable{
 	
 	@FXML private Label Profile_user_name;
 	@FXML private Label profile_status;
+	@FXML private ImageView myImage;
 	
 	@FXML private ImageView profile_set_label;
 	@FXML private ImageView profile_exit;
@@ -29,6 +30,7 @@ public class Profile_contoller implements Initializable{
 		
 		Profile_user_name.setText(UserDTO.nowUser.getName());
 		profile_status.setText(UserDTO.nowUser.getStatus());
+		myImage.setImage(UserDTO.nowUser.getImage());
 		
 		profile_set_label.setOnMousePressed(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
