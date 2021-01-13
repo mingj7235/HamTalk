@@ -25,15 +25,6 @@ public class KakaoMain extends Application{
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		
-		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-			@Override
-			public void handle(WindowEvent event) {
-				System.out.println("윈도우창 닫힘");
-				Chat_w_01_controller cwc = new Chat_w_01_controller();
-				cwc.exitClient();
-			}
-		});
-		
 
 		System.out.println("김민재");
 		

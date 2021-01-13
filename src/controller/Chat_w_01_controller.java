@@ -103,6 +103,7 @@ public class Chat_w_01_controller implements Initializable{
 				}
 			};
 		});
+		
 
 		chat_slider_opacity.valueProperty().addListener(new ChangeListener<Number>() {
 			@Override
