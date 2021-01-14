@@ -26,23 +26,20 @@
                <font>
                   <Font name="Lucida Bright Italic" size="14.0" />
                </font></Label>
-            <VBox fx:id="profile_edit_save" alignment="TOP_CENTER" layoutX="256.0" layoutY="14.0" prefHeight="30.0" prefWidth="30.0" style="-fx-border-radius: 10px; -fx-border-color: white; -fx-border-width: 0.6px; -fx-background-color: transparent;">
+            <VBox fx:id="profile_edit_save" alignment="CENTER" layoutX="262.0" layoutY="10.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 10px; -fx-border-color: white; -fx-border-width: 0.6px; -fx-background-color: transparent;">
+               <padding>
+                  <Insets left="1.0" right="1.0" top="1.0" />
+               </padding>
                <children>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/upload.png" />
+                        <Image url="@../imgs/check.png" />
                      </image>
-                     <VBox.margin>
-                        <Insets top="1.0" />
-                     </VBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
                </children>
-               <padding>
-                  <Insets left="1.0" right="1.0" top="1.0" />
-               </padding>
             </VBox>
             <ImageView fx:id="Profile_edit_photo" fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="300.0" pickOnBounds="true">
                <image>
