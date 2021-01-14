@@ -1,5 +1,9 @@
 package controller;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,6 +25,7 @@ public class Profile_friends_contoller implements Initializable{
    @FXML private ImageView profile_friends_chat_label;
    @FXML private ImageView profile_friends_exit;
    @FXML private ImageView friendImage;
+   @FXML private ImageView profile_friends_githam; 
    @FXML private Label friend_name;
    @FXML private Label friend_status;
    
@@ -31,6 +36,22 @@ public class Profile_friends_contoller implements Initializable{
 	   friend_name.setText(UserDTO.withFriend.getName());
 	   friend_status.setText(UserDTO.withFriend.getStatus());
 	   friendImage.setImage(UserDTO.withFriend.getImage());
+	   profile_friends_githam.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+	            if(event.getButton() == MouseButton.PRIMARY) {
+	               Runtime runtime = Runtime.getRuntime();
+	               try {
+	            	   Desktop.getDesktop().browse(new URI("https://github.com/"));
+	               }catch (IOException e) {
+	            	   
+	               }catch (URISyntaxException e) {
+	            	   
+	               }
+	            }
+	         };
+		});
+	   
       profile_friends_chat_label.setOnMousePressed(new EventHandler<MouseEvent>() {
          public void handle(MouseEvent event) {
             if(event.getButton() == MouseButton.PRIMARY) {
