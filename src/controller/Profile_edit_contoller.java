@@ -67,9 +67,17 @@ public class Profile_edit_contoller implements Initializable{
 					try {
 						Image image = Profile_edit_photo.getImage();
 						String status = profile_edit_textfield.getText();
+						
 						UserDAO dao = new UserDAO();
-						boolean result = dao.profileSave(thisImageFile, status);
-						UserDTO.nowUser.setImage(new Image(thisImageFile.toURI().toString()));
+						if(thisImageFile != null) {
+							dao.profileSave(thisImageFile, status);
+							UserDTO.nowUser.setImage(new Image(thisImageFile.toURI().toString()));			
+							UserDTO.nowUser.setStatus(status);
+						}else {
+							dao.profileSave(status);
+							UserDTO.nowUser.setStatus(status);
+						}
+						
 						
 						Parent profile =FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.fxml"));
 						Scene scene = new Scene(profile);

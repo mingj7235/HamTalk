@@ -167,6 +167,7 @@ public class UserDAO {
 //		System.out.println(file);
 		System.out.println(file);
 		Image image = new Image(file.toURI().toString());
+		file.delete();
 		return image;
 	}
 	
@@ -404,43 +405,31 @@ public class UserDAO {
 		return messageArr;
 	}
 	
-	public boolean profileSave(File file, String status) {
+	public void profileSave(File file, String status) {
 		conn = DBConn.getConnection();
 		//직렬화
-		boolean result = false;
+		String sql = "SELECT user_image from user_data WHERE user_num = ? for update";
 		try {
-			conn.setAutoCommit(false);
-//			byte [] bytes = null;
-//			ByteArrayOutputStream bos = new ByteArrayOutputStream(); //바이트배열 데이터 입출력 스트림
-//			ObjectOutputStream oos = new ObjectOutputStream(bos); //객체 직렬화
-//			oos.writeObject(file);
-//			oos.flush();
-//			oos.close();
-//			bytes = bos.toByteArray();
-		
-			String sql = "SELECT user_image from user_data WHERE user_num = ? for update";
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, UserDTO.nowUser.getUser_num());
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				BLOB blob = (BLOB) rs.getBlob("user_image");
-				System.out.println(file);
-				FileInputStream is = new FileInputStream(file);
-				OutputStream os = blob.setBinaryStream(1);
-				
-				byte[] buffer = new byte[1024];
-				int length = -1;
-				while((length = is.read(buffer))!= -1) {
-					os.write(buffer, 0, length);
+			if(file != null) {
+				conn.setAutoCommit(false);
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, UserDTO.nowUser.getUser_num());
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					BLOB blob = (BLOB) rs.getBlob("user_image");
+					System.out.println(file);
+					FileInputStream is = new FileInputStream(file);
+					OutputStream os = blob.setBinaryStream(1);
+					
+					byte[] buffer = new byte[1024];
+					int length = -1;
+					while((length = is.read(buffer))!= -1) {
+						os.write(buffer, 0, length);
+					}
+					os.close();
+					
+					conn.commit();
 				}
-				os.close();
-				
-				conn.commit();
-//				OutputStream os = blob.getBinaryOutputStream();
-//				os.write(bytes);
-//				os.flush();
-//				os.close();
 			}
 			sql = "UPDATE user_data SET user_status = ? WHERE user_num = ?";
 			pstmt = conn.prepareStatement(sql);
@@ -448,7 +437,6 @@ public class UserDAO {
 			pstmt.setInt(2, UserDTO.nowUser.getUser_num());
 			pstmt.execute();
 			
-			result = true;
 		}catch (NullPointerException e) {
 			
 		}catch (SQLException e) {
@@ -460,7 +448,26 @@ public class UserDAO {
 		} finally {
 			DBConn.dbClose(rs, pstmt, conn);
 		}
-		return result;
+	}
+	public void profileSave(String status) {
+		conn = DBConn.getConnection();
+		//직렬화
+		String sql = "UPDATE user_data SET user_status = ? WHERE user_num = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, status);
+			pstmt.setInt(2, UserDTO.nowUser.getUser_num());
+			pstmt.execute();
+			
+		}catch (NullPointerException e) {
+			
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBConn.dbClose(rs, pstmt, conn);
+		}
+		
 	}
 
 	
