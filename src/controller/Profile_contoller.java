@@ -1,5 +1,9 @@
 package controller;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,6 +28,7 @@ public class Profile_contoller implements Initializable{
 	
 	@FXML private ImageView profile_set_label;
 	@FXML private ImageView profile_exit;
+	@FXML private ImageView profile_git_link;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -31,6 +36,22 @@ public class Profile_contoller implements Initializable{
 		Profile_user_name.setText(UserDTO.nowUser.getName());
 		profile_status.setText(UserDTO.nowUser.getStatus());
 		myImage.setImage(UserDTO.nowUser.getImage());
+		
+		profile_git_link.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+	            if(event.getButton() == MouseButton.PRIMARY) {
+	               Runtime runtime = Runtime.getRuntime();
+	               try {
+	            	   Desktop.getDesktop().browse(new URI("https://github.com/"));
+	               }catch (IOException e) {
+	            	   
+	               }catch (URISyntaxException e) {
+	            	   
+	               }
+	            }
+	         };
+		});
 		
 		profile_set_label.setOnMousePressed(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {

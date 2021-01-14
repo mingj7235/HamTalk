@@ -105,15 +105,18 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
                      <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="profile_git_link" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imgs/story-h.png" />
+                              <Image url="@../imgs/git-hub-w.png" />
                            </image>
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
-                        <Label text="HAM Story" textFill="WHITE">
+                        <Label text="GIT HAM" textFill="WHITE">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
