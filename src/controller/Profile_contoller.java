@@ -60,7 +60,7 @@ public class Profile_contoller implements Initializable{
 						Parent profile=FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile_edit.fxml"));
 						Scene scene = new Scene(profile);
 						Stage primaryStage = (Stage) profile_set_label.getScene().getWindow();
-						primaryStage.setTitle("Profile");
+						primaryStage.setTitle("Profile Edit");
 						primaryStage.setScene(scene);
 					}catch (Exception e) {
 						e.printStackTrace();
