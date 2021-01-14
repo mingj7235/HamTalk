@@ -1,6 +1,9 @@
 package controller;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -50,16 +53,16 @@ public class More_controller implements Initializable{
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		More_time.setText(sdf.format(date));
 		
-		Hyperlink link = new Hyperlink("http://http://theforment.com/");
-		
 		More_ads_image.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
 	            if(event.getButton() == MouseButton.PRIMARY) {
 	               Runtime runtime = Runtime.getRuntime();
 	               try {
-	            	   runtime.exec("C:/Program Files/Google/Chrome/Application/chrome.exe http://theforment.com//");
+	            	   Desktop.getDesktop().browse(new URI("http://theforment.com/"));
 	               }catch (IOException e) {
+	            	   
+	               }catch (URISyntaxException e) {
 	            	   
 	               }
 	            }
