@@ -26,11 +26,11 @@
                <font>
                   <Font name="Lucida Bright Italic" size="14.0" />
                </font></Label>
-            <VBox fx:id="profile_edit_save" alignment="TOP_CENTER" layoutX="261.0" layoutY="14.0" prefHeight="23.0" prefWidth="23.0" style="-fx-border-radius: 10px; -fx-border-color: white; -fx-border-width: 0.6px; -fx-background-color: transparent;">
+            <VBox fx:id="profile_edit_save" alignment="TOP_CENTER" layoutX="256.0" layoutY="14.0" prefHeight="30.0" prefWidth="30.0" style="-fx-border-radius: 10px; -fx-border-color: white; -fx-border-width: 0.6px; -fx-background-color: transparent;">
                <children>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/exit.png" />
+                        <Image url="@../imgs/upload.png" />
                      </image>
                      <VBox.margin>
                         <Insets top="1.0" />
