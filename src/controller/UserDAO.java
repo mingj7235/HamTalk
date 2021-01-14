@@ -160,6 +160,37 @@ public class UserDAO {
 		System.out.println("친구목록추가 완료");
 		return result;
 	}
+	public void friendReview() {
+		UserDTO.friends.clear(); //친구전체삭제
+		try {
+			conn = DBConn.getConnection();
+			String sql = "SELECT k.user_num, k.phonenum, k.name, k.password, u.user_status "
+					+ "FROM kakaoUser k, user_data u "
+					+ "WHERE phonenum != ? AND k.user_num = u.user_num";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, UserDTO.nowUser.getPhonenum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				UserDTO dto = new UserDTO();
+				dto.setName(rs.getString("name"));
+				dto.setPassword(rs.getString("password"));
+				dto.setPhonenum(rs.getString("phonenum"));
+				dto.setUser_num(rs.getInt("user_num"));
+				dto.setStatus(rs.getString("user_status"));
+				if(getImage(rs.getInt("user_num"), conn) == null) {
+					dto.setImage(new Image("/imgs/emptyUser.png"));						
+				}else {
+					dto.setImage(getImage(rs.getInt("user_num"), conn));
+				}
+				UserDTO.friends.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBConn.dbClose(rs, pstmt, conn);
+		}
+	}
 	Image getImage(int userNum, Connection conn) {
 		String sql = "SELECT user_image from user_data WHERE user_num = ?";
 		File file = new File("file");
@@ -171,7 +202,6 @@ public class UserDAO {
 			if(rs.next()) {
 				BLOB blob = (BLOB)rs.getBlob("user_image");
 				InputStream is = blob.getBinaryStream();
-				System.out.println(is);
 				FileOutputStream os = new FileOutputStream(file);
 				int size = blob.getBufferSize();
 				byte [] buffer = new byte[size];

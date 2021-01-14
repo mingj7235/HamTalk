@@ -45,6 +45,9 @@ public class Chats_controller implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		UserDAO dao = new UserDAO();
+		dao.friendReview();
+		
 		friends_friends_btn.setOnAction(e->handleBtnFriends(e));
 		friends_chats_btn.setOnAction(e->handleBtnChats(e));
 		friends_search_btn.setOnAction(e->handleBtnSearch(e));
@@ -53,7 +56,6 @@ public class Chats_controller implements Initializable{
 		chatListScroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		chatListScroll.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		
-		UserDAO dao = new UserDAO();
 		ArrayList<ChatListPane> chatListArr = dao.lastChatOrder(UserDTO.nowUser.getUser_num());
 		for (int i = 0; i < chatListArr.size(); i++) {
 			ChatListPane clp = chatListArr.get(i);

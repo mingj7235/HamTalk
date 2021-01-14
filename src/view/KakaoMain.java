@@ -31,8 +31,6 @@ public class KakaoMain extends Application{
 				Chat_w_01_controller.stopClient2();
 			}
 		});
-
-		System.out.println("김민재");
 		
 	}
 	public static void main(String[] args) {
