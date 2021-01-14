@@ -138,11 +138,12 @@ public class Chat_w_01_controller implements Initializable{
 				}catch (ConnectException e2) {
 					Platform.runLater(() -> {
 						AlertBox.display("서버연결", "서버연결을 확인하십시오.");
-					}); 
+					});
 				} 
 				catch (IOException e) {
-
-					e.printStackTrace();
+					Platform.runLater(() -> {
+						AlertBox.display("서버연결", "서버연결을 확인하십시오.");
+					});
 					if(!socket.isClosed()) {stopClient();}
 					return;
 				}
