@@ -26,68 +26,17 @@
    <center>
       <Pane fx:id="chat_w_01_pane" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: ffe9d6;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="Chats_time" layoutX="132.0" layoutY="7.0" text="21:15" />
-            <ImageView fitHeight="12.0" fitWidth="16.0" layoutX="34.0" layoutY="8.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
-            
-               <image>
-                  <Image url="@../imgs/wifi.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="15.0" layoutY="8.0" text="KT">
-               <font>
-                  <Font name="Lucida Bright Regular" size="10.0" />
-               </font>
-            </Label>
-            <Label fx:id="chat_chat_name_label" layoutX="132.0" layoutY="35.0" style="-fx-font-family: &quot;NanumGothic&quot;;" text="NAME" />
-            <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="17.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imgs/chevron_left.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="chat_back_btn" layoutX="20.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="242.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imgs/search.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="244.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;" />
-            <Button layoutX="269.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;" />
-            <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="266.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imgs/bars.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="16.0" fitWidth="20.0" layoutX="266.0" layoutY="5.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imgs/battery.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="243.0" layoutY="7.0" text="78%">
-               <font>
-                  <Font name="Lucida Bright Regular" size="10.0" />
-               </font>
-            </Label>
             <Pane layoutY="533.0" prefHeight="67.0" prefWidth="300.0" style="-fx-background-color: white;">
                <children>
-                  <Slider fx:id="chat_slider_opacity" layoutX="235.0" layoutY="46.0" prefHeight="14.0" prefWidth="51.0">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Slider>
                   <TextField fx:id="chat_write_messages" layoutX="12.0" layoutY="9.0" prefHeight="30.0" prefWidth="279.0" promptText="Write messages...">
                      <font>
                         <Font name="Lucida Bright Italic" size="11.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="chat_send_button" disable="true" layoutX="249.0" layoutY="12.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="37.0" style="-fx-background-color: #8AAAE5;" text="send" textFill="WHITE">
-                     <font>
-                        <Font name="Lucida Bright Demibold" size="9.5" />
-                     </font>
+                  <Slider fx:id="chat_slider_opacity" layoutX="235.0" layoutY="46.0" prefHeight="14.0" prefWidth="51.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></Button>
+                     </cursor></Slider>
                   <HBox layoutX="15.0" layoutY="43.0" prefHeight="19.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="18.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
@@ -132,8 +81,59 @@
                         </ImageView>
                      </children>
                   </HBox>
+                  <Button fx:id="chat_send_button" disable="true" layoutX="249.0" layoutY="12.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="37.0" style="-fx-background-color: #8AAAE5;" text="send" textFill="WHITE">
+                     <font>
+                        <Font name="Lucida Bright Demibold" size="9.5" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </Pane>
+            <Label fx:id="Chats_time" layoutX="132.0" layoutY="7.0" text="21:15" />
+            <ImageView fitHeight="12.0" fitWidth="16.0" layoutX="34.0" layoutY="8.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+            
+               <image>
+                  <Image url="@../imgs/wifi.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="15.0" layoutY="8.0" text="KT">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="chat_chat_name_label" layoutX="132.0" layoutY="35.0" style="-fx-font-family: &quot;NanumGothic&quot;;" text="NAME" />
+            <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="17.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/chevron_left.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="chat_back_btn" layoutX="20.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="242.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/search.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="244.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;" />
+            <Button layoutX="269.0" layoutY="32.0" mnemonicParsing="false" opacity="0.0" style="-fx-background-color: #abc1d1;" />
+            <ImageView fitHeight="18.0" fitWidth="25.0" layoutX="266.0" layoutY="34.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/bars.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="16.0" fitWidth="20.0" layoutX="266.0" layoutY="5.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/battery.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="243.0" layoutY="7.0" text="78%">
+               <font>
+                  <Font name="Lucida Bright Regular" size="10.0" />
+               </font>
+            </Label>
             <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" layoutX="10.0" layoutY="68.0" prefHeight="464.0" prefWidth="281.0" stylesheets="@scroll2.css">
                <content>
                   <VBox fx:id="chat_vbox" layoutX="10.0" prefWidth="280.0" style="-fx-background-color: ffe9d6;" />
