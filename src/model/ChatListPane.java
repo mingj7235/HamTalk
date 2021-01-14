@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.TextAlignment;
@@ -17,6 +18,7 @@ public class ChatListPane {
 	Label timeLb = new Label();
 	Label nameLb = new Label();
 	private int friendNum;
+	String url = "/imgs/profile.jpg";
 	
 	public ChatListPane(int friendNum, String friendName, String message, String time) {
 		
@@ -30,20 +32,23 @@ public class ChatListPane {
 		pane.setPrefWidth(290);
 		pane.setId(num+"ChatListPane");
 		
-		String url = "/imgs/profile.jpg";
-		ImageView imageView = new ImageView(url);
+		ImageView imageView = new ImageView();
+		for (int i = 0; i < UserDTO.friends.size(); i++) {
+			if(UserDTO.friends.get(i).getUser_num() == friendNum) {
+				imageView = new ImageView(UserDTO.friends.get(i).getImage());
+			}
+		}
 		imageView.setFitHeight(60);
 		imageView.setFitWidth(60);
 		imageView.setLayoutX(6);
-		imageView.setLayoutY(6);
+		imageView.setLayoutY(4);
 		imageView.setPickOnBounds(true);
-		imageView.setPreserveRatio(true);
 		
-		borderLb.setLayoutX(4);
+		borderLb.setLayoutX(2);
 		borderLb.setLayoutY(1);
-		borderLb.setPrefHeight(64);
-		borderLb.setPrefWidth(64);
-		borderLb.setStyle("-fx-border-color: CCCCCC; -fx-border-radius: 10px; -fx-border-width: 5px;" );
+		borderLb.setPrefHeight(68);
+		borderLb.setPrefWidth(68);
+		borderLb.setStyle("-fx-border-color: white; -fx-border-radius: 10px; -fx-border-width: 4px;");
 			
 		nameLb.setLayoutX(80);
 		nameLb.setLayoutY(9);
@@ -100,5 +105,5 @@ public class ChatListPane {
 	public void setFriendNum(int friendNum) {
 		this.friendNum = friendNum;
 	}
-	
+
 }
