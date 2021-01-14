@@ -140,15 +140,6 @@ public class UserDAO {
 				}
 				os.close();
 				is.close();
-				
-//				byte [] buffer = new byte[1024];
-//				int length = -1;
-//				while((length = is.read(buffer)) != -1) {
-//					System.out.println(1);
-//					System.out.println(buffer);
-//					os.write(buffer, 0, length);
-//				}
-//				os.close();
 			}
 			conn.commit();
 			conn.setAutoCommit(true);			
@@ -164,8 +155,49 @@ public class UserDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		System.out.println(file);
-		System.out.println(file);
+		Image image = new Image(file.toURI().toString());
+		file.delete();
+		return image;
+	}
+	Image getImage(int userNum) {
+		String sql = "SELECT user_image from user_data WHERE user_num = ?";
+		File file = new File("file");
+		try {
+			conn = DBConn.getConnection();
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, userNum);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				BLOB blob = (BLOB)rs.getBlob("user_image");
+				InputStream is = blob.getBinaryStream();
+				System.out.println(is);
+				FileOutputStream os = new FileOutputStream(file);
+				int size = blob.getBufferSize();
+				byte [] buffer = new byte[size];
+				int length = -1;
+				while((length = is.read(buffer)) != -1) {
+					os.write(buffer, 0, length);
+				}
+				os.close();
+				is.close();
+			}
+			conn.commit();
+			conn.setAutoCommit(true);			
+		}catch (NullPointerException e) {
+			return null;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBConn.dbClose(rs, pstmt, conn);
+		}
 		Image image = new Image(file.toURI().toString());
 		file.delete();
 		return image;
