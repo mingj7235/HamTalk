@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,15 +8,19 @@ import java.util.ResourceBundle;
 
 import model.FriendListPane;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -31,6 +36,8 @@ public class More_controller implements Initializable{
 	
 	@FXML private Label more_name;
 	@FXML private Label more_phone;
+	@FXML private ImageView More_ads_image;
+	
 	
 	
 	@Override
@@ -42,6 +49,22 @@ public class More_controller implements Initializable{
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		More_time.setText(sdf.format(date));
+		
+		Hyperlink link = new Hyperlink("http://http://theforment.com/");
+		
+		More_ads_image.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+	            if(event.getButton() == MouseButton.PRIMARY) {
+	               Runtime runtime = Runtime.getRuntime();
+	               try {
+	            	   runtime.exec("C:/Program Files/Google/Chrome/Application/chrome.exe http://theforment.com//");
+	               }catch (IOException e) {
+	            	   
+	               }
+	            }
+	         };
+		});
 		
 		more_name.setText(UserDTO.nowUser.getName());
 		more_phone.setText("+82) "+UserDTO.nowUser.getPhonenum());

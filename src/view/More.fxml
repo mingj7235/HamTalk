@@ -263,10 +263,13 @@
                   </VBox>
                </children>
             </HBox>
-            <ImageView fitHeight="150.0" fitWidth="280.0" layoutX="10.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="More_ads_image" fitHeight="150.0" fitWidth="280.0" layoutX="10.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/ads.JPG" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <HBox layoutX="10.0" layoutY="121.0" prefHeight="51.0" prefWidth="280.0" style="-fx-background-color: #8aaae5;">
                <children>
