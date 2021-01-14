@@ -36,10 +36,10 @@ public class Profile_contoller implements Initializable{
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.PRIMARY) {
 					try {
-						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile_edit.fxml"));
-						Scene scene = new Scene(signup);
+						Parent profile=FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile_edit.fxml"));
+						Scene scene = new Scene(profile);
 						Stage primaryStage = (Stage) profile_set_label.getScene().getWindow();
-						primaryStage.setTitle("Sign up");
+						primaryStage.setTitle("Profile");
 						primaryStage.setScene(scene);
 					}catch (Exception e) {
 						e.printStackTrace();
@@ -51,10 +51,10 @@ public class Profile_contoller implements Initializable{
 			public void handle(MouseEvent event) {
 				if(event.getButton() == MouseButton.PRIMARY) {
 					try {
-						Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
-						Scene scene = new Scene(signup);
+						Parent profile=FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
+						Scene scene = new Scene(profile);
 						Stage primaryStage = (Stage) profile_exit.getScene().getWindow();
-						primaryStage.setTitle("Sign up");
+						primaryStage.setTitle("Profile");
 						primaryStage.setScene(scene);
 					}catch (Exception e) {
 						e.printStackTrace();
