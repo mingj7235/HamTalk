@@ -63,7 +63,7 @@ public class Friends_controller implements Initializable{
                   Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.fxml"));
                   Scene scene = new Scene(signup);
                   Stage primaryStage = (Stage) Friends_myprofile_label.getScene().getWindow();
-                  primaryStage.setTitle("Sign up");
+                  primaryStage.setTitle("Profile");
                   primaryStage.setScene(scene);
                }catch (Exception e) {
                   e.printStackTrace();

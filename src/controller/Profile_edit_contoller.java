@@ -42,7 +42,7 @@ public class Profile_edit_contoller implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Profile_edit_user_name.setText(UserDTO.nowUser.getName());
-		profile_edit_textfield.setPromptText(UserDTO.nowUser.getStatus());
+		profile_edit_textfield.setText(UserDTO.nowUser.getStatus());
 		profile_edit_photo_btn.setOnAction(e -> handlePhotoBtn(e));
 		Profile_edit_photo.setImage(UserDTO.nowUser.getImage());
 		
