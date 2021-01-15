@@ -169,8 +169,7 @@ public class Chat_w_01_controller implements Initializable{
 		try {
 			Platform.runLater(() -> {
 				chat_send_button.setDisable(true);
-				UserDAO dao = new UserDAO();
-				dao.lastLogOnDate(UserDTO.nowUser, UserDTO.withFriend, room_num);
+				
 			});
 			
 			if(socket != null && !socket.isClosed()) {
@@ -346,6 +345,8 @@ public class Chat_w_01_controller implements Initializable{
 	
 	public void handleBtnBack(ActionEvent event) {
 		try {
+			UserDAO dao = new UserDAO();
+			dao.lastLogOnDate(UserDTO.nowUser, UserDTO.withFriend, room_num);
 			stopClient();
 			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chats.fxml"));
 			Scene scene = new Scene(login);
