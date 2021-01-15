@@ -297,7 +297,6 @@ public class UserDAO {
 		conn = DBConn.getConnection();
 		String sql;
 		try {
-			conn.commit();
 			sql = "SELECT DISTINCT cm1.room_num, cr.user1_num, k1.NAME name1 , cr.user2_num, k2.name name2, cm2.message, to_char(latest, 'YYYYMMDDHH24MI') time, latest "
 					+ "FROM (SELECT room_num, max(message_time) latest FROM chatmessage GROUP BY room_num) cm1, chatroom cr, chatmessage cm2, kakaouser k1, kakaouser k2 "
 					+ "WHERE cm1.room_num = cr.room_num AND latest = cm2.message_time "
