@@ -297,6 +297,7 @@ public class UserDAO {
 		conn = DBConn.getConnection();
 		String sql;
 		try {
+			conn.commit();
 			sql = "SELECT DISTINCT cm1.room_num, cr.user1_num, k1.NAME name1 , cr.user2_num, k2.name name2, cm2.message, to_char(latest, 'YYYYMMDDHH24MI') time, latest "
 					+ "FROM (SELECT room_num, max(message_time) latest FROM chatmessage GROUP BY room_num) cm1, chatroom cr, chatmessage cm2, kakaouser k1, kakaouser k2 "
 					+ "WHERE cm1.room_num = cr.room_num AND latest = cm2.message_time "
@@ -306,7 +307,6 @@ public class UserDAO {
 			pstmt.setInt(1, myNum);
 			pstmt.setInt(2, myNum);
 			rs = pstmt.executeQuery();
-			
 			while(rs.next()) {
 				int friendNum = 0;
 				String friendName = "";
@@ -366,10 +366,12 @@ public class UserDAO {
 				if(rs2.next()) {
 					myTime = rs2.getTime(1);
 				}
-				if(myTime.after(messageTime)) { //내 마지막 접속시간이 마지막 채팅보다 이후라면
-					lastOnOff = false;
-				}else {
+				System.out.println(myTime);
+				System.out.println(messageTime);
+				if(myTime.before(messageTime)) { //내 마지막 접속시간이 마지막 채팅보다 이후라면
 					lastOnOff = true;
+				}else {
+					lastOnOff = false;
 				}
 				if(rs2 != null) rs2.close();
 				ChatListPane clp = new ChatListPane(friendNum, friendName, message, time, lastOnOff);
@@ -568,6 +570,7 @@ public class UserDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, roomNum);
 			pstmt.execute();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
