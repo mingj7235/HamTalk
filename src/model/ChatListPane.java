@@ -88,11 +88,11 @@ public class ChatListPane {
 		pane.getChildren().add(timeLb);
 		pane.getChildren().add(separator);
 		if(lastOnOff) {
-			ImageView cautionImage = new ImageView("./imgs/messageCaution.png");
-			cautionImage.setFitHeight(23);
-			cautionImage.setFitWidth(23);
+			ImageView cautionImage = new ImageView("./imgs/messageCaution.jpeg");
+			cautionImage.setFitHeight(15);
+			cautionImage.setFitWidth(20);
 			cautionImage.setLayoutX(260);
-			cautionImage.setLayoutY(35);
+			cautionImage.setLayoutY(38);
 			cautionImage.setPickOnBounds(true);
 			pane.getChildren().add(cautionImage);
 		}
