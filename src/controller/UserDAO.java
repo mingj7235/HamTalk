@@ -295,18 +295,20 @@ public class UserDAO {
 	public ArrayList<ChatListPane> lastChatOrder(int myNum) {
 		ArrayList<ChatListPane> arr = new ArrayList<>();
 		conn = DBConn.getConnection();
-		String sql = "SELECT DISTINCT cm1.room_num, cr.user1_num, k1.NAME name1 , cr.user2_num, k2.name name2, cm2.message, to_char(latest, 'YYYYMMDDHH24MI') time, latest "
-				+ "FROM (SELECT room_num, max(message_time) latest FROM chatmessage GROUP BY room_num) cm1, chatroom cr, chatmessage cm2, kakaouser k1, kakaouser k2 "
-				+ "WHERE cm1.room_num = cr.room_num AND latest = cm2.message_time "
-				+ "AND (cr.USER1_NUM = ? OR cr.USER2_NUM = ?) AND k1.USER_NUM = cr.USER1_NUM AND k2.USER_NUM  = cr.USER2_NUM "
-				+ "ORDER BY latest DESC";
+		String sql;
 		try {
+			sql = "SELECT DISTINCT cm1.room_num, cr.user1_num, k1.NAME name1 , cr.user2_num, k2.name name2, cm2.message, to_char(latest, 'YYYYMMDDHH24MI') time, latest "
+					+ "FROM (SELECT room_num, max(message_time) latest FROM chatmessage GROUP BY room_num) cm1, chatroom cr, chatmessage cm2, kakaouser k1, kakaouser k2 "
+					+ "WHERE cm1.room_num = cr.room_num AND latest = cm2.message_time "
+					+ "AND (cr.USER1_NUM = ? OR cr.USER2_NUM = ?) AND k1.USER_NUM = cr.USER1_NUM AND k2.USER_NUM  = cr.USER2_NUM "
+					+ "ORDER BY latest DESC";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, myNum);
 			pstmt.setInt(2, myNum);
 			rs = pstmt.executeQuery();
-
+			
 			while(rs.next()) {
+				boolean lastOnOff;
 				int friendNum = 0;
 				String friendName = "";
 				if(rs.getInt("user1_num") == myNum) {
@@ -319,8 +321,7 @@ public class UserDAO {
 				String message = rs.getString("message");
 				String timeStr = rs.getString("time");
 
-				System.out.println(timeStr);
-
+				
 				int year = Integer.parseInt(timeStr.substring(0, 4));
 				int month = Integer.parseInt(timeStr.substring(4, 6));
 				int day = Integer.parseInt(timeStr.substring(6, 8));
@@ -351,13 +352,24 @@ public class UserDAO {
 				}else {
 					time = month+"월"+day+"일";
 				}
-
+				
+				//여기부터 접속시간확인
+				Time messageTime = rs.getTime("latest");
+				if(myNum < friendNum) {
+					sql = "SELECT lastLogOn_user1 FROM chatroom WHERE room_num = ?";					
+				}else {
+					sql = "SELECT lastLogOn_user2 FROM chatroom WHERE room_num = ?";					
+				}
+				
+				
 				ChatListPane clp = new ChatListPane(friendNum, friendName, message, time);
 				arr.add(clp);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			DBConn.dbClose(rs, pstmt, conn);
 		}
 		return arr;
 	}
@@ -529,7 +541,31 @@ public class UserDAO {
 		}
 		
 	}
-
+	
+	public void lastLogOnDate(UserDTO nowUser, UserDTO withFriend, int roomNum) {//채팅 마지막으로 확인한 시간 추가하는 메소드
+		conn = DBConn.getConnection();
+		String sql;
+		if(nowUser.getUser_num() < withFriend.getUser_num()) {
+			sql = "UPDATE chatroom "
+					+ "SET lastLogOn_user1 = sysdate "
+					+ "WHERE room_num = ?";			
+		}else {
+			sql = "UPDATE chatroom "
+					+ "SET lastLogOn_user2 = sysdate "
+					+ "WHERE room_num = ?";			
+		}
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, roomNum);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBConn.dbClose(rs, pstmt, conn);
+		}
+		
+	}
 	
 	
 	

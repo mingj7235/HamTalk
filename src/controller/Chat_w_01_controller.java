@@ -164,12 +164,13 @@ public class Chat_w_01_controller implements Initializable{
 		}catch (Exception e) {}
 	}
 	
-	
 	void stopClient() {
 	
 		try {
 			Platform.runLater(() -> {
 				chat_send_button.setDisable(true);
+				UserDAO dao = new UserDAO();
+				dao.lastLogOnDate(UserDTO.nowUser, UserDTO.withFriend, room_num);
 			});
 			
 			if(socket != null && !socket.isClosed()) {
