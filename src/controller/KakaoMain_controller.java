@@ -118,7 +118,8 @@ public class KakaoMain_controller implements Initializable{
 		UserDAO dao = new UserDAO();
 		LogInException lie = new LogInException();
 		
-		try {
+		try {	
+			lie.emptyCheck(id, pw);
 			lie.userCheck(id, pw);
 			
 			if (dao.login(id, pw)) {
