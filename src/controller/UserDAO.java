@@ -308,7 +308,6 @@ public class UserDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				boolean lastOnOff;
 				int friendNum = 0;
 				String friendName = "";
 				if(rs.getInt("user1_num") == myNum) {
@@ -352,17 +351,29 @@ public class UserDAO {
 				}else {
 					time = month+"월"+day+"일";
 				}
-				
 				//여기부터 접속시간확인
+				boolean lastOnOff;
 				Time messageTime = rs.getTime("latest");
 				if(myNum < friendNum) {
 					sql = "SELECT lastLogOn_user1 FROM chatroom WHERE room_num = ?";					
 				}else {
 					sql = "SELECT lastLogOn_user2 FROM chatroom WHERE room_num = ?";					
 				}
-				
-				
-				ChatListPane clp = new ChatListPane(friendNum, friendName, message, time);
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, rs.getInt("room_num"));
+				ResultSet rs2 = pstmt.executeQuery();
+				Time myTime = null;
+				if(rs2.next()) {
+					myTime = rs2.getTime(1);
+				}
+				System.out.println(myTime);
+				if(myTime.after(messageTime)) { //내 마지막 접속시간이 마지막 채팅보다 이후라면
+					lastOnOff = false;
+				}else {
+					lastOnOff = true;
+				}
+				if(rs2 != null) rs2.close();
+				ChatListPane clp = new ChatListPane(friendNum, friendName, message, time, lastOnOff);
 				arr.add(clp);
 			}
 		} catch (SQLException e) {

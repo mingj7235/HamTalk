@@ -20,8 +20,8 @@ public class ChatListPane {
 	private int friendNum;
 	String url = "/imgs/profile.jpg";
 	
-	public ChatListPane(int friendNum, String friendName, String message, String time) {
-		
+	public ChatListPane(int friendNum, String friendName, String message, String time, boolean lastOnOff) {
+		System.out.println(lastOnOff);
 		String name = friendName;
 		this.friendNum = friendNum;
 		int num = friendNum;
