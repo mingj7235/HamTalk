@@ -45,9 +45,9 @@ public class Chats_controller implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		//친구 새로고침 필요성이 없음
+//		dao.friendReview();
 		UserDAO dao = new UserDAO();
-		dao.friendReview();
-		
 		friends_friends_btn.setOnAction(e->handleBtnFriends(e));
 		friends_chats_btn.setOnAction(e->handleBtnChats(e));
 		friends_search_btn.setOnAction(e->handleBtnSearch(e));

@@ -20,8 +20,8 @@ public class ChatListPane {
 	private int friendNum;
 	String url = "/imgs/profile.jpg";
 	
-	public ChatListPane(int friendNum, String friendName, String message, String time) {
-		
+	public ChatListPane(int friendNum, String friendName, String message, String time, boolean lastOnOff) {
+		System.out.println(lastOnOff);
 		String name = friendName;
 		this.friendNum = friendNum;
 		int num = friendNum;
@@ -58,6 +58,7 @@ public class ChatListPane {
 		
 		msgLb.setLayoutX(80);
 		msgLb.setLayoutY(39);
+		msgLb.setPrefWidth(180);
 		msgLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 13;"
 				+ "-fx-text-fill: #868686;");
 		msgLb.setText(message2);
@@ -73,6 +74,8 @@ public class ChatListPane {
 				+ "-fx-text-fill: #868686;" );
 		timeLb.setTextAlignment(TextAlignment.CENTER);
 		
+		
+		
 		Separator separator = new Separator();
 		separator.setLayoutY(65);
 		separator.setPrefHeight(7);
@@ -84,6 +87,15 @@ public class ChatListPane {
 		pane.getChildren().add(msgLb);
 		pane.getChildren().add(timeLb);
 		pane.getChildren().add(separator);
+		if(lastOnOff) {
+			ImageView cautionImage = new ImageView("./imgs/messageCaution.png");
+			cautionImage.setFitHeight(23);
+			cautionImage.setFitWidth(23);
+			cautionImage.setLayoutX(260);
+			cautionImage.setLayoutY(35);
+			cautionImage.setPickOnBounds(true);
+			pane.getChildren().add(cautionImage);
+		}
 	}
 
 

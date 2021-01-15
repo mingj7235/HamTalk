@@ -31,7 +31,6 @@ public class KakaoMain extends Application{
 				Chat_w_01_controller.stopClient2();
 			}
 		});
-		
 	}
 	public static void main(String[] args) {
 		launch(args);
