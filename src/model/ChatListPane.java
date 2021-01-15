@@ -74,6 +74,8 @@ public class ChatListPane {
 				+ "-fx-text-fill: #868686;" );
 		timeLb.setTextAlignment(TextAlignment.CENTER);
 		
+		
+		
 		Separator separator = new Separator();
 		separator.setLayoutY(65);
 		separator.setPrefHeight(7);
@@ -85,6 +87,15 @@ public class ChatListPane {
 		pane.getChildren().add(msgLb);
 		pane.getChildren().add(timeLb);
 		pane.getChildren().add(separator);
+		if(lastOnOff) {
+			ImageView cautionImage = new ImageView("./imgs/messageCaution.png");
+			cautionImage.setFitHeight(23);
+			cautionImage.setFitWidth(23);
+			cautionImage.setLayoutX(260);
+			cautionImage.setLayoutY(35);
+			cautionImage.setPickOnBounds(true);
+			pane.getChildren().add(cautionImage);
+		}
 	}
 
 
