@@ -38,6 +38,7 @@ public class More_controller implements Initializable{
 	@FXML private Button friends_more_btn;
 	
 	@FXML private Label more_name;
+	@FXML private Label more_name2;
 	@FXML private Label more_phone;
 	@FXML private ImageView more_image;
 	@FXML private ImageView More_ads_image;
@@ -73,6 +74,7 @@ public class More_controller implements Initializable{
 		more_image.setImage(UserDTO.nowUser.getImage());
 		more_name.setText(UserDTO.nowUser.getName());
 		more_phone.setText("+82) "+UserDTO.nowUser.getPhonenum());
+		more_name2.setText(UserDTO.nowUser.getName());
 		
 	}
 	
