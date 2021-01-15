@@ -58,6 +58,7 @@ public class ChatListPane {
 		
 		msgLb.setLayoutX(80);
 		msgLb.setLayoutY(39);
+		msgLb.setPrefWidth(180);
 		msgLb.setStyle("-fx-font-style: italic; -fx-font-family: NanumGothic; -fx-font-size: 13;"
 				+ "-fx-text-fill: #868686;");
 		msgLb.setText(message2);

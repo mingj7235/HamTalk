@@ -366,7 +366,6 @@ public class UserDAO {
 				if(rs2.next()) {
 					myTime = rs2.getTime(1);
 				}
-				System.out.println(myTime);
 				if(myTime.after(messageTime)) { //내 마지막 접속시간이 마지막 채팅보다 이후라면
 					lastOnOff = false;
 				}else {
