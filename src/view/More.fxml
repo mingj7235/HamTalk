@@ -91,7 +91,7 @@
                <children>
                   <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/search-bb.png" />
+                        <Image url="@../imgs/search-b.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
