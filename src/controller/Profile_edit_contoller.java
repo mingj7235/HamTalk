@@ -95,17 +95,18 @@ public class Profile_edit_contoller implements Initializable{
 	}
 
 	public void handlePhotoBtn (ActionEvent event) {
-		
+
 		FileChooser fc = new FileChooser();
 		fc.setTitle("프로필 사진 수정");
-		
+
 		Stage primaryStage = (Stage) profile_edit_photo_btn.getScene().getWindow();
 		File file = fc.showOpenDialog(primaryStage);
 		thisImageFile = file;
-		Image image = new Image(file.toURI().toString());
-		Profile_edit_photo.setImage(image);
+		if(file != null) {
+			Image image = new Image(file.toURI().toString());
+			Profile_edit_photo.setImage(image);
+		}
 
-		
 	}
 
 

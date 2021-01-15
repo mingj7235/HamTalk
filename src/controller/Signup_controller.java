@@ -65,7 +65,6 @@ public class Signup_controller implements Initializable{
 				result = dao.signUp(dto);
 
 			} catch(MyException e) {
-				System.out.println(e.getMessage());
 			}
 
 			if(result != 0) {
@@ -74,8 +73,6 @@ public class Signup_controller implements Initializable{
 				Stage primaryStage = (Stage) signup_signup_btn.getScene().getWindow();
 				primaryStage.setTitle("Login");
 				primaryStage.setScene(scene);
-			}else {
-				System.out.println("회원가입 실패,,,");
 			}
 
 		} catch(Exception e) {
