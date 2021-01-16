@@ -2,7 +2,9 @@ package model;
 
 import javax.swing.GroupLayout.Alignment;
 
+import javafx.beans.value.ChangeListener;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
@@ -31,6 +33,15 @@ public class ChatListPane {
 		pane.setPrefHeight(68);
 		pane.setPrefWidth(290);
 		pane.setId(num+"ChatListPane");
+		pane.setCursor(Cursor.HAND);
+		pane.hoverProperty().addListener((ChangeListener<Boolean>) 
+				(observable, oldValue, newValue) -> {
+					if(newValue) {
+						pane.setStyle("-fx-background-color: #ccdaf2;");
+					}else {
+						pane.setStyle("-fx-background-color: white;");
+					}
+				});
 		
 		ImageView imageView = new ImageView();
 		for (int i = 0; i < UserDTO.friends.size(); i++) {
