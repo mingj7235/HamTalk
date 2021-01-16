@@ -10,7 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 
 public class ChatListPane {
@@ -99,13 +102,14 @@ public class ChatListPane {
 		pane.getChildren().add(timeLb);
 		pane.getChildren().add(separator);
 		if(lastOnOff) {
-			ImageView cautionImage = new ImageView("./imgs/messageCaution.jpeg");
-			cautionImage.setFitHeight(15);
-			cautionImage.setFitWidth(20);
-			cautionImage.setLayoutX(260);
-			cautionImage.setLayoutY(38);
-			cautionImage.setPickOnBounds(true);
-			pane.getChildren().add(cautionImage);
+			VBox cautionbox = new VBox();
+			cautionbox.setPrefWidth(15);
+			cautionbox.setPrefHeight(15);
+			cautionbox.setStyle("-fx-background-color:  #ffe9d6; -fx-background-radius: 7.5px;");
+			cautionbox.setLayoutX(260);
+			cautionbox.setLayoutY(38);
+			cautionbox.setPickOnBounds(true);
+			pane.getChildren().add(cautionbox);
 		}
 	}
 
