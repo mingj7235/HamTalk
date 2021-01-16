@@ -105,7 +105,7 @@ public class ChatListPane {
 			VBox cautionbox = new VBox();
 			cautionbox.setPrefWidth(15);
 			cautionbox.setPrefHeight(15);
-			cautionbox.setStyle("-fx-background-color:  #ffe9d6; -fx-background-radius: 7.5px;");
+			cautionbox.setStyle("-fx-background-color:  #ff8a75; -fx-background-radius: 7.5px;");
 			cautionbox.setLayoutX(260);
 			cautionbox.setLayoutY(38);
 			cautionbox.setPickOnBounds(true);
