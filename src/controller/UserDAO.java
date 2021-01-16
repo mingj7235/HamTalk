@@ -352,7 +352,7 @@ public class UserDAO {
 				}
 				//여기부터 접속시간확인
 				boolean lastOnOff;
-				Time messageTime = rs.getTime("latest");
+				Timestamp messageTime = rs.getTimestamp("latest");
 				if(myNum < friendNum) {
 					sql = "SELECT lastLogOn_user1 FROM chatroom WHERE room_num = ?";					
 				}else {
@@ -361,9 +361,9 @@ public class UserDAO {
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, rs.getInt("room_num"));
 				ResultSet rs2 = pstmt.executeQuery();
-				Time myTime = null;
+				Timestamp myTime = null;
 				if(rs2.next()) {
-					myTime = rs2.getTime(1);
+					myTime = rs2.getTimestamp(1);
 				}
 				System.out.println(myTime);
 				System.out.println(messageTime);
