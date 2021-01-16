@@ -29,6 +29,7 @@ public class Profile_contoller implements Initializable{
 	@FXML private ImageView profile_set_label;
 	@FXML private ImageView profile_exit;
 	@FXML private ImageView profile_git_link;
+	@FXML private ImageView profile_to_chatsscreen;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -36,6 +37,23 @@ public class Profile_contoller implements Initializable{
 		Profile_user_name.setText(UserDTO.nowUser.getName());
 		profile_status.setText(UserDTO.nowUser.getStatus());
 		myImage.setImage(UserDTO.nowUser.getImage());
+		
+		profile_to_chatsscreen.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+	            if(event.getButton() == MouseButton.PRIMARY) {
+	            	try {
+	        			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chats.fxml"));
+	        			Scene scene = new Scene(login);
+	        			Stage primaryStage = (Stage) profile_to_chatsscreen.getScene().getWindow();
+	        			primaryStage.setTitle("More");
+	        			primaryStage.setScene(scene);
+	        		} catch (Exception e) {
+	        			e.printStackTrace();
+	        		}
+	            }
+	         };
+		});
 		
 		profile_git_link.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override

@@ -68,13 +68,16 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
                      <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="profile_to_chatsscreen" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../imgs/comment-h.png" />
                            </image>
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                         <Label text="Chats" textFill="WHITE">
                            <VBox.margin>
