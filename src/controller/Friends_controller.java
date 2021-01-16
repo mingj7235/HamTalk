@@ -124,7 +124,7 @@ public class Friends_controller implements Initializable{
 					if(newValue) {
 						friends_chats_btn.setOpacity(1);
 					}else {
-						friends_chats_btn.setOpacity(0.8);
+						friends_chats_btn.setOpacity(0.6);
 					}
 				});
 		friends_search_btn.setCursor(Cursor.HAND);
@@ -133,7 +133,7 @@ public class Friends_controller implements Initializable{
 					if(newValue) {
 						friends_search_btn.setOpacity(1);
 					}else {
-						friends_search_btn.setOpacity(0.8);
+						friends_search_btn.setOpacity(0.6);
 					}
 				});
 		friends_more_btn.setCursor(Cursor.HAND);
@@ -142,7 +142,7 @@ public class Friends_controller implements Initializable{
 					if(newValue) {
 						friends_more_btn.setOpacity(1);
 					}else {
-						friends_more_btn.setOpacity(0.8);
+						friends_more_btn.setOpacity(0.6);
 					}
 				});
 		
@@ -199,56 +199,5 @@ public class Friends_controller implements Initializable{
 		}
 	}
 
-//	//네비게이션 바
-//	public void handleBtnFriends (ActionEvent event) {
-//		//db에 저장해야함
-//		try {
-//			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
-//			Scene scene = new Scene(login);
-//			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
-//			primaryStage.setTitle("Friends");
-//			primaryStage.setScene(scene);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	public void handleBtnChats (ActionEvent event) {
-//		//db에 저장해야함
-//		try {
-//			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chats.fxml"));
-//			Scene scene = new Scene(login);
-//			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
-//			primaryStage.setTitle("Chats");
-//			primaryStage.setScene(scene);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	public void handleBtnSearch (ActionEvent event) {
-//		//db에 저장해야함
-//		try {
-//			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Search.fxml"));
-//			Scene scene = new Scene(login);
-//			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
-//			primaryStage.setTitle("Search");
-//			primaryStage.setScene(scene);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	public void handleBtnMore (ActionEvent event) {
-//		//db에 저장해야함
-//		try {
-//			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/More.fxml"));
-//			Scene scene = new Scene(login);
-//			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
-//			primaryStage.setTitle("More");
-//			primaryStage.setScene(scene);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+
 }

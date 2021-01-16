@@ -113,7 +113,7 @@ public class More_controller implements Initializable{
 					if(newValue) {
 						friends_friends_btn.setOpacity(1);
 					}else {
-						friends_friends_btn.setOpacity(0.8);
+						friends_friends_btn.setOpacity(0.6);
 					}
 				});
 		friends_chats_btn.setCursor(Cursor.HAND);
@@ -122,7 +122,7 @@ public class More_controller implements Initializable{
 					if(newValue) {
 						friends_chats_btn.setOpacity(1);
 					}else {
-						friends_chats_btn.setOpacity(0.8);
+						friends_chats_btn.setOpacity(0.6);
 					}
 				});
 		friends_search_btn.setCursor(Cursor.HAND);
@@ -131,7 +131,7 @@ public class More_controller implements Initializable{
 					if(newValue) {
 						friends_search_btn.setOpacity(1);
 					}else {
-						friends_search_btn.setOpacity(0.8);
+						friends_search_btn.setOpacity(0.6);
 					}
 				});
 		friends_more_btn.setCursor(Cursor.HAND);

@@ -6,17 +6,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -34,10 +37,10 @@ public class Chats_controller implements Initializable{
 	@FXML private Label chats_chatstime_111;
 	@FXML private Label chats_chatstime_1111;
 
-	@FXML private Button friends_friends_btn;
-	@FXML private Button friends_chats_btn;
-	@FXML private Button friends_search_btn;
-	@FXML private Button friends_more_btn;
+	@FXML private ImageView friends_friends_btn;
+	@FXML private ImageView friends_chats_btn;
+	@FXML private ImageView friends_search_btn;
+	@FXML private ImageView friends_more_btn;
 
 	@FXML private ScrollPane chatListScroll;
 
@@ -47,10 +50,102 @@ public class Chats_controller implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		UserDAO dao = new UserDAO();
 		dao.friendReview();
-		friends_friends_btn.setOnAction(e->handleBtnFriends(e));
-		friends_chats_btn.setOnAction(e->handleBtnChats(e));
-		friends_search_btn.setOnAction(e->handleBtnSearch(e));
-		friends_more_btn.setOnAction(e->handleBtnMore(e));
+		
+		
+		friends_friends_btn.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				try {
+					Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
+					Scene scene = new Scene(login);
+					Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
+					primaryStage.setTitle("Friends");
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+	         };
+		});
+		
+		friends_chats_btn.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				try {
+					Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chats.fxml"));
+					Scene scene = new Scene(login);
+					Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
+					primaryStage.setTitle("Friends");
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+	         };
+		});
+		friends_search_btn.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				try {
+					Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Search.fxml"));
+					Scene scene = new Scene(login);
+					Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
+					primaryStage.setTitle("Friends");
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+	         };
+		});
+		friends_more_btn.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				try {
+					Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/More.fxml"));
+					Scene scene = new Scene(login);
+					Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
+					primaryStage.setTitle("Friends");
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+	         };
+		});
+		
+		friends_friends_btn.setCursor(Cursor.HAND);
+		friends_friends_btn.hoverProperty().addListener((ChangeListener<Boolean>) 
+				(observable, oldValue, newValue) -> {
+					if(newValue) {
+						friends_friends_btn.setOpacity(1);
+					}else {
+						friends_friends_btn.setOpacity(0.6);
+					}
+				});
+		friends_chats_btn.setCursor(Cursor.HAND);
+		friends_chats_btn.hoverProperty().addListener((ChangeListener<Boolean>) 
+				(observable, oldValue, newValue) -> {
+					if(newValue) {
+						friends_chats_btn.setOpacity(1);
+					}else {
+						friends_chats_btn.setOpacity(1);
+					}
+				});
+		friends_search_btn.setCursor(Cursor.HAND);
+		friends_search_btn.hoverProperty().addListener((ChangeListener<Boolean>) 
+				(observable, oldValue, newValue) -> {
+					if(newValue) {
+						friends_search_btn.setOpacity(1);
+					}else {
+						friends_search_btn.setOpacity(0.6);
+					}
+				});
+		friends_more_btn.setCursor(Cursor.HAND);
+		friends_more_btn.hoverProperty().addListener((ChangeListener<Boolean>) 
+				(observable, oldValue, newValue) -> {
+					if(newValue) {
+						friends_more_btn.setOpacity(1);
+					}else {
+						friends_more_btn.setOpacity(0.6);
+					}
+				});
 
 		chatListScroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		chatListScroll.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
@@ -91,56 +186,5 @@ public class Chats_controller implements Initializable{
 		}
 	}
 
-	//네비게이션 바
-	public void handleBtnFriends (ActionEvent event) {
-		//db에 저장해야함
-		try {
-			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
-			primaryStage.setTitle("Friends");
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void handleBtnChats (ActionEvent event) {
-		//db에 저장해야함
-		try {
-			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Chats.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
-			primaryStage.setTitle("Chats");
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void handleBtnSearch (ActionEvent event) {
-		//db에 저장해야함
-		try {
-			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/Search.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
-			primaryStage.setTitle("Search");
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void handleBtnMore (ActionEvent event) {
-		//db에 저장해야함
-		try {
-			Parent login = FXMLLoader.load(getClass().getClassLoader().getResource("view/More.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) friends_friends_btn.getScene().getWindow();
-			primaryStage.setTitle("More");
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 }
