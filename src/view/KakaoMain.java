@@ -16,7 +16,7 @@ public class KakaoMain extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		
 		System.setProperty("prism.lcdtext", "false");
-		Font.loadFont(getClass().getResourceAsStream("/resources/NanumGothic.ttf"), 10);
+		Font.loadFont(getClass().getResource("/resources/NanumGothic.ttf").toExternalForm(), 10);
 		
 		primaryStage.setTitle("Login");
 		Parent root = FXMLLoader.load(KakaoMain.class.getResource("/view/Login.fxml"));

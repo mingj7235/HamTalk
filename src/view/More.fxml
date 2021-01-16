@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.More_controller">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.More_controller">
    <center>
       <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -277,9 +285,9 @@
             </ImageView>
             <HBox layoutX="10.0" layoutY="121.0" prefHeight="51.0" prefWidth="280.0" style="-fx-background-color: #8aaae5;">
                <children>
-                  <Label fx:id="more_name2" text="User name">
+                  <Label fx:id="more_name2" style="-fx-font-family: &quot;NanumGothic&quot;; -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: white;" stylesheets="@font.css" text="User name">
                      <font>
-                        <Font name="Lucida Bright Demibold" size="17.0" />
+                        <Font name="NanumGothic" size="17.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="10.0" right="5.0" top="12.0" />
