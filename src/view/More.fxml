@@ -48,17 +48,17 @@
             <Separator layoutY="536.0" prefHeight="3.0" prefWidth="300.0" />
             <Pane layoutY="538.0" prefHeight="62.0" prefWidth="300.0" style="-fx-background-color: #f9f9fa;">
                <children>
-                  <ImageView fx:id="friends_friends_btn" fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="friends_friends_btn" fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/user-bb.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="friends_chats_btn" fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="friends_chats_btn" fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/comment-bb.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="friends_search_btn" fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="friends_search_btn" fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/search-bb.png" />
                      </image>
