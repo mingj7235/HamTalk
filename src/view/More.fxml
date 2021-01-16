@@ -55,7 +55,7 @@
                   </ImageView>
                   <ImageView fx:id="friends_chats_btn" fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imgs/comment-bb.png" />
+                        <Image url="@../imgs/chats-m.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="friends_search_btn" fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
