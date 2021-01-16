@@ -1,7 +1,9 @@
 package model;
 
+import javafx.beans.value.ChangeListener;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
@@ -27,6 +29,15 @@ public class FriendListPane {
 		pane.setPrefWidth(290);
 		pane.setStyle("-fx-background-color: white;");
 		pane.setId(num+"Pane");
+		pane.setCursor(Cursor.HAND);
+		pane.hoverProperty().addListener((ChangeListener<Boolean>) 
+				(observable, oldValue, newValue) -> {
+					if(newValue) {
+						pane.setStyle("-fx-background-color: #ccdaf2;");
+					}else {
+						pane.setStyle("-fx-background-color: white;");
+					}
+				});
 		
 		image.setFitHeight(60);
 		image.setFitWidth(60);

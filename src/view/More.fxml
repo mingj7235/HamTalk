@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -142,6 +143,9 @@
                            <VBox.margin>
                               <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
                         </ImageView>
                         <Label alignment="CENTER" prefWidth="70.0" text="Mail" textFill="#8a8383" />
                      </children>
