@@ -113,7 +113,7 @@ public class Search_controller implements Initializable{
 					if(newValue) {
 						friends_search_btn.setOpacity(1);
 					}else {
-						friends_search_btn.setOpacity(0.6);
+						friends_search_btn.setOpacity(1);
 					}
 				});
 		friends_more_btn.setCursor(Cursor.HAND);
@@ -122,7 +122,7 @@ public class Search_controller implements Initializable{
 					if(newValue) {
 						friends_more_btn.setOpacity(1);
 					}else {
-						friends_more_btn.setOpacity(1);
+						friends_more_btn.setOpacity(0.6);
 					}
 				});
 		Date date = new Date();
