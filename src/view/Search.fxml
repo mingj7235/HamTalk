@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -13,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Search_controller">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Search_controller">
    <center>
       <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +36,7 @@
                   <Font name="Lucida Bright Regular" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="33.0" prefHeight="38.0" prefWidth="96.0" text="Find" textFill="#8aaae5">
+            <Label layoutX="14.0" layoutY="33.0" prefHeight="38.0" prefWidth="96.0" text="Search" textFill="#8aaae5">
                <font>
                   <Font name="Lucida Bright Demibold" size="22.0" />
                </font>
@@ -37,42 +44,26 @@
             <Separator layoutY="536.0" prefHeight="3.0" prefWidth="300.0" />
             <Pane layoutY="538.0" prefHeight="62.0" prefWidth="300.0" style="-fx-background-color: #f9f9fa;">
                <children>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="friends_friends_btn" fitHeight="35.0" fitWidth="35.0" layoutX="29.0" layoutY="15.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/user-bb.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="friends_chats_btn" fitHeight="35.0" fitWidth="35.0" layoutX="96.0" layoutY="15.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/comment-bb.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="friends_search_btn" fitHeight="35.0" fitWidth="35.0" layoutX="164.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/search-bb.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="230.0" layoutY="15.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="friends_more_btn" fitHeight="35.0" fitWidth="35.0" layoutX="230.0" layoutY="15.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imgs/ellipsis-bb.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="friends_friends_btn" layoutX="37.0" layoutY="11.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="19.0">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                  <Button fx:id="friends_chats_btn" layoutX="96.0" layoutY="13.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="35.0">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                  <Button fx:id="friends_search_btn" layoutX="164.0" layoutY="13.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="34.0">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                  <Button fx:id="friends_more_btn" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="32.0">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Button>
                </children>
             </Pane>
             <Separator layoutX="5.0" layoutY="73.0" prefHeight="1.0" prefWidth="290.0" />
