@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -50,7 +51,10 @@
                   <Font name="Lucida Bright Regular" size="10.0" />
                </font>
             </Label>
-            <Button fx:id="kakaoMain_signup_btn" layoutX="44.0" layoutY="401.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="210.0" style="-fx-background-color: white;" text="Sign up" textFill="#a49f9f" />
+            <Button fx:id="kakaoMain_signup_btn" layoutX="44.0" layoutY="401.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="210.0" style="-fx-background-color: white;" text="Sign up" textFill="#a49f9f">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <ImageView fitHeight="16.0" fitWidth="20.0" layoutX="266.0" layoutY="5.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/battery.png" />
