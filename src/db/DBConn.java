@@ -13,8 +13,8 @@ public class DBConn {
 
 	private static final String DB_URL = "jdbc:oracle:thin:@"+Address.getDbAddress()+":"+Address.getDbPort()+":xe";
 
-	private static final String user = "kakao";
-	private static final String pw = "kakao";
+	private static final String user = "hamTalk";
+	private static final String pw = "hamTalk1";
 	private static Connection dbconn;
 
 	public static final Connection getConnection() {
