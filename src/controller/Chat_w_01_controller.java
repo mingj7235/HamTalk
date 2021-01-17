@@ -255,6 +255,7 @@ public class Chat_w_01_controller implements Initializable{
 				if (readByteCount == -1) {
 					throw new IOException();
 				}
+				
 //				String data = new String (byteArr, 0, readByteCount, "UTF-8");
 				KakaoMessage getMessage = toMessage(byteArr, KakaoMessage.class);
 				
