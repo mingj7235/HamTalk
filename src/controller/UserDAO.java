@@ -410,7 +410,7 @@ public class UserDAO {
 				System.out.println("방번호: "+result);
 			}else {//방 없으면
 				System.out.println("방없어서 방생성");
-				sql = "INSERT INTO chatroom (room_num, user1_num, user2_num) VALUES(chatroom_seq.NEXTVAL, ?, ?)";
+				sql = "INSERT INTO chatroom (room_num, user1_num, user2_num, lastlogon_user1, lastlogon_user2) VALUES(chatroom_seq.NEXTVAL, ?, ?, sysdate, sysdate)";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, a);
 				pstmt.setInt(2, b);
