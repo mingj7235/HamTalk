@@ -188,7 +188,7 @@ public class Chat_w_01_controller implements Initializable{
 	
 	void chatHistoryReceive() {
 		UserDAO dao = new UserDAO();
-		ArrayList<KakaoMessage> arr = dao.chatHistory(10);
+		ArrayList<KakaoMessage> arr = dao.chatHistory(50);
 		for (int i = 0; i < arr.size(); i++) {
 			KakaoMessage message = arr.get(i);
 			if(message.getSendUserNum() == UserDTO.nowUser.getUser_num()) { //이게 내가 보낸 메세지였다면
