@@ -14,8 +14,8 @@ public class DBConn {
 	private static final String DB_URL = "jdbc:oracle:thin:@"+Address.getDbAddress()+":"+Address.getDbPort()+":xe";
 
 
-	private static final String user = "mykakao";
-	private static final String pw = "kakao";
+	private static final String user = "myham";
+	private static final String pw = "myham";
 	private static Connection dbconn;
 
 	public static final Connection getConnection() {

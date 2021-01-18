@@ -2,9 +2,9 @@ package server;
 
 public class Address {
 
+//	193.122.102.98
 
-
-	private static String dbAddress = "115.139.206.16";
+	private static String dbAddress = "193.122.102.98";
 	private static int dbPort = 1521;
 	private static String serverAddress = "115.139.206.16";
 	private static int serverPort = 5003;
