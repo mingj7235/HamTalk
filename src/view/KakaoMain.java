@@ -18,7 +18,7 @@ public class KakaoMain extends Application{
 		System.setProperty("prism.lcdtext", "false");
 		Font.loadFont(getClass().getResource("/resources/NanumGothic.ttf").toExternalForm(), 10);
 		
-		primaryStage.setTitle("Login");
+		primaryStage.setTitle("HAM Talk");
 		Parent root = FXMLLoader.load(KakaoMain.class.getResource("/view/Login.fxml"));
 		Scene scene = new Scene (root);
 		primaryStage.setScene(scene);

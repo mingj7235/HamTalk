@@ -53,7 +53,7 @@ public class Profile_edit_contoller implements Initializable{
 						Parent profile = FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.fxml"));
 						Scene scene = new Scene(profile);
 						Stage primaryStage = (Stage) profile_exit_back.getScene().getWindow();
-						primaryStage.setTitle("Profile edit");
+						primaryStage.setTitle("HAM Talk");
 						primaryStage.setScene(scene);
 					}catch (Exception e) {
 						e.printStackTrace();
@@ -82,7 +82,7 @@ public class Profile_edit_contoller implements Initializable{
 						Parent profile =FXMLLoader.load(getClass().getClassLoader().getResource("view/Profile.fxml"));
 						Scene scene = new Scene(profile);
 						Stage primaryStage = (Stage) profile_edit_save.getScene().getWindow();
-						primaryStage.setTitle("Profile edit");
+						primaryStage.setTitle("HAM Talk");
 						primaryStage.setScene(scene);
 					}catch (Exception e) {
 						e.printStackTrace();
@@ -97,7 +97,7 @@ public class Profile_edit_contoller implements Initializable{
 	public void handlePhotoBtn (ActionEvent event) {
 
 		FileChooser fc = new FileChooser();
-		fc.setTitle("프로필 사진 수정");
+		fc.setTitle("HAM Talk");
 
 		Stage primaryStage = (Stage) profile_edit_photo_btn.getScene().getWindow();
 		File file = fc.showOpenDialog(primaryStage);

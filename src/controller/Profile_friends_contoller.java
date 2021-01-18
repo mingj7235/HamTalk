@@ -63,7 +63,7 @@ public class Profile_friends_contoller implements Initializable{
                   Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Chat_w_01.fxml"));
                   Scene scene = new Scene(signup);
                   Stage primaryStage = (Stage) profile_friends_chat_label.getScene().getWindow();
-                  primaryStage.setTitle("Chatting");
+                  primaryStage.setTitle("HAM Talk");
                   primaryStage.setScene(scene);
                }catch (Exception e) {
                   e.printStackTrace();
@@ -80,7 +80,7 @@ public class Profile_friends_contoller implements Initializable{
                   Parent signup=FXMLLoader.load(getClass().getClassLoader().getResource("view/Friends.fxml"));
                   Scene scene = new Scene(signup);
                   Stage primaryStage = (Stage) profile_friends_exit.getScene().getWindow();
-                  primaryStage.setTitle("Chatting");
+                  primaryStage.setTitle("HAM Talk");
                   primaryStage.setScene(scene);
                }catch (Exception e) {
                   e.printStackTrace();
