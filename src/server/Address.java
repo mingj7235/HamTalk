@@ -2,8 +2,6 @@ package server;
 
 public class Address {
 
-	//희광ip번호: 1.238.104.121
-
 
 	private static String dbAddress = "193.123.224.23";
 	private static int dbPort = 1521;
