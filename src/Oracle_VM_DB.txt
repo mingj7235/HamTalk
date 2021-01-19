@@ -1,0 +1,9 @@
+<Oracle db>
+민재server : (외부 ip) : 115.139.206.16
+myham/myham
+
+<Oracle VM IP> (DB)
+193.122.102.98
+
+https://joytk.tistory.com/25
+-> jar파일을 실행파일로만들기
