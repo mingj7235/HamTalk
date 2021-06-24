@@ -4,6 +4,6 @@
 
 ## Skill Stack
 
-- Spring
+- Java
 - PL/SQL
 - CSS
