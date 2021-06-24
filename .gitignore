@@ -1,8 +1,9 @@
+# Custom
 /bin/
 /.settings/
 /.metadata/
 hamTalk_Server.jar
-
+hamTalk.jar
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,java,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,java,windows
