@@ -3,10 +3,12 @@ package server;
 public class Address {
 
 
-	private static String dbAddress = "193.123.224.23";
+
+	private static String dbAddress = "193.122.102.98";
 	private static int dbPort = 1521;
-	private static String serverAddress = "localhost";
-	private static int serverPort = 5001;
+	private static String serverAddress = "115.139.206.16";
+	private static int serverPort = 5003;
+
 	public static String getDbAddress() {
 		return dbAddress;
 	}
